@@ -1,17 +1,19 @@
 // Things to Know in any Programming Language
 
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
 
-/* // Basic I/O
+// Basic I/O
 int x, y;
 cin >> x >> y;
 cout << "Value of x: " << x << " & y: " << y;
-*/
 
-/* // Data Types****
+
+// Data Types****
 
 // **int
 int a = 10;
@@ -41,10 +43,10 @@ cout << str;
 char ch, ch2 = 't';
 cin >> ch;
 cout << ch << " & value of ch2 is " << ch2;
-*/
+
 
 /*If else Statement */
-/*1. Wap that takes an input of age & prints if u are adult or not?
+// 1. Wap that takes an input of age & prints if u are adult or not?
 
 int age;
 cin >> age;
@@ -54,9 +56,9 @@ if (age>=18) {
 else {   // or v can write 'else if(age<18)'
     cout << "you are not an adult!";
 }
-*/
 
-/*//2. School has follwing rules for grade system.
+
+//2. School has follwing rules for grade system.
 // a. Below 25 - F
 // b. 25 to 44 - E
 // c. 45 to 49 - D
@@ -86,10 +88,10 @@ else if(marks <= 79){
 else if(marks <= 100){
     cout << "Your grade is A";
 }
-*/
 
 
-/*3. Take the age from user & then decide acc.
+
+//3. Take the age from user & then decide acc.
 //1. If age < 18
 //    print-> not eliglible for job
 //2. If age >= 18 and age <= 54
@@ -109,25 +111,25 @@ else if(age <= 54){
     cout << "eliglible for job.";
 }
 
-//else if(age <= 57){
-//    cout << "eliglible for job, but retriement soon.";
-//}
+else if(age <= 57){
+    cout << "eliglible for job, but retriement soon.";
+}
 // or i.e NESTED if else-if
-//else if(age <= 57){
-//    cout << "eliglible for job";
-//    if(age >= 55) {
-//        cout << ", but retriement soon.";
-//    }
+else if(age <= 57){
+    cout << "eliglible for job";
+    if(age >= 55) {
+        cout << ", but retriement soon.";
+   }
 
 }
 else {
     cout << "retriement time.";
 }
-*/
+
 
 /* SWITCH Statement */
-/*1. Take the day no & print thr corresponding day for
-1 print Monday, for 2 print Tuesday and so on for 7 print Sunday
+//1. Take the day no & print thr corresponding day for
+//1 print Monday, for 2 print Tuesday and so on for 7 print Sunday
 
 
     int day;
@@ -159,9 +161,9 @@ else {
                 cout << "Invalid Case";
     }
     cout << " Check";
-*/
 
-/* Arrays__(Basic)
+
+// Arrays__(Basic)
 // 1D-Array
     int arr[5];
     cin >> arr[0] >> arr[1] >> arr[2] >> arr[3] >> arr[4];
@@ -184,9 +186,9 @@ else {
     arry[1][3] = 99;
     cout << arry[1][3] << endl;
     cout << arry[2][5] << endl; // prt any garbage value
-*/
 
-/* String
+
+// String
 //NOTE:- String store Characters like a,b,c,...z &  A,B,...Z
     string s = "Dishant";
     cout << s << endl;
@@ -198,9 +200,9 @@ else {
     // how to update string charaters init.
     s[0] = 'I';//4 updation use single quotes 4 character
     cout << s <<endl;
-*/
 
-/* FOR Loop
+
+// FOR Loop
 // for loop with statement inside to be in loop
     for(int i=1; i<=5; i++){
         cout <<"Dishant Pal aka Code Hashira!" << endl;
@@ -212,9 +214,9 @@ else {
     for(j=5; j>0; j--){
         cout <<"Dishant Pal aka Code Hashira! " << j << endl;
     }
-*/
 
-/* WHILE Loop
+
+// WHILE Loop
 
     int i=1;
     while(i<=5){
@@ -229,7 +231,7 @@ else {
         j++;
     } while(j<=1);
     cout << j << endl;
-*/
+
 
 /* FUNCTIONS */
 
@@ -244,7 +246,7 @@ else {
 // 3) parameterised
 // 4) non parameterised
 
-/* Void & Parameterised function
+// Void & Parameterised function
 // below e.g., of void & parameterisedfunction
 void printName(string name){ //passing parameters in function
     cout << "Hi " << name << endl;
@@ -258,10 +260,10 @@ int main() {
     string name2;
     cin >> name2;
     printName(name2);
-*/
+
 
 // E.g-02 Take 2 nos & print its sum for multiple times
-/* Return Function
+// Return Function
 
 int sum(int num1, int num2){ // Return Function
     int num3 = num1 + num2;
@@ -274,9 +276,9 @@ int main(){
     cin >> num1 >> num2;
     int result = sum(num1, num2);
     cout << result;
-*/
 
-/*// ANOTHER Way by Void-Return Function(but it cause function overloading)
+
+// ANOTHER Way by Void-Return Function(but it cause function overloading)
 
     void sum(int num1, int num2){
         int num3 = num1 + num2;
@@ -287,13 +289,13 @@ int main(){
         int num1, num2;
         cin >> num1 >> num2;
         sum(num1, num2);
-*/
+
 
 /* Pass by Value & Reference */
 
 // Pass by Value (a copy goes go but not original no go it it is in memory )
 
-/*eg-1
+//eg-1
 void doSomething(int num) {
     cout << num << endl;
     num += 5;
@@ -307,9 +309,9 @@ int main() {
     int num = 10;
     doSomething(num);
     cout << num << endl;
-*/
 
-/* eg-2
+
+// eg-2
 void doSomething(string s) {
     s[0] = 't';
     cout << s << endl;
@@ -319,10 +321,10 @@ int main() {
     string s = "raj";
     doSomething(s);
     cout << s << endl;
-*/
+
 
 // Pass by Reference (its takes the original and the address "&" send it)
-/* eg-1
+// eg-1
 void doSomething(string &s) { // & get it from the address and pass the original
     s[0] = 't';
     cout << s << endl;
@@ -332,9 +334,9 @@ int main() {
     string s = "raj";
     doSomething(s);
     cout << s << endl;
-*/
 
-/*
+
+// eg-2
 void doSomething(int &num){ // pass the reference using '&'
     cout << num << endl;
     num += 5;
@@ -368,7 +370,7 @@ int main(){
 
     doSomething(arr, n);
     cout << "Value inside int main: " << arr[0] << endl;
-*/
+
 
 
 
