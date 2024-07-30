@@ -1,4 +1,6 @@
-// Pattern Question | 22 Patterns__Striver-A2Z DSA
+// Pattern Question | 22 Patterns__Striver-A2Z DSA 
+//SolnLink-> https://youtu.be/tNm_NNSB3_w?si=yjbSc21AkbH1gyBR
+// Pattern Problems List-> https://takeuforward.org/strivers-a2z-dsa-course/must-do-pattern-problems-before-starting-dsa/
 
 /*   4 Rules for Pattern
 
@@ -15,7 +17,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-/*// Pattern-1
+// Pattern-1 Link-> https://bit.ly/3QfK2k3
 void print1(int n) {
     for(int i=0; i<n; i++){
         for(int j=0; j<n; j++){
@@ -24,9 +26,9 @@ void print1(int n) {
         cout << endl;
     }
 }
-*/
 
-/*// Patern-2
+
+// Patern-2 Link-> https://bit.ly/3VADLAt
 void print2(int n) {
     for(int i=0; i<n; i++) {
         for(int j=0; j<=i; j++) {
@@ -35,9 +37,9 @@ void print2(int n) {
         cout << endl;
     }
 }
-*/
 
-/*// Pattern-3
+
+// Pattern-3 Link-> https://bit.ly/3CiWV74
 void print3(int n) {
     for(int i=1; i<=n; i++) {
         for(int j=1; j<=i; j++){
@@ -46,9 +48,9 @@ void print3(int n) {
         cout << endl;
     }
 }
-*/
 
-/*// Pattern-4
+
+// Pattern-4 Link-> https://bit.ly/3Gzv70S
 void print4(int n) {
     for(int i=1; i<=n; i++){
         for(int j=1; j<=i; j++){
@@ -57,9 +59,9 @@ void print4(int n) {
         cout << endl;
     }
 }
-*/
 
-/*// # Pattern-5
+
+// # Pattern-5 Link-> https://bit.ly/3WXGSDD
 void print5(int n) {
     for(int row=1; row<=n; row++) {
         for(int col=1; col<=n-row+1; col++) {
@@ -68,9 +70,9 @@ void print5(int n) {
         cout << endl;
     }
 }
-*/
 
-/*// # Pattern-6
+
+// # Pattern-6 Link-> https://bit.ly/3i06XDu
 void print6(int n) {
     for(int row=1; row<=n; row++) {
         for(int col=1; col<=n-row+1; col++) {
@@ -79,9 +81,9 @@ void print6(int n) {
         cout << endl;
     }
 }
-*/
 
-/*// ### Pattern-7
+
+// ### Pattern-7 Link-> https://bit.ly/3GzvAAa
 void print7(int n) {
     for(int i=0; i<n; i++){
         // SPACE
@@ -98,9 +100,9 @@ void print7(int n) {
         cout << endl;
     }
 }
-*/
 
-/*// ### Pattern-8
+
+// ### Pattern-8 Link-> https://bit.ly/3IqmG9k
 void print8(int n) {
     for(int i=0; i<n; i++) {
         // SPACE
@@ -118,9 +120,9 @@ void print8(int n) {
         cout << endl;
     }
 }
-*/
 
-/*// ### Pattern-9
+
+// ### Pattern-9 Link-> https://bit.ly/3GyUIHp
 void print9(int n){
     // UPPER Diamond
     for(int i=0; i<n; i++){
@@ -156,9 +158,9 @@ void print9(int n){
     }
 
 }
-*/
 
-/*// ###imp-> Pattern-10
+
+// ###imp-> Pattern-10 Link-> https://bit.ly/3WZoytT
 void print10(int n) {
     for (int row=1; row<=2*n-1; row++) {
         int stars = row;
@@ -171,9 +173,9 @@ void print10(int n) {
         cout << endl;
     }
 }
-*/
 
-/*// ###imp-> Pattern-11
+
+// ###imp-> Pattern-11 Link-> https://bit.ly/3WLiUvW
 void print11(int n) {
     int start = 1;
     for(int i=0; i<n; i++) {
@@ -190,9 +192,9 @@ void print11(int n) {
         cout << endl;
     }
 }
-*/
 
-/*// ###imp Pattern-12
+
+// ###imp Pattern-12 Link-> https://bit.ly/3jDVVnD
 void print12(int n) {
     int space = 2* (n-1);
     for(int i=1; i<=n; i++){
@@ -214,9 +216,9 @@ void print12(int n) {
         space -= 2;
     }
 }
-*/
 
-/*// Pattern-13
+
+// Pattern-13 Link-> https://bit.ly/3WWQ1wb
 void print13(int n) {
     int num = 1;
     for(int i=1; i<=n; i++) {
@@ -227,9 +229,9 @@ void print13(int n) {
         cout << endl;
     }
 }
-*/
 
-/*// ### Pattern-14 (char)
+
+// ### Pattern-14 (char)  Link-> https://bit.ly/3GyWCYs
 void print14(int n){
     for(int i=0; i<n; i++) {
         for(char ch='A'; ch<='A'+i; ch++) {
@@ -238,9 +240,9 @@ void print14(int n){
         cout << endl;
     }
 }
-*/
 
-/*// ### Pattern-15(reverse of 14)
+
+// ### Pattern-15(reverse of 14) Link-> https://bit.ly/3X1i8KC
 void print15(int n) {
     for(int i=0; i<n; i++){
         for(char ch='A'; ch<= 'A' + (n - i - 1); ch++) {
@@ -249,9 +251,9 @@ void print15(int n) {
         cout << endl;
     }
 }
-*/
 
-/* ### // Pattern-16
+
+// ### Pattern-16 Link-> https://bit.ly/3G9gq3g
 void print16(int n) {
     for(int i=0; i<n; i++) {
         char ch = 'A'+i;
@@ -261,9 +263,9 @@ void print16(int n) {
         cout << endl;
     }
 }
-*/
 
-/*// ###Vimp Pattern-17
+
+// ###Vimp Pattern-17 Link-> https://bit.ly/3jJ7CcR
 void print17(int n) {
     for(int i=0; i<n; i++) {
         // SPACE
@@ -292,9 +294,9 @@ void print17(int n) {
         cout << endl;
     }
 }
-*/
 
-/* ### // Pattern-18
+
+// ### Pattern-18
 // n=5
 // E
 // D E
@@ -309,10 +311,10 @@ void print18(int n) {
         cout << endl;
     }
 }
-*/
 
-/*// ### Vimp Pattern-18.2
-// n=3 (https://www.naukri.com/code360/problems/alpha-triangle_6581429?utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_patternproblems)
+
+// ### Vimp Pattern-18.2
+// n=3  Link-> (https://www.naukri.com/code360/problems/alpha-triangle_6581429?utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_patternproblems)
 // C
 // C B
 // C B A
@@ -325,9 +327,9 @@ void print18_2(int n) {
         cout << endl;
     }
 }
-*/
 
-/*// ##### Vimp Pattern-19
+
+// ##### Vimp Pattern-19 Link-> https://bit.ly/3QfKij1
 void print19(int n) {
 
     // UPPER PArt
@@ -372,9 +374,9 @@ void print19(int n) {
         cout << endl;
     }
 }
-*/
 
-/*// ##### Vimp Pattern-20
+
+// ##### Vimp Pattern-20 Link-> https://bit.ly/3G2eCZC
 void print20(int n) {
     int spaces = 2*n - 2; // no. of spaces
     for(int i=1; i<=2*n-1; i++) { // 2*n-1 is no. of row
@@ -401,9 +403,9 @@ void print20(int n) {
         }
     }
 }
-*/
 
-/*// ### Pattern-21
+
+// ### Pattern-21 Link-> https://bit.ly/3vBpdpy 
     void print21(int n){
         for(int i=0; i<n; i++){
             for(int j=0; j<n; j++){
@@ -419,7 +421,7 @@ void print20(int n) {
     }
 */
 
-// Dabbang-1_Pattern-22
+// Dabbang-1_Pattern-22 Link-> https://bit.ly/3vtRNJJ
 void print22(int n)
 {
     for (int i = 0; i < 2 * n - 1; i++)
