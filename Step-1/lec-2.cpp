@@ -444,93 +444,93 @@ int main()
     int n;
     cin >> n;
 
-    /*// Pattern 1
+    // Pattern 1
         print1(n);
-    */
+    
 
-    /*// Pattern 2
+    // Pattern 2
         print2(n);
-    */
+    
 
-    /*// Pattern 3
+    // Pattern 3
         print3(n);
-    */
+    
 
-    /*// Pattern 4
+    // Pattern 4
         print4(n);
-    */
+    
 
-    /*// Pattern 5
+    // Pattern 5
         print5(n);
-    */
+    
 
-    /*// Pattern 6
+    // Pattern 6
         print6(n);
-    */
+    
 
-    /*// Pattern 7
+    // Pattern 7
         print7(n);
-    */
+    
 
-    /*// Pattern 8
+    // Pattern 8
         print8(n);
-    */
+    
 
-    /*// Pattern 9
+    // Pattern 9
         print9(n);
-    */
+    
 
-    /*// Pattern 10
+    // Pattern 10
         print10(n);
-    */
+    
 
-    /*// Pattern 11
+    // Pattern 11
         print11(n);
-    */
+    
 
-    /*// Pattern 12
+    // Pattern 12
         print12(n);
-    */
+    
 
-    /*// Pattern 13
+    // Pattern 13
         print13(n);
-    */
+    
 
-    /*// Pattern 14
+    // Pattern 14
         print14(n);
-    */
+    
 
-    /*// Pattern 15
+    // Pattern 15
         print15(n);
-    */
+    
 
-    /*// Pattern 16
+    // Pattern 16
         print16(n);
-    */
+    
 
-    /*// Pattern 17
+    // Pattern 17
         print17(n);
-    */
+    
 
-    /*// Pattern 18
+    // Pattern 18
         print18(n);
-    */
+    
 
-    /*// Pattern 18.2
+    // Pattern 18.2
         print18_2(n);
-    */
+    
 
-    /*// Pattern 19
+    // Pattern 19
         print19(n);
-    */
+    
 
-    /*// Pattern 20
+    // Pattern 20
     print20(n);
-*/
 
-    /*// Pattern 21
+
+    // Pattern 21
     print21(n);
-*/
+
 
     // Pattern 22
     print22(n);
