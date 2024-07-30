@@ -11,7 +11,7 @@
 using namespace std;
 
 
-/*// PAIRS (it is a part of utility library)
+// PAIRS (it is a part of utility library)
 
 void explainPair() {
 
@@ -27,7 +27,10 @@ void explainPair() {
 
     cout << arr[1].second;
 }
-*/
+
+
+
+
 
 
  // VECTORS (It is container {learning 1st container})
@@ -73,10 +76,12 @@ void explainVector() {
 
     cout << v.back() << " ";
 
-*
 
-/* Printing of VECTOR
 
+
+
+    
+//Printing of VECTOR
 
 // printing vector
     for (vector::iterator it = v.begin(); it != v.end(); i++) {// '!=' means does not
@@ -95,11 +100,12 @@ void explainVector() {
         cout << it << " ";
     }
 
-*/
 
 
 
-/* // ERASE in Vector
+    
+
+// ERASE in Vector
 
 // {10, 20, 22, 35} -> before
 v.erase(v.begin()+1); // afetr erase {10, 22, 35}, +1 erases '20'
@@ -107,21 +113,21 @@ v.erase(v.begin()+1); // afetr erase {10, 22, 35}, +1 erases '20'
 // {10, 20, 30, 40, 50}
 v.erase(v.begin() + 2, v.begin() + 4); //after {10,20,50} [start, end)
 
-*/
 
 
 
-/* // INSERT Function
+
+// INSERT Function
 
 vector<int> v(2, 100); // {100, 100}
 v.insert(v.begin(), 300);// {300, 100, 100}
 v.insert(v.begin() +1, 2, 10); // {300, 10, 10, 100, 100}
 
-*/
 
 
 
-/* // COPY Function
+
+// COPY Function
 
 vector<int> copy(2, 50); // before-> {50, 50}
 v.inser(v.begin(), copy.begin(), copy.end()); // after-> {50, 50, 300, 10, 10, 100, 100}
@@ -144,11 +150,12 @@ cout << v.empty(); // check for vector is empty or not
 
 } // 4 expVect
 
-*/
 
 
 
-/*// LIST in Vector
+
+
+// LIST in Vector
 // same as vector but gives 'front' operation as well
 void explainList() {
     list<int> ls;
@@ -165,11 +172,12 @@ void explainList() {
 
 }
 
-*/
 
 
 
-/*// DQ in Vector
+
+
+// DQ in Vector
 
 void explainDeque() {
 
@@ -191,11 +199,13 @@ void explainDeque() {
 
 }
 
-*/
 
 
 
-/*// STACK in Vector (LIFO)
+
+
+
+// STACK in Vector (LIFO)
 // NOTE:- TC in stack for all operation(push, pop, etc) happens in O(1) i.e, constant time
 
 void explainStack() {
@@ -221,11 +231,13 @@ void explainStack() {
 
 }
 
-*/
 
 
 
-/*// QUEUE in Vector (FIFO)
+
+
+
+// QUEUE in Vector (FIFO)
 // TC for all operation in Q happens is O(1)
 
 void explainQueue() {
@@ -250,11 +262,12 @@ void explainQueue() {
 
 }
 
-*/
 
 
 
-/*// PRIORITY Queue
+
+
+// PRIORITY Queue
 //****TC 4 PQ for Push & POP is O(logn) and for TOP is O(1)
 // Largest Value stays at Top
 
@@ -282,11 +295,15 @@ void explainPQ() {
 
 }
 
-*/
 
 
 
-/*// SET in Vector
+
+
+
+
+
+// SET in Vector
 // Set **stores sorted order & uniue** elements in it.
 // TC 4 all operations for SET is O(logn)
 
@@ -337,11 +354,14 @@ void explainPQ() {
 
     }
 
-*/
 
 
 
-/*// MULTISET in Vector
+
+
+
+
+// MULTISET in Vector
     // Everything in same as SET & stores duplicates element 
 
 void explainMultiSet() {
@@ -363,11 +383,14 @@ void explainMultiSet() {
 
 }
 
-*/
 
 
 
-/*// UNORDER SET in Vector
+
+
+
+
+// UNORDER SET in Vector
 // TC for UnSet in most of the cases is O(1)
 
 void explainUnorderSet() {
@@ -380,11 +403,14 @@ void explainUnorderSet() {
 
 }
 
-*/
 
 
 
-/*// MAP in Vector
+
+
+
+
+// MAP in Vector
 // TC of Map is O(logN)
 void explainMap() {
 
@@ -423,11 +449,13 @@ void explainMap() {
 
 }
 
-*/
 
 
 
-/*// MULTI_MAP in Vector
+
+
+
+// MULTI_MAP in Vector
 
 void explainMultiMap() {
     // everything same as map
@@ -451,13 +479,14 @@ bool comp(pair<int, int> p1, pair<int, int> p2) {
     return false;
 }
 
-*/
 
 
 
 
 
-/*// Mandatory ALGO for C++_STL
+
+
+// Mandatory ALGO for C++_STL
 
 void explainExtra() {
 
@@ -484,7 +513,10 @@ void explainExtra() {
 */
 
 
-/*// BUILT_IN_POP_COUNT in C++ STL 
+
+
+    
+// ****BUILT_IN_POP_COUNT in C++ STL 
 
     int num = 7;
     int cnt = __builtin_popcount();
@@ -504,7 +536,7 @@ void explainExtra() {
 
 }
 
-*/
+
 
 int main () {
 
