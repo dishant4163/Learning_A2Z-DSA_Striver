@@ -3,13 +3,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
 
 	// DIGITS Concept
 	// (Number of digits)  https://www.naukri.com/code360/problems/number-of-digits_9173?utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_Arrayproblems&count=25&page=1&search=&sort_entity=order&sort_order=ASC
 
-	/* // Soln of Num of digits
+	// Soln of Num of digits
 	int countDigits(int n){
 		// Write your code here.
 			int count = 0;
@@ -19,13 +17,16 @@ int main()
 			}
 			return count;
 	}
-	*/
+	
+
+
+
+
 
 	// Reverse of a number
 	// https://www.naukri.com/code360/problems/reverse-of-a-number_624652?utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_Arrayproblems&count=25&page=1&search=&sort_entity=order&sort_order=ASC
 
-	/* // Soln of Rev of a Num
-
+        // Soln of Rev of a Num
 	int n;
 		cin >> n;
 		int revNum = 0;
@@ -35,12 +36,16 @@ int main()
 			n = n/10;
 		}
 		cout << revNum;
-	*/
+	
+
+
+
+
+
 
 	// Palindrome Num
 	// https://www.naukri.com/code360/problems/palindrome-number_624662?utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_Arrayproblems&count=25&page=1&search=&sort_entity=order&sort_order=ASC
 
-	/*
 	bool palindrome(int n)
 	{
 		// Write your code here
@@ -58,12 +63,16 @@ int main()
 			return false;
 		}
 	}
-	*/
+
+
+
+
+
 
 	// Armstrong Number
 	// https://www.naukri.com/code360/problems/check-armstrong_589?utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_Arrayproblems&count=25&page=1&search=&sort_entity=order&sort_order=ASC
 
-	/*
+
 	bool checkArmstrong(int n){
 		//Write your code here
 		int dup=n;
@@ -80,10 +89,13 @@ int main()
 			return false;
 		}
 	}
-	*/
+
+
+
+
 
 	// PRINT ALL DIVISIONS
-    // https://www.naukri.com/code360/problems/print-all-divisors-of-a-number_1164188?utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_Arrayproblems&count=25&page=1&search=&sort_entity=order&sort_order=ASC
+        // https://www.naukri.com/code360/problems/print-all-divisors-of-a-number_1164188?utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_Arrayproblems&count=25&page=1&search=&sort_entity=order&sort_order=ASC
 
 	/*
 	BETTER APPROACH:
@@ -115,8 +127,6 @@ int main()
 
 	*/
 
-	/*
-
 	int* printDivisors(int n, int &size){
 	// Write your code here
 		int *listt = new int[n];
@@ -138,12 +148,13 @@ int main()
 		sort(listt, listt+size);
 		return listt;
 
-	*/
+
+
+
 
 	// CHECK PRIME
 	// https://www.naukri.com/code360/problems/check-prime_624674?utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_Arrayproblems&count=25&page=1&search=&sort_entity=order&sort_order=ASC
 
-	/*
 	// Write your code here
 		int n;
 		cin >> n;
@@ -156,12 +167,13 @@ int main()
 		}
 		if(cnt == 2) cout << "true";
 		else cout << "false";
-	*/
+
+
+
 
 	// GCD or HCF(Euclidean Algo)
 	// https://www.naukri.com/code360/problems/gcd_6557?utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_Arrayproblems&count=25&page=1&search=&sort_entity=order&sort_order=ASC
 
-	/*
 
 		int gcd(int a,int b) // TC of gcd = O(log phi min(a,b))
 	{
@@ -184,7 +196,11 @@ int main()
 
 	}
 
-	*/
+	
 
+
+int main() {
+
+	
 	return 0;
 }
