@@ -1,4 +1,4 @@
-// Sorting-I_A2Z DSA Striver
+// Lec-1 of Sorting-I_A2Z DSA Striver
 
 
 #include<bits/stdc++.h>
