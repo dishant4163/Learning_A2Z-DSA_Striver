@@ -7,3 +7,7 @@
 4. Lec-4 (Know Basic Maths)
 5. Lec-5 (Learn Basic Recursion)
 6. Lec-6 (Learn Basic Hashing)
+
+
+# Step-2 Learning Sorting Techniques
+1. Lec-1 Sorting-I (Selection, Bubble & Insertion Sort)
