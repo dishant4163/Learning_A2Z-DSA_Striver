@@ -1,14 +1,17 @@
 // ## Basic of HASHING(simple means Pre-storing/compute & then Fetching)
 // Link-> https://www.youtube.com/watch?v=KEs5UyBJ39g
 
+// GFG_Problem (Soln given Below) Link -> https://www.geeksforgeeks.org/problems/frequency-of-array-elements-1587115620/0
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
 
-    // Number Hashing
-    /*// Problem-1 Count Element in HashArray
+// Number Hashing
+/*// Problem-1 Count Element in HashArray
 
     //    Input:
     //    n1=5
@@ -22,9 +25,10 @@ int main()
     //    1
     //    2
     //    0
-
-
+*/
+    
     // Optimized approach using Hashing
+    // Soln_Problem-1
         int n1; // Enter no/size of array want to enter
         cin >> n1;
         int arr[n1];
@@ -47,7 +51,9 @@ int main()
             // Fetch
             cout << hash[number] << endl;
         }
-    */
+
+
+
 
     // Character Hashing
     /*// Problem-2 In given string count the no of time character appears
@@ -67,7 +73,9 @@ int main()
     //    1
     //    2
     //    1
-
+*/
+    
+ // Soln_Problem-2   
         string s;
         cin >> s;
 
@@ -85,7 +93,10 @@ int main()
             // Fetching
             cout << hash[c - 'a'] << endl;
         }
-    */
+
+
+
+
 
     // MAPS
 
@@ -104,7 +115,9 @@ int main()
     //   2
     //   0
     //   1
+*/
 
+// Soln_Problem-3
         int n2;
         cin >> n2;
         int arrr[n2];
@@ -133,7 +146,31 @@ int main()
             //Fetch
             cout << mpp[num] << endl;
         }
-    */
+
+
+
+
+
+// GFG_Problem ( Frequencies of Limited Range Array Elements ) SOLN ->
+class Solution{
+public:
+    //Function to count the frequency of all elements from 1 to N in the array.
+    void frequencyCount(vector<int>& arr,int N, int P)
+    { 
+        // write your code here
+        unordered_map <int, int> mp;
+        for (int i=0; i<N; i++){
+            mp[arr[i]]++;
+        }
+        for (int i=0; i<N; i++){
+            arr[i] = mp[i + 1];
+        }
+    }
+};
+
+
+
+    
 
     return 0;
 }
