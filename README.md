@@ -10,4 +10,4 @@
 
 
 # Step-2 Learning Sorting Techniques
-1. Lec-1 Sorting-I (Selection, Bubble & Insertion Sort)
+1. Lec-1 Sorting-I (Learning basics of Selection, Bubble & Insertion Sort)
