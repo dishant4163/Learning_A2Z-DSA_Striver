@@ -1,4 +1,4 @@
-// Sorting-II
+// Sorting-II_A2Z DSA Striver
 
 
 #include<bits/stdc++.h>
@@ -6,7 +6,7 @@ using namespace std;
 
 // TC of Merge Sort Algo is O(nlogn)
 // SC of Merge Sort Algo is O(N)
-/*// 1. MERGE SORT (Divide & Conquer)
+// 1. MERGE SORT (Divide & Conquer)
 //####APPROACH-1_Dividing array into 2 arrays(LOVE BABBAR Soln)
 
 //Merge func 4 merging both parts
@@ -80,20 +80,21 @@ void mergeSort(int *arr1, int start, int end) {
 
 }
 
-*/
 
 
-/*//####APPROACH-2_ Using Indexes 4 Merge Sort(STRIVER SOLN)
+
+
+
+
+//####APPROACH-2_ Using Indexes 4 Merge Sort(STRIVER SOLN)
 // Function for merging 2 Arrays
 
 // Coding Ninja (MERGE SORT) Link-> https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbTRKODJMUW51QWhfWVFFOWQzQi1ZZ0lhMm5UQXxBQ3Jtc0tuV2Q3NFdoRnkxMlRIaTVTcDdnRklObTMtSWljeWFCcUZYMGhPRVBJWEgxVVNGZ0t2dXRmVkd1bllQRGtydUh2RjJEZktEbkx2dDRVcXEwV281MXotdjdTY2hJQi1qYnBnc25LbzdYd2NHWU1XdG9PZw&q=https%3A%2F%2Fbit.ly%2F3DN7ccC&v=ogjf7ORKfd8
 
 void merge(vector<int> &arr2, int low, int mid2, int high) {
     vector<int> temp;
-
     int left = low; // [low to mid] in 1st array
     int right = mid2+1; // [mid+1 to high] in 2nd array
-
     while(left <= mid2 && right <= high) {
         if(arr2[left] <= arr2[right]) {
             temp.push_back(arr2[left]);
@@ -143,14 +144,17 @@ void mergeSort(vector < int > & arr2, int n2) {
     mergeSol(arr2, 0, n2-1);
 }
 
-*/
+
+
+
+
 
 
 
 int main () {
 
-/*// Merge Sort (via creating 2 arrays)
-// Babbar Method as dividing into 2 arrays
+// Merge Sort (via creating 2 arrays)
+// Method using dividing into 2 arrays (Love Babbar)
     int n1 = 5;
     int arr1[5] = {2, 5, 1, 6, 9};
     // calling mergeSort func
@@ -159,10 +163,6 @@ int main () {
     for (int i=0; i<n1; i++) {
         cout << arr1[i] << " ";
     }
-*/
-
-
-
 
 
 
