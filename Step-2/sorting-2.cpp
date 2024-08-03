@@ -151,6 +151,121 @@ void mergeSort(vector < int > & arr2, int n2) {
 
 
 
+
+// 2. QUICK SORT ALGO (Divide & CONQUER)
+// BABBAR SOLN
+// DECLARING PARTITION Function
+    int partition(int arr3[], int s3, int e3) {
+
+    // Find PIVOT
+    int pivot = arr3[s3];
+
+    // count no. of elements less than pivot
+    int cnt = 0;
+    for(int i = s3+1; i<=e3; i++) {
+        if(arr3[i] <= pivot) {
+            cnt++;
+        }
+    }
+
+    // Place pivot at right place
+    int pivotIndex = s3 + cnt;
+    swap(arr3[pivotIndex], arr3[s3]);
+
+    //Left & Right wala part sambhal lete h
+    int i = s3, j = e3;
+
+    while(i < pivotIndex && j > pivotIndex) {
+
+        while(arr3[i] <= pivot)
+        {
+            i++;
+        }
+
+        while(arr3[j] > pivot)
+        {
+            j--;
+        }
+
+        if(i < pivotIndex && j > pivotIndex)
+        {
+            swap(arr3[i++], arr3[j--]);
+        }
+    }
+
+    return pivotIndex;
+
+}
+
+
+// DECLARING QUICKSORT Function
+void quickSort1(int arr3[], int s3, int e3) {
+
+    // BASE CASE
+    if(s3 >= e3)
+        return;
+    // PARTITION Karnege
+    int p = partition(arr3, s3, e3);
+    // LEFT part sort karnege
+    quickSort1(arr3, s3, p-1);
+    // RIGHT Part sort karenge
+    quickSort1(arr3, p+1, e3);
+
+}
+
+
+
+
+
+
+
+
+// STRIVER SOLN 
+int partition(vector<int> &arr, int low, int high) {
+    int pivot = arr[low];
+    int i=low, j=high;
+    while(i < j) {
+        while(arr[i] <= pivot && i <= high - 1) {
+            i++;
+        }
+
+        while(arr[j] > pivot && j >= low + 1) {
+            j--;
+        }
+        if(i<j) {
+            swap(arr[i], arr[j]);
+        }
+    }
+    swap(arr[low], arr[j]);
+    return j;
+}
+
+void quickS(vector<int> &arr, int low,  int high) {
+    if(low < high) {
+        int pIndex = partition(arr, low, high);
+        quickS(arr, low, pIndex - 1);
+        quickS(arr, pIndex+1, high);
+    }
+}
+
+vector<int> quickSort(vector<int> arr)
+{
+
+    quickS(arr, 0, arr.size()-1);//Striver
+    return arr;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 int main () {
 
 // Merge Sort (via creating 2 arrays)
@@ -163,6 +278,28 @@ int main () {
     for (int i=0; i<n1; i++) {
         cout << arr1[i] << " ";
     }
+
+
+
+
+
+
+// Quick Sort
+// Babbar Method
+    int arr3[5] = {2, 4, 1, 6, 9};
+    int n3 = 5;
+    // Calling Quick Sort Function
+    quickSort1(arr3, 0, n3-1);
+    // printing sorted array
+    for (int i=0; i<n3; i++)
+    {
+        cout << arr3[i] << " ";
+    } cout << endl;
+
+
+
+
+    
 
 
 
