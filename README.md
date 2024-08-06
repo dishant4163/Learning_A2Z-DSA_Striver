@@ -12,3 +12,9 @@
 # Step-2 Learning Sorting Techniques
 1. Lec-1 Sorting-I (Learning basics of Selection, Bubble & Insertion Sort)
 2. Lec-2 Sorting-II (Learning Merge Sort, Quick Sort, Recursive Bubble Sort & Recursive Insertion Sort)
+
+
+# Step-3 Arrays 
+1. Lec-1 Easy
+2. Lec-2 Medium
+3. Lec-3 Hard
