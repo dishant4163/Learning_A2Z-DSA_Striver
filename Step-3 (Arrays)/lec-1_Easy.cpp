@@ -1,5 +1,6 @@
 // Arrays_DS->Type-: EASY
 
+// Some CODING NINJA Platform Problems
 /*(Largest Element in an Array_Coding Ninja)-> https://bit.ly/3W6bmUF
 int largestElement(vector<int> &arr, int n) {
     // Write your code here.
@@ -58,6 +59,19 @@ vector<int> getSecondOrderElements(int n, vector<int> a) {
 }
 */
 
+
+/*(Remove Duplicates from Sorted Array _Coding Ninja)-> https://bit.ly/41GRxEK
+int removeDuplicates(vector<int> &arr, int n) {
+    int i = 0;
+    for (int j = 1; j<n; j++) {
+    if(arr[i] != arr[j]) {
+        arr[i+1] = arr[i];
+        i++;
+    }
+    }
+    return i+1;
+}
+*/
 
 
 
@@ -236,6 +250,110 @@ int secLargest(int arr5[], int n5) {
 
 
 
+// III. Check if an Array is Sorted
+/* Soln 1. Brute Force
+  Approach:-
+  # The idea is pretty simple here, We will start with the element at the 0th index, and will compare it with all of its future elements that are present in the array.
+  # If the picked element is smaller than or equal to all of its future values then we will move to the next Index/element until the whole array is traversed.
+  # If any of the picked elements is greater than its future elements, Then simply we will return False.
+  # If the size of the array is Zero or One i.e ( N = 0 or N = 1 ) or the entire array is traversed successfully then we will simply return True.
+
+  Complexity Analysis:-
+  # Time Complexity: O(N^2)
+  # Space Complexity: O(1)
+*/
+bool isSorted(int arr6[], int n6) {
+    for (int i=0; i<n6; i++) {
+        for (int j=i+1; j < n6; j++) {
+            if(arr6[j] < arr6[i]);
+            return false;
+        }
+    }
+    return true;
+}
+
+
+/* Soln 2. Optimal Approach: Efficient (Single traversal)
+  Approach:-
+  # As we know that for a sorted array the previous of every element is smaller than or equal to its current element.
+  # So, Through this, we can conclude that if the previous element is smaller than or equal to the current element then. Then we can say that the two elements are sorted. If the condition is true for the entire array then the array is sorted.
+  # We will check every element with its previous element if the previous element is smaller than or equal to the current element then we will move to the next index.
+  # If the whole array is traversed successfully or the size of the given array is zero or one (i.e N = 0 or N = 1). Then we will return True else return False.
+
+  Complexity Analysis:-
+  # Time Complexity: O(N)
+  # Space Complexity: O(1)
+*/
+bool isSorted2(int arr7[], int n7) {
+    for(int i=1; i < n7; i++) {
+        if(arr7[i] < arr7[i-1]) 
+            return false;
+    }
+    return true;
+}
+
+
+
+
+
+// IV. Remove Duplicates in-place from Sorted Array
+/* Soln 1. Brute Force 
+  Intuition:- We have to think of a data structure that does not store duplicate elements. So can we use a Hash set? Yes! We can. As we know HashSet only stores unique elements.
+
+  Approach:- 
+  # Declare a HashSet.
+  # Run a for loop from starting to the end.
+  # Put every element of the array in the set.
+  # Store size of the set in a variable K.
+  # Now put all elements of the set in the array from the starting of the array.
+  # Return K.
+
+  Complexity Analysis:-
+  # Time Complexity: O(n*log(n))+O(n)
+  # Space Complexity: O(n) 
+*/
+int removeDuplicates(int arr8[], int n8) {
+    set < int > set;
+    for (int i = 0; i < n8; i++) {
+        set.insert(arr8[i]);
+    }
+    int k = set.size();
+    int j = 0;
+    for (int x: set) {
+        arr8[j++] = x;
+    }
+    return k;
+}
+
+
+/* Soln 2. Optimal Approach (Two pointers)
+  Intuition:- We can think of using two pointers ‘i’ and ‘j’, we move ‘j’ till we don't get a number arr[j] which is different from arr[i]. As we got a unique number we will increase the i pointer and update its value by arr[j]. 
+
+  Approach:-
+  # Take a variable i as 0;
+  # Use a for loop by using a variable ‘j’ from 1 to length of the array.
+  # If arr[j] != arr[i], increase ‘i’ and update arr[i] == arr[j].
+  # After completion of the loop return i+1, i.e size of the array of unique elements.
+
+  Complexity Analysis:-
+  # Time Complexity: O(N)
+  # Space Complexity: O(1)
+*/
+int removeDup(int arr9[], int n9) {
+    int i = 0;
+    for (int j=1; j < n9; j++) {
+        if (arr9[i] != arr9[j]) {
+            i++;
+            arr9[i] = arr9[j];
+        }
+    }
+    return i + 1;
+}
+
+
+
+
+
 
 
 
@@ -269,6 +387,54 @@ int arr5[] = {17, 21, 49, 8, 72};
 int n5 = sizeof(arr5)/sizeof(arr5[0]);
     int secS = secSmallest(arr5, n5), secL = secLargest(arr5, n5);
 cout<<"Second smallest is "<<secS<<" & "<<"Second largest is "<<secL<<endl;
+
+
+
+
+// III. Check if an Array is Sorted
+// Soln->3.1 Brute Force
+int arr6[] = {1, 2, 3, 4, 5}, n6=5;
+bool ans = isSorted(arr6, n6);
+if (ans) {
+    cout << "True" << endl;
+}
+else {
+    cout << "False" << endl;
+}
+
+
+// Soln->3.2 Optimal Approach
+int arr7[] = {1, 2, 3, 4, 5}, n7 = 5;
+bool ans2 = isSorted2(arr7, n7);
+if (ans2) {
+    cout << "True"<<endl;
+}
+else{
+    cout<<"False"<<endl;
+}
+
+
+
+
+// IV. Remove Duplicates in-place from Sorted Array
+// Soln->4.1 Brute Force
+int arr8[] = {1, 1, 2, 2, 2, 3, 3};
+int n8 = sizeof(arr8)/sizeof(arr8[0]);
+int k = removeDuplicates(arr8, n8);
+cout<<"Array after removing duplicate element is ";
+for(int i=0; i<k; i++) {
+    cout << arr8[i] <<" ";
+}
+
+
+// Soln->4.2 Optimal Approach
+int arr9[] = {1,1,2,2,2,3,3};
+int n9 = sizeof(arr9)/sizeof(arr9[0]);
+int k2 = removeDup(arr9, n9);
+cout<<"Array after removing duplicate element is ";
+for(int i=0; i<k2; i++) {
+    cout << arr9[i] <<" ";
+}
 
 
 
