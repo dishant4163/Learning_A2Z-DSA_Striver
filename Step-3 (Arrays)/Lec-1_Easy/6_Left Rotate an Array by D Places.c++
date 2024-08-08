@@ -1,5 +1,20 @@
-/*(Left Rotate an Array by D Places_Coding Ninja)->
+/*(Left Rotate an Array by D Places_Coding Ninja)-> https://www.naukri.com/code360/problems/rotate-array_1230543?utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_Arrayproblems&count=25&page=1&search=&sort_entity=order&sort_order=ASC
 
+vector<int> rotateArray(vector<int>arr, int k) {
+    // Write your code here.
+    int n = arr.size();
+    k = k%n;
+    
+    vector<int> solve;
+    for (int i=k; i<n; i++) {
+        solve.push_back(arr[i]);
+    }
+    for (int i=0; i<k; i++) {
+        solve.push_back(arr[i]);
+    }
+    
+    return solve;
+}
 */
 
 #include <bits/stdc++.h>
