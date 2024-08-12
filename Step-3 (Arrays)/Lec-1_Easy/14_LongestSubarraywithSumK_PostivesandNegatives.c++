@@ -200,7 +200,7 @@ int main() {
 
 
 
-// Soln 2: Better Approach
+// Soln 2: Optimal Approach
     vector<int> ar3 = {2, 3, 5, 1, 9};
     long long k3 = 10;
     int len3 = getLongestSubarray3(ar3, k3);
