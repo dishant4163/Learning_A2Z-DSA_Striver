@@ -1,7 +1,36 @@
 // ## Basic of HASHING(simple means Pre-storing/compute & then Fetching)
 // Link-> https://www.youtube.com/watch?v=KEs5UyBJ39g
 /*// Coding Ninja (Highest/Lowest Frequency Elements)Link-> https://www.naukri.com/code360/problems/k-most-occurrent-numbers_625382
+vector<int> getFrequencies(vector<int>& v) {
+    // Write Your Code Here
+    unordered_map<int, int> mpp;
+    int n = v.size();
 
+    for(int i=0; i < n; i++) {
+        mpp[v[i]]++;
+    }
+
+    int maxFreq = 0, minFreq = INT_MAX;
+    int maxFreqEle = 0, minFreqEle = 0;
+
+    //Traverse through map to find the Elements
+    for(auto it: mpp) {
+        int cnt = it.second;//Value
+        int element = it.first;//Key
+
+        if (cnt > maxFreq || (cnt == maxFreq && element < maxFreqEle)) {
+            maxFreq = cnt;
+            maxFreqEle = element;
+        }
+
+        if (cnt < minFreq || (cnt == minFreq && element < minFreqEle)) {
+            minFreq = cnt;
+            minFreqEle = element;
+        }
+    }
+
+    return {maxFreqEle, minFreqEle};
+}
 */
     
 // GFG_Problem (Soln given Below) Link -> https://www.geeksforgeeks.org/problems/frequency-of-array-elements-1587115620/0
