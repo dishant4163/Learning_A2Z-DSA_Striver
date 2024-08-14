@@ -4,7 +4,7 @@ long long maxSubarraySum(vector<int> arr, int n)
 {
     // Write your code here.
     long long sum = 0;
-    long long maxi = arr[0];
+    long long maxi = arr[0];// or LONG_MIN;
 
     for (int i=0; i < n; i++) {
         sum += arr[i];
