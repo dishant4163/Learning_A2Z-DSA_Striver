@@ -3,6 +3,9 @@
 #include <bits/stdc++.h> 
 vector<int> nextPermutation(vector<int> &permutation, int n)
 {
+    //Use In-Built STL of as mention below & then return the permutation as Answer
+    //next_permutation(permutation.begin(), permutation.end());
+
     //  Write your code here.
     int ind = -1;
     for (int i = n-2; i >=0; i--) {
@@ -92,6 +95,29 @@ vector<int> findNextPermutation(const vector<int>& arr, const vector<vector<int>
     // This part should never be reached if the permutations are generated correctly
     return {};
 }
+/*// Soln 1.2:Brute Force(via recursion without backtrack)
+class Solution {
+    private:
+        void recurPermute(int index, vector < int > & nums, vector < vector < int >> & ans) {
+            if (index == nums.size()) {
+            ans.push_back(nums);
+            return;
+        }
+        for (int i = index; i < nums.size(); i++) {
+            swap(nums[index], nums[i]);
+            recurPermute(index + 1, nums, ans);
+            swap(nums[index], nums[i]);
+        }
+    }
+    public:
+    vector < vector < int >> permute(vector < int > & nums) {
+        vector < vector < int >> ans;
+        recurPermute(0, nums, ans);
+        return ans;
+    }
+};
+*/
+
 
 
 
@@ -172,6 +198,18 @@ vector<int> arr = {1, 3, 2};
 
     // Print the next permutation
     printArray(nextPerm);
+/*// Soln 1.2:Brute Force(via recursion without backtrack)
+Solution obj;
+vector < int > v {1,2,3};
+    vector < vector < int >> sum = obj.permute(v);
+    cout << "All Permutations are" << endl;
+    for (int i = 0; i < sum.size(); i++) {
+        for (int j = 0; j < sum[i].size(); j++)
+        cout << sum[i][j] << " ";
+    cout << endl;
+    }
+*/
+
 
 
 
