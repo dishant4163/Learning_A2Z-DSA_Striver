@@ -7,27 +7,34 @@ vector<int> nextPermutation(vector<int> &permutation, int n)
     //next_permutation(permutation.begin(), permutation.end());
 
     //  Write your code here.
-    int ind = -1;
-    for (int i = n-2; i >=0; i--) {
-        if(permutation[i] < permutation[i+1]) {
-            ind = i;
+    int ind = -1; //Break point
+
+// STEP-1:-> Find the Break Point
+    for (int i = n-2; i >= 0; i--) {
+        if (permutation[i] < permutation[i+1]) {
+            ind = i;// Index i is the Break point
             break;
         }
     }
-    if(ind == -1) {
+    // If Break Point does not exits
+    if (ind == -1) {
+        //reverse the whole array
         reverse(permutation.begin(), permutation.end());
-        return permutation;
+        return permutation; //return permutation array as answer
     }
 
-    for (int i = n-1; i>ind; i--) {
-        if(permutation[i] > permutation[ind]) {
+// STEP-2:-> Find the next greater Element & Swap it with arr[index]
+    for(int i = n-1; i > ind; i--) {
+        if (permutation[i] > permutation[ind]) {
             swap(permutation[i], permutation[ind]);
             break;
         }
     }
 
-    reverse(permutation.begin() + ind + 1, permutation.end());    
-
+// STEP-3:-> Reverse the right half array i.e., from the break point
+   // for the remaining element to be filled in sorted order
+   reverse(permutation.begin() + ind + 1, permutation.end());
+    
     return permutation;
 }
 
