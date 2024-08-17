@@ -1,6 +1,23 @@
 /*//(Rotate Matrix/Image by 90 Degrees_Coding Ninja)-> https://shorturl.at/dISxN   
 
+#include<vector>
+void rotateMatrix(vector<vector<int>> &mat){
+	// Write your code here.
+    int n = mat.size();
+	// Transpose the Matrix
+    for (int i=0; i < n; i++) {
+		for (int j =0; j < i; j++) {
+			swap(mat[i][j], mat[j][i]);
+		}
+	}
 
+	// Reverse the each Row of the Matrix
+    for(int i=0; i < n; i++) {
+		// row is mat[i]
+		reverse(mat[i].begin(), mat[i].end());
+	}
+	
+}
 
 */
 
