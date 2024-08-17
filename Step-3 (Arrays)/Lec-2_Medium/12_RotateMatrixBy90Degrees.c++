@@ -1,4 +1,4 @@
-/*//(Rotate Matrix/Image by 90 Degrees_Coding Ninja)-> https://bit.ly/3rhVUWx    
+/*//(Rotate Matrix/Image by 90 Degrees_Coding Ninja)-> https://shorturl.at/dISxN   
 
 
 
