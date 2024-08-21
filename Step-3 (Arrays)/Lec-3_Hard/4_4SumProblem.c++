@@ -84,6 +84,36 @@ using namespace std;
   # Space Complexity: O(2 * no. of the quadruplets)+O(N)
     Reason: we are using a set data structure and a list to store the quads. This results in the first term. And the second space is taken by the set data structure we are using to store the array elements. At most, the set can contain approximately all the array elements and so the space complexity is O(N).
 */
+/*vector<vector<int>>fourSum2(vector<int>& ar2, int target2) {
+  int n2 = ar2.size();
+  set<vector<int>> st2;
+
+  // checking all possible quadruplets
+  for (int i=0; i<n2; i++) {
+    for (int j=i+1; j<n2; j++) {
+      set<long long> hashset2;
+      for (int k=j+1; k<n2; k++) {
+        // taking bigger data type
+        // to avoid integer overflow
+        long long sum2 = ar2[i] + ar2[j];
+        sum2 += ar2[k];
+        long long fourth = target2 - sum2;
+        if (hashset2.find(fourth) != hashset2.end()) {
+          vector<int> temp2 = {ar2[i], ar2[j], ar2[k], (int)(fourth)};
+          sort(temp2.begin(), temp2.end());
+          st2.insert(temp2);
+        }
+
+        // put the kth element into the hashset
+        hashset2.insert(ar2[k]);
+      }
+    }
+  }
+
+  vector<vector<int>> ans2(st2.begin(), st2.end());
+  return ans2;
+}
+*/
 
 
 
@@ -131,6 +161,25 @@ int main() {
     }
     cout << endl;
 */
+
+
+/*// Soln 2: Better(using 3 loops with set & hashset)
+    vector<int> ar2 = {4, 3, 3, 4, 4, 2, 1, 2, 1, 1};
+    int target2 = 9;
+    vector<vector<int>> ans2 = fourSum2(ar2, target2);
+    cout << "The quadruplets are: \n";
+    for (auto it : ans2) {
+        cout << "[";
+        for (auto ele : it) {
+            cout << ele << " ";
+        }
+        cout << "] ";
+    }
+    cout << endl;
+*/
+
+
+// Soln 3: Optimal()
 
 
 
