@@ -1,6 +1,55 @@
 /*//(4 Sum: Find Quads that add up to a target value_Coding Ninja)-> https://bit.ly/3Bsovy2   
 
+vector<vector<int>> fourSum(vector<int> &nums, int target) {
+  // Write your code here
+  int n = nums.size();
+  vector<vector<int>> sol;
 
+  // sort the given array
+  sort(nums.begin(), nums.end());
+
+  // calculate the quadruplets
+  for (int i = 0; i < n; i++) {
+
+    // Avoid the duplicates while moving i
+    if (i > 0 && nums[i] == nums[i - 1])
+      continue;
+    for (int j = i + 1; j < n; j++) {
+
+      // avoid the duplicates while moving j
+      if (j > i + 1 && nums[j] == nums[j - 1])
+        continue;
+
+      // 2 Pointers
+      int k = j + 1;
+      int l = n - 1;
+
+      while (k < l) {
+        long long sum = nums[i];
+        sum += nums[j];
+        sum += nums[k];
+        sum += nums[l];
+        if (sum == target) {
+          vector<int> temp = {nums[i], nums[j], nums[k], nums[l]};
+          sol.push_back(temp);
+          k++;
+          l--;
+
+          // Skip the duplicates
+          while (k < l && nums[k] == nums[k - 1])
+            k++;
+          while (k < l && nums[l] == nums[l + 1])
+            l--;
+        } else if (sum < target)
+          k++;
+        else
+          l--;
+      }
+    }
+  }
+
+  return sol;
+}
 
 */
 
@@ -32,7 +81,7 @@ using namespace std;
     Reason: Here, we are mainly using 4 nested loops. But we not considering the time complexity of sorting as we are just sorting 4 elements every time.
   # Space Complexity: O(2 * no. of the quadruplets) as we are using a set data structure and a list to store the quads.
 */
-/*vector<vector<int>>fourSum1(vector<int>& ar1, int target1) {
+vector<vector<int>>fourSum1(vector<int>& ar1, int target1) {
   int n1 = ar1.size();
   set<vector<int>> st1;
 
@@ -60,7 +109,7 @@ using namespace std;
   vector<vector<int>> ans1(st1.begin(), st1.end());
   return ans1;
 }
-*/
+
 
 
 
@@ -84,7 +133,7 @@ using namespace std;
   # Space Complexity: O(2 * no. of the quadruplets)+O(N)
     Reason: we are using a set data structure and a list to store the quads. This results in the first term. And the second space is taken by the set data structure we are using to store the array elements. At most, the set can contain approximately all the array elements and so the space complexity is O(N).
 */
-/*vector<vector<int>>fourSum2(vector<int>& ar2, int target2) {
+vector<vector<int>>fourSum2(vector<int>& ar2, int target2) {
   int n2 = ar2.size();
   set<vector<int>> st2;
 
@@ -113,7 +162,7 @@ using namespace std;
   vector<vector<int>> ans2(st2.begin(), st2.end());
   return ans2;
 }
-*/
+
 
 
 
@@ -136,7 +185,51 @@ using namespace std;
     Reason: Each of the pointers i and j, is running for approximately N times. And both the pointers k and l combined can run for approximately N times including the operation of skipping duplicates. So the total time complexity will be O(N3). 
   # Space Complexity: O(no. of quadruplets), This space is only used to store the answer. We are not using any extra space to solve this problem. So, from that perspective, space complexity can be written as O(1).
 */
+vector<vector<int>>fourSum3(vector<int>& arr, int target) {
+  int n = arr.size();
+  vector<vector<int>> sol;
 
+  // sort the given array
+  sort(arr.begin(), arr.end());
+
+  // calculate the quadruplets
+  for(int i=0; i<n; i++) {
+
+    //Avoid the duplicates while moving i
+    if (i > 0 && arr[i] == arr[i - 1]) continue;
+    for (int j = i + 1; j < n; j++) {
+
+      // avoid the duplicates while moving j
+      if (j > i + 1 && arr[j] == arr[j-1]) continue;
+
+      // 2 Pointers
+      int k = j+1;
+      int l = n-1;
+
+      while(k < l) {
+        long long sum = arr[i];
+        sum += arr[j];
+        sum += arr[k];
+        sum += arr[l];
+        if (sum == target) {
+          vector<int> temp = {arr[i], arr[j], arr[k], arr[l]};
+          sol.push_back(temp);
+          k++;
+          l--;
+
+          // Skip the duplicates
+          while(k < l && arr[k] == arr[k - 1]) k++;
+          while(k < l && arr[l] == arr[l + 1]) l--;
+        }
+        else if (sum < target) k++;
+        else l--;
+      }
+    }
+  }
+
+
+  return sol;
+}
 
 
 
@@ -147,7 +240,7 @@ using namespace std;
 
 int main() {
 
-/*// Soln 1: Brute(Naive Approach(using 4 loops))
+// Soln 1: Brute(Naive Approach(using 4 loops))
   vector<int> ar1 = {4, 3, 3, 4, 4, 2, 1, 2, 1, 1};
     int target1 = 9;
     vector<vector<int>> ans1 = fourSum1(ar1, target1);
@@ -160,10 +253,10 @@ int main() {
         cout << "] ";
     }
     cout << endl;
-*/
 
 
-/*// Soln 2: Better(using 3 loops with set & hashset)
+
+// Soln 2: Better(using 3 loops with set & hashset)
     vector<int> ar2 = {4, 3, 3, 4, 4, 2, 1, 2, 1, 1};
     int target2 = 9;
     vector<vector<int>> ans2 = fourSum2(ar2, target2);
@@ -176,10 +269,22 @@ int main() {
         cout << "] ";
     }
     cout << endl;
-*/
 
 
-// Soln 3: Optimal()
+
+// Soln 3: Optimal(using 2 Pointers)
+    vector<int> arr = {1, 4, 3, 3, 2, 5, 4, 2, 1, 2, 1, 3, 4, 5};
+    int target = 8;
+    vector<vector<int>> sol = fourSum3(arr, target);
+    cout << "The quadruplets are: \n";
+    for (auto it : sol) {
+        cout << "[";
+        for (auto ele : it) {
+            cout << ele << " ";
+        }
+        cout << "] ";
+    }
+    cout<<endl;
 
 
 
