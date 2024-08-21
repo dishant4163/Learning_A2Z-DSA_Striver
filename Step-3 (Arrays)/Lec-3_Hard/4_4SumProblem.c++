@@ -32,6 +32,35 @@ using namespace std;
     Reason: Here, we are mainly using 4 nested loops. But we not considering the time complexity of sorting as we are just sorting 4 elements every time.
   # Space Complexity: O(2 * no. of the quadruplets) as we are using a set data structure and a list to store the quads.
 */
+/*vector<vector<int>>fourSum1(vector<int>& ar1, int target1) {
+  int n1 = ar1.size();
+  set<vector<int>> st1;
+
+  // checking all possible quadruplets
+  for (int i=0; i<n1; i++) {
+    for (int j=i+1; j<n1; j++) {
+      for (int k=j+1; k<n1; k++) {
+        for (int l=k+1; l<n1; l++) {
+          // taking bigger data type
+          // to avoid integer overflow
+          long long sum = ar1[i] + ar1[j];
+          sum += ar1[k];
+          sum += ar1[l];
+
+          if (sum == target1) {
+            vector<int> temp1 = {ar1[i], ar1[j],  ar1[k], ar1[l]};
+            sort(temp1.begin(), temp1.end());
+            st1.insert(temp1);
+          }
+        }
+      }
+    }
+  }
+
+  vector<vector<int>> ans1(st1.begin(), st1.end());
+  return ans1;
+}
+*/
 
 
 
@@ -88,6 +117,20 @@ using namespace std;
 
 int main() {
 
+/*// Soln 1: Brute(Naive Approach(using 4 loops))
+  vector<int> ar1 = {4, 3, 3, 4, 4, 2, 1, 2, 1, 1};
+    int target1 = 9;
+    vector<vector<int>> ans1 = fourSum1(ar1, target1);
+    cout << "The quadruplets are: \n";
+    for (auto it : ans1) {
+        cout << "[";
+        for (auto ele : it) {
+            cout << ele << " ";
+        }
+        cout << "] ";
+    }
+    cout << endl;
+*/
 
 
 
