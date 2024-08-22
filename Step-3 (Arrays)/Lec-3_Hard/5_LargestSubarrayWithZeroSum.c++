@@ -43,7 +43,7 @@ Reason: We are using three nested loops, each running approximately N times.
 
   # Space Complexity: O(1) as we are not using any extra space.
 */
-/*int getLongestZeroSumSubarrayLength_1(vector<int> &arr) {
+int getLongestZeroSumSubarrayLength_1(vector<int> &arr) {
     int n1 = arr.size();
     int maxLen = 0;
 
@@ -61,7 +61,7 @@ Reason: We are using three nested loops, each running approximately N times.
 
     return maxLen;
 }
-*/
+
 
 
 
@@ -86,7 +86,7 @@ Reason: We are using three nested loops, each running approximately N times.
 Reason: We are using two nested loops, each running approximately N times.
   Space Complexity: O(1) as we are not using any extra space.
 */
-/*int getLongestZeroSumSubarrayLength_2(vector<int> &ar2){
+int getLongestZeroSumSubarrayLength_2(vector<int> &ar2){
     int n2 = ar2.size();
     int maxLen2 = 0;
 
@@ -101,7 +101,7 @@ Reason: We are using two nested loops, each running approximately N times.
 
     return maxLen2;
 }
-*/
+
 
 
 
@@ -131,7 +131,7 @@ So in this problem, we’ll store the prefix sum of every element, and if we obs
   # Time Complexity: O(N), as we are traversing the array only once.
   # Space Complexity: O(N), in the worst case we would insert all array elements prefix sum into our hashmap
 */
-/*int getLongestZeroSumSubarrayLength_3(vector<int> &arr) {
+int getLongestZeroSumSubarrayLength_3(vector<int> &arr) {
     int n = arr.size();
 
     unordered_map<int, int> preSumMap;
@@ -155,32 +155,32 @@ So in this problem, we’ll store the prefix sum of every element, and if we obs
 
     return maxLen3;
 }
-*/
+
 
 
 
 
 int main () {
 
-/*// Soln 1: Brute Force(Naive-3 loops)
+// Soln 1: Brute Force(Naive-3 loops)
     vector<int> arr = {9, -3, 3, -1, 6, -5};
     int maxLen = getLongestZeroSumSubarrayLength_1(arr);
     cout << "The length of the Longest Subarray with Zero Sum is: "<<maxLen<<endl;
-*/
 
 
-/*// Soln 2: Better(using 2 loops)
+
+// Soln 2: Better(using 2 loops)
     vector<int> ar2 = {9, -3, 3, -1, 6, 1, -5, -1};
     int maxLen2 = getLongestZeroSumSubarrayLength_2(ar2);
     cout << "The length of the Longest Subarray with Zero Sum is: "<<maxLen2<<endl;
-*/
 
 
-/*// Soln 3: Optimal
+
+// Soln 3: Optimal
     vector<int> arr = {6, -2, 2, -8, 1, 7, 4, -10};
     int maxLen3 = getLongestZeroSumSubarrayLength_3(arr);
     cout << "The length of the Longest Subarray with Zero Sum is: "<<maxLen3<<endl;
-*/
+
 
 
 
