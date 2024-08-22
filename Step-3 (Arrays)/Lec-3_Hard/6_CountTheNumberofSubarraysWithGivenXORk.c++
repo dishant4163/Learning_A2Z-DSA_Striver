@@ -155,9 +155,31 @@ So, in order to avoid this situation we need to set the value of 0 as 1 on the m
     Reason: For example, if we are using an unordered_map data structure in C++ the time complexity will be O(N) but if we are using a map data structure, the time complexity will be O(N*logN). The least complexity will be O(N) as we are using a loop to traverse the array. Point to remember for unordered_map in the worst case, the searching time increases to O(N), and hence the overall time complexity increases to O(N2). 
   # Space Complexity: O(N) as we are using a map data structure.
 */
+int subarraysWithXorK_3(vector<int> arr, int k3) {
+    int n3=arr.size();
+    int xr=0;
 
+    //Declaring the map
+    map<int, int> mp;
+    mp[xr]++; //setting the value of 0
+    int cnt3 = 0;
 
+    for (int i=0; i<n3; i++) {
+        // prefix XOR till index i
+        xr = xr^arr[i];
 
+        //By formula: x = xr^k:
+        int x = xr^k3;
+
+        // add the occurrence of xr^k to the count
+        cnt3 += mp[x];
+
+        // Insert prefix XOR till index 'i' into the map
+        mp[xr]++;
+    }
+
+    return cnt3;
+}
 
 
 
@@ -182,8 +204,10 @@ int main() {
 
 
 // Soln 3: Optimal(using Hashing)
-
-
+    vector<int> arr = {4, 2, 2, 6, 4};
+    int k3=6;
+    int ans3 = subarraysWithXorK_3(arr, k3);
+    cout<<"The number of subarrays with XOR k is: "<<ans3<<endl;
 
 
 
