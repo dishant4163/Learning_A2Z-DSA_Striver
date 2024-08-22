@@ -1,6 +1,29 @@
 /*(Merge Overlapping Sub-intervals_Coding Ninja)-> href="https://bit.ly/3pAeTyp"    
 
+#include<vector>
 
+vector<vector<int>> mergeOverlappingIntervals(vector<vector<int>> &arr){
+	// Write your code here.
+	int n = arr.size();
+
+    sort(arr.begin(), arr.end());
+
+    vector<vector<int>> ans;
+
+    for (int i=0; i<n; i++) {
+        // if the current interval does not lies in the last interval
+        if (ans.empty() || arr[i][0] > ans.back()[1]) {
+            ans.push_back(arr[i]);
+        }
+        // if the current interval lies in the last interval
+        else {
+            ans.back()[1] = max(ans.back()[1], arr[i][1]);
+        }
+    }
+
+    return ans;
+	
+}
 
 */
 
@@ -40,6 +63,33 @@ using namespace std;
     Reason: Sorting the given array takes  O(N*logN) time complexity. Now, after that, we are using 2 loops i and j. But while using loop i, we skip all the intervals that are merged with loop j. So, we can conclude that every interval is roughly visited twice(roughly, once for checking or skipping and once for merging). So, the time complexity will be 2*N instead of N^2.
   # Space Complexity: O(N), as we are using an answer list to store the merged intervals. Except for the answer array, we are not using any extra space.
 */
+vector<vector<int>>mergeOverlappingIntervals_1(vector<vector<int>> &ar1){
+	int n1 = ar1.size();
+    sort(ar1.begin(), ar1.end());
+    vector<vector<int>> ans1;
+    for (int i=0; i<n1; i++) {
+        int start = ar1[i][0];
+        int end = ar1[i][1];
+
+        //Skip all the merged intervals
+        if (!ans1.empty() && end <= ans1.back()[1]) {
+            continue;
+        }
+
+        //check the rest of the intervals
+        for (int j = i+1; j<n1; j++) {
+            if(ar1[j][0] <= end) {
+                end = max(end, ar1[j][1]);
+            }
+            else{
+                break;
+            }
+        }
+        ans1.push_back({start, end});
+    }
+
+    return ans1;
+}
 
 
 
@@ -79,7 +129,25 @@ The steps are as follows:
     Reason: Sorting the given array takes  O(N*logN) time complexity. Now, after that, we are just using a single loop that runs for N times. So, the time complexity will be O(N).
   # Space Complexity: O(N), as we are using an answer list to store the merged intervals. Except for the answer array, we are not using any extra space.
 */
+vector<vector<int>>mergeOverlappingIntervals_2(vector<vector<int>> &ar2) {
+    int n2 = ar2.size();
+    //sort the given intervals
+    sort(ar2.begin(), ar2.end());
+    vector<vector<int>> ans2;
 
+    for (int i=0; i<n2; i++) {
+    // if the current interval does not lie in the last interval
+        if(ans2.empty() || ar2[i][0] > ans2.back()[1]) {
+            ans2.push_back(ar2[i]);
+        }
+        // if the current interval lies in the last interval
+        else {
+            ans2.back()[1] = max(ans2.back()[1], ar2[i][1]);
+        }
+    }
+
+    return ans2;
+}
 
 
 
@@ -91,12 +159,24 @@ The steps are as follows:
 int main() {
 
 // Soln 1: Brute 
+    vector<vector<int>> ar1 = {{1, 3}, {8, 10}, {2, 6}, {15, 18}};
+    vector<vector<int>> ans1 = mergeOverlappingIntervals_1(ar1);
+    cout << "The merged intervals are: " <<endl;
+    for (auto it : ans1) {
+        cout << "[" << it[0] << ", " << it[1] << "] ";
+    }
+    cout << endl;
 
 
 
 // Soln 2: Optimal
-
-
+    vector<vector<int>> ar2 = {{1, 3}, {8, 10}, {2, 6}, {15, 18}};
+    vector<vector<int>> ans2 = mergeOverlappingIntervals_2(ar2);
+    cout << "The merged intervals are: " << endl;
+    for (auto it : ans2) {
+        cout << "[" << it[0] << ", " << it[1] << "] ";
+    }
+    cout << endl;
 
 
 
