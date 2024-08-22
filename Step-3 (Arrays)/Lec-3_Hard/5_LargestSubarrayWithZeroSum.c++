@@ -1,9 +1,32 @@
 // Before doing this problem revise Kadane's Algo(4 generating subarray)
-// & then Check the Lec-1_Eassy->14th problem
+// & then Check the Lec-1_Eassy-> 13th & 14th problem
 
 /*(Largest Subarray with Zero Sum_Coding Ninja)-> https://bit.ly/42OqnNq    
 
-
+#include<bits/stdc++.h>
+int getLongestZeroSumSubarrayLength(vector<int> &arr){
+	// Write your code here.
+	int n = arr.size();
+	unordered_map<int, int> preSumMp;
+	int maxLen=0;
+	int sum=0;
+    for (int i=0; i<n; i++) {
+		sum += arr[i];
+		if (sum == 0) {
+			maxLen=i+1;
+		}
+		else {
+			if (preSumMp.find(sum) != preSumMp.end()) {
+				maxLen=max(maxLen, i-preSumMp[sum]);
+			}
+			else {
+				preSumMp[sum]=i;
+			}
+		}
+	}
+	
+	return maxLen;
+}
 
 */
 
