@@ -1,6 +1,32 @@
 /*// (Count the number of subarrays with given xor K_Coding Ninja)-> https://bit.ly/3jLfElm  
 
+#include<bits/stdc++.h>
+int subarraysWithSumK(vector < int > a, int b) {
+    // Write your code here
+    int n=a.size();
+    int xr=0;
 
+    //Declaring the map
+    map<int, int> mp;
+    mp[xr]++; //setting the value of 0
+    int cnt = 0;
+
+    for (int i=0; i<n; i++) {
+        // prefix XOR till index i
+        xr = xr^a[i];
+
+        //By formula: x = xr^k:
+        int x = xr^b;
+
+        // add the occurrence of xr^k to the count
+        cnt += mp[x];
+
+        // Insert prefix XOR till index 'i' into the map
+        mp[xr]++;
+    }
+
+    return cnt;
+}
 
 */
 
