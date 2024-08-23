@@ -1,6 +1,75 @@
 /*(Merge two Sorted Arrays Without Extra Space_Coding Ninja)-> https://bit.ly/3jLQGSS      
 
+// Optimal Soln1
+#include<bits/stdc++.h>
+void mergeTwoSortedArraysWithoutExtraSpace(vector<long long> &a, vector<long long> &b){
+	// Write your code here.
+	
+	//Declare 2 pointers:
+    int left = a.size()-1;
+    int right = 0;
 
+    //Swap the elements until arr1[left] is
+    // smaller than arr2[right]:
+    while (a[left] > b[right]) {
+            swap(a[left], b[right]);
+            left--, right++;
+    }
+
+    // Sort arr1[] and arr2[] individually:
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+}
+
+
+
+
+
+// Optimal Soln2
+
+#include<vector>
+void swapIfGreater(vector<long long> &a, vector<long long> &b, int ind1, int ind2) {
+	if (a[ind1] > b[ind2]) {
+		swap(a[ind1], b[ind2]);
+	}
+}
+
+void mergeTwoSortedArraysWithoutExtraSpace(vector<long long> &a, vector<long long> &b){
+	int n = a.size();
+	int m = b.size();
+	// Write your code here.
+	int len = n+m;
+
+	//initial gap
+	int gap = (len / 2) + (len%2);
+
+	while (gap > 0) {
+		// place 2 pointers
+		int left = 0;
+		int right = left + gap;
+        
+		while(right < len) {
+			// case 1: left in arr1[] and right in arr2[]
+			if (left < n && right >= n) {
+				swapIfGreater(a, b, left, right-n);
+			}
+			// case 2: both pointers in arr2[]
+			else if (left >= n) {
+				swapIfGreater(b, b, left-n, right-n);
+			}
+			// case 3: both pointers in arr1[]
+			else {
+				swapIfGreater(a, a, left, right);
+			}
+			left++, right++;
+		}
+        // break if iteration gap=1 is completed
+		if (gap == 1) break;
+        // Otherwise, calculate new gap
+		gap = (gap/2) + (gap%2);
+
+	}
+}
 
 */
 
@@ -23,7 +92,7 @@ Output: arr1[] = [1 2 3 4]  arr2[] = [8 9 10]
 using namespace std;
 
 
-/*// Soln 1: Brute Force(Naive) 
+/*// Soln 1: Brute Force(Naive-using pointers) 
    Intuition:- Intuition is pretty straightforward. As the given arrays are sorted, we are using 2 pointer approach to get a third array, that contains all the elements from the given two arrays in the sorted order. Now, from the sorted third array, we are again filling back the given two arrays.
 
    Approach:- The steps are as follows:
@@ -104,6 +173,22 @@ The sizes of the given arrays are n(size of arr1[]) and m(size of arr2[]).
     Reason: O(min(n, m)) is for swapping the array elements. And O(n*logn) and O(m*logm) are for sorting the two arrays.
   # Space Complexity: O(1) as we are not using any extra space.
 */
+void merge_2(long long ar1[], long long ar2[], int n, int m) {
+    int L = n-1;
+    int R = 0;
+
+    while(L >= 0 && R < m) {
+        if (ar1[L] > ar2[R]) {
+            swap(ar1[L], ar2[R]);
+            L--, R++;
+        }
+        else {
+            break;
+        }
+    }
+    sort(ar1, ar1 + n);
+    sort(ar2, ar2 + m);
+}
 
 
 
@@ -143,7 +228,48 @@ gap = ceil( previous gap / 2)
     Reason: The gap is ranging from n+m to 1 and every time the gap gets divided by 2. So, the time complexity of the outer loop will be O(log(n+m)). Now, for each value of the gap, the inner loop can at most run for (n+m) times. So, the time complexity of the inner loop will be O(n+m). So, the overall time complexity will be O((n+m)*log(n+m)).
   # Space Complexity: O(1) as we are not using any extra space.
 */ 
+void swapIfGreater(long long arr1[], long long arr2[], int ind1, int ind2) { // swap function 
+    if (arr1[ind1] > arr2[ind2]) {
+        swap(arr1[ind1], arr2[ind2]);
+    }
+}
 
+
+void merge_3(long long arr1[], long long arr2[], int n, int m) {
+    // len of the imaginary single array
+    int len = n + m;
+
+    // Initial gap:
+    int gap = (len / 2) + (len % 2);
+
+    while (gap > 0) {
+        // Place 2 pointers:
+        int left = 0;
+        int right = left + gap;
+        while (right < len) {
+            // case 1: left in arr1[]
+            //and right in arr2[]:
+            if (left < n && right >= n) {
+                swapIfGreater(arr1, arr2, left, right - n);
+            }
+            // case 2: both pointers in arr2[]:
+            else if (left >= n) {
+                swapIfGreater(arr2, arr2, left - n, right - n);
+            }
+            // case 3: both pointers in arr1[]:
+            else {
+                swapIfGreater(arr1, arr1, left, right);
+            }
+            left++, right++;
+        }
+        // break if iteration gap=1 is completed:
+        if (gap == 1) break;
+
+        // Otherwise, calculate new gap:
+        gap = (gap / 2) + (gap % 2);
+    }
+
+}
 
 
 
@@ -172,10 +298,38 @@ int main(){
 
 
 // Soln 2.1:
+    long long ar1[] = {1, 4, 8, 10};
+    long long ar2[] = {2, 3, 9};
+    int n=4, m=3;
+    merge_2(ar1, ar2, n, m);
+    cout << "The merged arrays are: "<<endl;
+    cout << "ar1[] = ";
+    for (int i=0; i<n; i++) {
+        cout << ar1[i] <<" ";
+    }
+    cout << endl << "ar2[] = ";
+    for (int i=0; i<m; i++) {
+        cout << ar2[i] << " ";
+    }
+    cout << endl;
 
 
 
 // Soln 2.2:
+    long long arr1[] = {1, 8, 8};
+    long long arr2[] = {2, 3, 4, 5};
+    int n=3, m=4;
+    merge_3(arr1, arr2, n, m);
+    cout << "The merged arrays are: "<<endl;
+    cout << "ar1[] = ";
+    for (int i=0; i<n; i++) {
+        cout << arr1[i] <<" ";
+    }
+    cout << endl << "ar2[] = ";
+    for (int i=0; i<m; i++) {
+        cout << arr2[i] << " ";
+    }
+    cout << endl;
 
 
 
