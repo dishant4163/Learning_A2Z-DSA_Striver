@@ -2,7 +2,7 @@
 
 vector<int> findMissingRepeatingNumbers(vector < int > a) {
     // Write your code here
-    int n = a.size(); // size of the array
+    long long n = a.size(); // size of the array
 
     long long SN = (n*(n+1)) / 2;
     long long S2N = (n*(n+1)*(2*n+1)) / 6;
