@@ -1,4 +1,4 @@
-/*(Merge two Sorted Arrays Without Extra Space_Coding Ninja)->    
+/*(Merge two Sorted Arrays Without Extra Space_Coding Ninja)-> https://bit.ly/3jLQGSS      
 
 
 
@@ -43,6 +43,45 @@ Assume the size of the given arrays are n and m.
     Reason: O(n+m) is for copying the elements from arr1[] and arr2[] to arr3[]. And another O(n+m) is for filling back the two given arrays from arr3[].
   # Space Complexity: O(n+m) as we use an extra array of size n+m.
 */
+void merge_1(long long ar1[], long long ar2[], int n, int m) {
+    //Declare a 3rd array & 2 pointers
+    long long ar3[n+m];
+    int left=0; // pointer1 of arr1 at starting index
+    int right=0; // pointer2 of arr2 at starting index
+
+    int index=0;
+
+    // Insert the elements from the 2 arrays into the 
+    // 3rd array using left and right pointers:
+
+    while(left < n && right < m) {
+        if (ar1[left] <= ar2[right]) {
+            ar3[index] = ar1[left];
+            left++, index++;
+        }
+        else {
+            ar3[index] = ar2[right];
+            right++, index++;
+        }
+    }
+
+    // If right pointer reaches the end 
+    while(left < n) {
+        ar3[index++] = ar1[left++];
+    }
+
+    // If right pointer reaches the end 
+    while(right < m) {
+        ar3[index++] = ar2[right++];
+    }
+
+    // Fill back the elements from arr3[]
+    // to arr1[] and arr2[]
+    for (int i = 0; i < (n+m); i++) {
+        if (i < n) ar1[i] = ar3[i];
+        else ar2[i - n] = ar3[i];
+    }
+}
 
 
 
@@ -114,7 +153,21 @@ gap = ceil( previous gap / 2)
 
 int main(){
 
-// Soln 1:
+// Soln 1: Brute(Naive-using pointers)
+    long long ar1[] = {1, 4, 8, 10};
+    long long ar2[] = {2, 3, 9};
+    int n=4, m=3;
+    merge_1(ar1, ar2, n, m);
+    cout << "The merged arrays are: "<<endl;
+    cout << "ar1[] = ";
+    for (int i=0; i<n; i++) {
+        cout << ar1[i] <<" ";
+    }
+    cout << endl << "ar2[] = ";
+    for (int i=0; i<m; i++) {
+        cout << ar2[i] << " ";
+    }
+    cout << endl;
 
 
 
