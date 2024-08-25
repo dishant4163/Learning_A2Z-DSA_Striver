@@ -1,4 +1,4 @@
-/*(Binary Search: Find X in sorted array _)-> https://bit.ly/41wXCne   
+/*(Binary Search: Find X in sorted array _Coding Ninja)-> https://bit.ly/41wXCne   
 
 //using Recursive Method
 int bS(vector<int> &nums, int low, int high, int target) {
@@ -63,7 +63,7 @@ The above steps will continue until either we found the target or the search spa
 
   # So the overall time complexity is O(logN), where N = size of the given array.
 */
-int binarySearch(vector<int>&nums, int target1) {
+/*int binarySearch(vector<int>&nums, int target1) {
     int n1 = nums.size();
     int low = 0, high = n1 - 1;
 
@@ -76,7 +76,7 @@ int binarySearch(vector<int>&nums, int target1) {
     }
     return -1;
 }
-
+*/
 
 
 
@@ -100,7 +100,7 @@ The steps are as follows:
 
   # So the overall time complexity is O(logN), where N = size of the given array.
 */
-int bS(vector<int>&arr, int low, int high, int target) {
+/*int bS(vector<int>&arr, int low, int high, int target) {
     if (low > high) return -1;
 
     int mid = low + (high-low) / 2;
@@ -116,13 +116,13 @@ int bS(vector<int>&arr, int low, int high, int target) {
 int search(vector<int>&arr, int target) {
     return bS(arr, 0, arr.size()-1, target);
 }
-
+*/
 
 
 
 int main() {
 
-// Iterative Implementation
+/*// Iterative Implementation
     vector<int> num = {3, 4, 6, 7, 9, 12, 16, 17};
     int target1 = 6;
     int ind = binarySearch(num, target1);
@@ -132,10 +132,10 @@ int main() {
     else { 
         cout <<"The target is at index: "<<ind<<endl;
     }
+*/
 
 
-
-// Recursive Implementation
+/*// Recursive Implementation
     vector<int> ar = {3, 4, 6, 7, 9, 12, 16, 17};
     int target = 16;
     int ind = search(ar, target);
@@ -145,7 +145,7 @@ int main() {
     else {
         cout << "The target is at index: "<<ind<<endl;
     }
-
+*/
 
 
 
