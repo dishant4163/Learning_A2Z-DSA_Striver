@@ -18,3 +18,9 @@
 1. Lec-1 Easy
 2. Lec-2 Medium
 3. Lec-3 Hard
+
+
+# Step-4 Binary Search[1D, 2D Arrays, Search Space]
+1. Lec-1 BS on 1D Arrays
+2. Lec-2 BS on Answers
+3. Lec-3 BS on 2D Arrays
