@@ -1,56 +1,61 @@
 /*(First or Last Occurrences Of a Given Number in a Sorted Array_Coding Ninja)-> https://bit.ly/3Mdw2FX  
 
-int lowerBound(vector<int> arr, int n, int x) {
+//NOTE:Problem solve on coding ninja has diff. soln i.e LowerBound&UpperBound approach so it takes {2x(log N)}
+// So use binary search approach for solving this which takes (O_logn)
+int firstOccur(vector<int>&arr, int n, int k) {
     int low=0, high = n-1;
-    int ans = n;
-
+    int first = -1;
     while(low <= high) {
-        int mid = low + (high - low) / 2;
-        // maybe answer
-        if(arr[mid] >= x) {
-            ans = mid;
-            //Look for smaller index on the left
+        int mid = low + (high - low)/2;
+
+        if (arr[mid] == k) {
+            first = mid;
             high = mid - 1;
         }
-        else {
+        else if (arr[mid] < k) {
             low = mid + 1;
         }
+        else {
+            high = mid -1;
+        }
     }
-    return ans;
+    return first;
 }
 
-int upperBound(vector<int>&arr, int n, int x) {
-    int low=0, high=n-1;
-    int ans = n;
-
+int lastOccur(vector<int>&arr, int n, int k){
+    int low=0, high = n-1;
+    int last = -1;
     while(low <= high) {
-        int mid = low + (high - low) / 2;
-        //maybe an answer
-        if(arr[mid] > x) {
-            ans = mid;
-            high = mid - 1;
-        }
-        else {
+        int mid = low + (high - low)/2;
+
+        if (arr[mid] == k) {
+            last = mid;
             low = mid + 1;
         }
+        else if (arr[mid] < k) {
+            low = mid + 1;
+        }
+        else {
+            high = mid -1;
+        }
     }
-    return ans;
+    return last;
 }
 
 pair<int, int> firstAndLastPosition(vector<int>& arr, int n, int k)
 {
-    // Write your code here.
-    int lb = lowerBound(arr, n, k);
-    int ub = upperBound(arr, n, k);
-    if ((lb == n) || (arr[lb] != k)) return {-1, -1};
-    return {lb, ub - 1};
+    // Write your code here
+    int first = firstOccur(arr, n, k);
+    int last =lastOccur(arr, n, k);
+    if (first == -1) return {-1, -1};
+    return {first, last};
 }
+
 
 
 */
 
 
-/*NOTE:problem solve on coding ninja has diff. soln but have same approach*/
 
 #include<bits/stdc++.h>
 using namespace std;
