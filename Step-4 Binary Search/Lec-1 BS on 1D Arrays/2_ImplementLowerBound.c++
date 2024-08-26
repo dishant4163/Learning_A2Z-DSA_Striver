@@ -91,7 +91,7 @@ int lowerBound(vector<int> ar, int n, int x) {
     int low=0, high = n-1;
     int ans = n;
 
-    while(low < high) {
+    while(low <= high) {
         int mid = low + (high - low) / 2;
         // maybe answer
         if(ar[mid] >= x) {
