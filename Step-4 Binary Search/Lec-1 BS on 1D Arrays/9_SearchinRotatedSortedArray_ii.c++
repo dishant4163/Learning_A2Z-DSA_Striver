@@ -76,6 +76,14 @@ using namespace std;
   # Space Complexity: O(1)
     Reason: We have not used any extra data structures, this makes space complexity, even in the worst case as O(1).
 */
+bool searchInARotatedSortedArrayII(vector<int>&arr, int k){
+    int n=arr.size();
+    for (int i=0; i<n; i++) {
+        if(arr[i] == k) return true;
+    }
+    return false;
+}
+
 
 
 
@@ -118,7 +126,44 @@ using namespace std;
   # Space Complexity: O(1)
     Reason: We have not used any extra data structures, this makes space complexity, even in the worst case as O(1).
 */ 
+bool searchInARotatedSortedArrayII(vector<int>&ar, int k){
+    int n=ar.size();
+    int low=0, high=n-1;
 
+    while(low <= high) {
+        int mid = low + (high-low)/2;
+
+        if(ar[mid] == k) return true;
+
+        //EDGE CASE
+        if (ar[low] == ar[mid] && ar[mid] == ar[high]) {
+            low++; // increase the low ptr
+            high--; // decrease the high ptr
+            continue;
+        }
+
+        //if left part is sorted:
+        if (ar[low] <= ar[mid]) {
+            if(ar[low] <= k && k <= ar[mid]) {
+                high = mid -1; //element exists:
+            }
+            else {
+                low = mid + 1;//element doesn't exists:
+            }
+        }
+
+        //If right part is sorted
+        else {
+            if (ar[mid] <= k && k <= ar[high]) {
+                low = mid + 1;//element exists:
+            }
+            else {
+                high = mid - 1;//element doesn't exists:
+            }
+        }
+    }
+    return false;
+}
 
 
 
@@ -128,11 +173,26 @@ using namespace std;
 int main() {
 
 // Soln 1: Brute Force(using Linear Search)
+    vector<int> arr = {7, 8, 1, 2, 3, 3, 3, 4, 5, 6};
+    int k = 3;
+    bool sol = searchInARotatedSortedArrayII(arr, k);
+    if(!sol) {
+        cout <<"Target is not present in the given array."<<endl;
+    }
+    else {
+        cout << "Target is present in the array."<<endl;
+    }
 
 
 
 // Soln 2: Optimal(using Binary Search) 
-
+    vector<int> ar = {7, 8, 1, 2, 3, 3, 3, 4, 5, 6};
+    int k = 3;
+    bool ans = searchInARotatedSortedArrayII(ar, k);
+    if (!ans)
+        cout << "Target is not present."<<endl;
+    else
+        cout << "Target is present in the array." << endl;
 
 
 
