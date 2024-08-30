@@ -1,6 +1,40 @@
 /*(Split Array-Largest Sum_Coding Ninja)-> https://bit.ly/3OiMPKa  
 
+int countPartitions(vector<int> &a, int maxSum) {
+    int n = a.size();
+    int cntPartitions = 1;
+    long long subArraySum = 0;
 
+    for (int i=0; i < n; i++) {
+        if (subArraySum + a[i] <= maxSum) {
+            subArraySum += a[i];
+        }
+        else {
+            cntPartitions++;
+            subArraySum = a[i];
+        }
+    }
+    return cntPartitions;
+}
+
+
+int largestSubarraySumMinimized(vector<int> a, int k) {
+    // Write Your Code Here
+    int low = *max_element(a.begin(), a.end());
+    int high = accumulate(a.begin(), a.end(), 0);
+
+    while(low <= high) {
+        int mid = low + (high - low) / 2;
+        int partitionArr = countPartitions(a, mid);
+        if (partitionArr > k) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
+    return low;
+}
 
 */
 
@@ -44,6 +78,33 @@ using namespace std;
     Reason: We are using a loop from max(arr[]) to sum(arr[]) to check all possible values of time. Inside the loop, we are calling the countPartitions() function for each number. Now, inside the countPartitions() function, we are using a loop that runs for N times.
   # Space Complexity:  O(1) as we are not using any extra space to solve this problem.
 */
+int countPartitions(vector<int>&ar, int maxsum) {
+    int n1 = ar.size();
+    int cntpartitions = 1;
+    long long subarrSum = 0;
+
+    for (int i=0; i< n1; i++) {
+      if(subarrSum + ar[i] <= maxsum) {
+        subarrSum += ar[i];
+      }
+      else {
+        cntpartitions++;
+        subarrSum = ar[i];
+      }
+    }
+    return cntpartitions;
+}
+
+int largestSubarraySumMinimized1(vector<int>&a1, int k1) {
+    int low1 = *max_element(a1.begin(), a1.end());
+    int high1 = accumulate(a1.begin(), a1.end(), 0);
+
+    for (int maxSum = low1; maxSum <=high1; maxSum++) {
+      if (countPartitions(a1, maxSum) == k1) 
+        return maxSum;
+    }
+    return low1;
+}
 
 
 
@@ -71,7 +132,38 @@ The steps from 3-4 will be inside a loop and the loop will continue until low cr
     Reason: We are applying binary search on [max(arr[]), sum(arr[])]. Inside the loop, we are calling the countPartitions() function for the value of ‘mid’. Now, inside the countPartitions() function, we are using a loop that runs for N times.
   # Space Complexity:  O(1) as we are not using any extra space to solve this problem.
 */
+int CountPartitions(vector<int>&a, int maxSum) {
+  int n=a.size();
+  int cntPartions = 1;
+  long long subArraySum = 0;
+  for (int i=0; i<n; i++) {
+    if (subArraySum + a[i] <= maxSum) {
+      subArraySum += a[i];
+    }
+    else {
+      cntPartions++;
+      subArraySum = a[i];
+    }
+  }
+  return cntPartions;
+}
 
+int largestSubarraySumMinimized(vector<int>&a, int k) {
+    int low = *max_element(a.begin(), a.end());
+    int high = accumulate(a.begin(), a.end(), 0);
+
+    while(low <= high) {
+      int mid = low + (high - low);
+      int partitions = CountPartitions(a, mid);
+      if (partitions > k) {
+        low = mid + 1;
+      }
+      else {
+        high = mid - 1;
+      }
+    }
+    return low;
+}
 
 
 
@@ -79,6 +171,22 @@ The steps from 3-4 will be inside a loop and the loop will continue until low cr
 
 
 int main() {
+
+// Soln 1: Brute Force(Naive-Linear iteration)
+    vector<int> a1 = {10, 20, 30, 40};
+    int k1 = 2;
+    int ans1 = largestSubarraySumMinimized1(a1, k1);
+    cout << "The answer is: " << ans1 << endl;
+
+
+
+// Soln 2: Optimal(BS)
+    vector<int> a = {10, 20, 30, 40};
+    int k = 2;
+    int ans = largestSubarraySumMinimized(a, k);
+    cout << "The answer is: " << ans << endl;
+
+
 
 
     return 0;
