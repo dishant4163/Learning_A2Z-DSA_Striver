@@ -1,6 +1,42 @@
 /*(Painter's Partition Problem_Coding Ninja)-> https://bit.ly/3XM8oFS   
 
+int countPainters(vector<int>&boards, int time) {
+    int n = boards.size();
+    int painters = 1;
+    long long boardsPainter = 0;
+    for (int i=0; i < n; i++) {
+        if (boardsPainter + boards[i] <= time) {
+            //allocate board to current painter
+            boardsPainter += boards[i];
+        }
+        else {
+            //allocate board to next painter
+            painters++;
+            boardsPainter = boards[i];
+        }
+    }
+    return painters;
+}
 
+
+int findLargestMinDistance(vector<int> &boards, int k)
+{
+    //    Write your code here.
+    int low = *max_element(boards.begin(), boards.end());
+    int high = accumulate(boards.begin(), boards.end(), 0);
+    // Apply Binary Search
+    while(low <= high) {
+        int mid = low + (high - low) /2;
+        int Painters = countPainters(boards, mid);
+        if (Painters > k) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
+    return low;
+}
 
 */
 
@@ -45,6 +81,37 @@ using namespace std;
     Reason: We are using a loop from max(arr[]) to sum(arr[]) to check all possible values of time. Inside the loop, we are calling the countPainters() function for each number. Now, inside the countPainters() function, we are using a loop that runs for N times.
   # Space Complexity:  O(1) as we are not using any extra space to solve this problem.
 */
+int countPainters1(vector<int> &boards1, int time1) {
+    int n1 = boards1.size(); //size of array.
+    int painters1 = 1;
+    long long boardsPainter1 = 0;
+    for (int i = 0; i < n1; i++) {
+        if (boardsPainter1 + boards1[i] <= time1) {
+            //allocate board to current painter
+            boardsPainter1 += boards1[i];
+        }
+        else {
+            //allocate board to next painter
+            painters1++;
+            boardsPainter1 = boards1[i];
+        }
+    }
+    return painters1;
+}
+
+int findLargestMinDistance1(vector<int> &boards1, int k1) {
+    int low1 = *max_element(boards1.begin(), boards1.end());
+    int high1 = accumulate(boards1.begin(), boards1.end(), 0);
+
+    //Apply Brute Force(linear iteration)
+    for (int time = low1; time <= high1; time++) {
+      if ((countPainters1(boards1, time)) <= k1) {
+        return time;
+      }
+    }
+    return low1;
+} 
+
 
 
 
@@ -70,7 +137,40 @@ using namespace std;
     Reason: We are applying binary search on [max(arr[]), sum(arr[])]. Inside the loop, we are calling the countPainters() function for the value of ‘mid’. Now, inside the countPainters() function, we are using a loop that runs for N times.
   # Space Complexity:  O(1) as we are not using any extra space to solve this problem.
 */
+int countPainters(vector<int> &boards, int time) {
+    int n = boards.size(); //size of array.
+    int painters = 1;
+    long long boardsPainter = 0;
+    for (int i = 0; i < n; i++) {
+        if (boardsPainter + boards[i] <= time) {
+            //allocate board to current painter
+            boardsPainter += boards[i];
+        }
+        else {
+            //allocate board to next painter
+            painters++;
+            boardsPainter = boards[i];
+        }
+    }
+    return painters;
+}
 
+int findLargestMinDistance(vector<int> &boards, int k) {
+    int low = *max_element(boards.begin(), boards.end());
+    int high = accumulate(boards.begin(), boards.end(), 0);
+    //Apply binary search:
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        int painters = countPainters(boards, mid);
+        if (painters > k) {
+            low = mid + 1;
+        }
+        else {
+            high = mid - 1;
+        }
+    }
+    return low;
+}
 
 
 
@@ -81,10 +181,19 @@ using namespace std;
 int main() {
 
 // Soln 1: Brute Force
+    vector<int> boards1 = {10, 20, 30, 40};
+    int k1 = 2;
+    int ans1 = findLargestMinDistance1(boards1, k1);
+    cout << "The answer is: " << ans1 << endl;
 
 
 
 // Soln 2: Optimal
+    vector<int> boards = {10, 20, 30, 40};
+    int k = 2;
+    int ans = findLargestMinDistance(boards, k);
+    cout << "The answer is: " << ans << endl;
+
 
 
 
