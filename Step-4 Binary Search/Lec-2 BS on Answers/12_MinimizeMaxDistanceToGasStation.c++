@@ -1,5 +1,45 @@
 /*(Minimise Max Distance between Gas Stations_Coding Ninja)-> https://bit.ly/452QhyM    
 
+int numOfgasStationReq(long double dist, vector<int>&ar) {
+	int n = ar.size();
+	int cnt = 0;
+	for (int i=1; i<n; i++) {
+		int numInBetween = ((ar[i] - ar[i-1]) / dist);
+		if((ar[i] - ar[i-1]) == (dist * numInBetween)) {
+			numInBetween--;
+		}
+		cnt += numInBetween;
+	}
+	return cnt;
+}
+
+
+long double minimiseMaxDistance(vector<int> &arr, int k){
+	// Write your code here.
+	int n = arr.size();
+	long double low = 0;
+	long double high = 0;
+
+	for (int i=0; i<n-1; i++) {
+		high = max(high, (long double)(arr[i+1] - arr[i]));
+	}
+
+	long double diff = 1e-6;
+	while((high-low) > diff) {
+		long double mid = low + (high - low) / 2.0;
+		int cntgasSt = numOfgasStationReq(mid , arr);
+		if (cntgasSt > k) {
+			low = mid;
+		}
+		else {
+			high = mid;
+		}
+	}
+	return high;
+}
+
+
+
 
 */
 
@@ -40,12 +80,47 @@ distance = section_length / (number_of_stations_ inserted+1)
     Reason: O(k*n) to insert k gas stations between the existing stations with maximum distance. Another O(n) for finding the answer i.e. the maximum distance.
   # Space Complexity: O(n-1) as we are using an array to keep track of placed gas stations.
 */
+double minimiseMaxDistance1(vector<int> &a1, int k1){
+	// Write your code here. 
+  int n1 = a1.size();
+//size (n-1) (1 less than the no). Initialize all elements to 0:
+  vector<int> howMany1(n1 - 1, 0); // how many to place in the array:
+
+//Pick and place k gas stations:
+  for (int gasSt = 1; gasSt <= k1; gasSt++) {
+  //Find the maximum section
+  //and insert the gas station:
+    long double maxSection1 = -1;
+    long double maxInd1 = -1;
+    for (int i=0; i < n1 - 1; i++) {
+      long double diff1 = a1[i+1] - a1[i];
+      long double sectionLength1 = diff1 / (long double)(howMany1[i] + 1);
+
+      if (sectionLength1 > maxSection1) {
+        maxSection1 = sectionLength1;
+        maxInd1 = i;
+      }
+    }
+  //insert the current gas station:
+    howMany1[maxInd1]++;
+  }
+
+//Find the maximum distance i.e. the answer:
+  long double maxAns1 = -1;
+  for (int i=0; i < n1 - 1; i++) {
+    long double diff1 = a1[i+1] - a1[i];
+    long double sectionLength1 = diff1 / (long double)(howMany1[i] + 1);
+    maxAns1 = max(maxAns1, sectionLength1);
+  }
+  return maxAns1;
+}
 
 
 
 
 
-/*// Soln 2: Better(using Heap)   
+
+/*// Soln 2: Better(using Heap i.e., PQ)   
  Intuition- In the previous approach, for every gas station, we were finding the index i for which the distance between arr[i+1] and arr[i] is maximum. After that, our job was to place the gas station. Instead of using a loop to find the maximum distance, we can simply use the heap data structure i.e. the priority queue.
  Priority Queue: Priority queue internally uses the heap data structure. In the max heap implementation, the first element is always the greatest of the elements it contains and the rest elements are in decreasing order.
 
@@ -71,6 +146,38 @@ distance = section_length / (number_of_stations_ inserted+1)
   # Space Complexity: O(n-1)+O(n-1)
     Reason: The first O(n-1) is for the array to keep track of placed gas stations and the second one is for the priority queue.
 */
+long double minimiseMaxDistance2(vector<int>&a2, int k2) {
+  int n2 = a2.size();
+  //size (n-1) (1 less than the no). Initialize all elements to 0:
+  vector<int> howMany2(n2 - 1, 0);
+  //declare Priority Queue:
+  priority_queue<pair<long double, int>> pq;
+  for (int i=0; i < n2-1; i++) {
+  //insert first n-1 elements into pq with resp. dist values:
+    pq.push({a2[i + 1] - a2[i], i});
+  }
+
+  //pick and placed gas stations:
+  for (int gasSt = 1; gasSt <= k2; gasSt++) {
+    // find max. section & insert gas stations
+    auto topp = pq.top(); //get top element in pq
+    pq.pop(); //Remove max. distance from the pq.
+    //declare sectionIndex
+    int sectionInd = topp.second;
+
+    //insert the current gas station which is at secInd:
+    howMany2[sectionInd]++;
+
+    // initial difference
+    long double inidiff1 = a2[sectionInd +1] - a2[sectionInd];
+    // new section Length
+    long double newSecLen = inidiff1 / (long double)(howMany2[sectionInd] + 1);
+    pq.push({newSecLen, sectionInd});
+  }
+
+// return the top element which now min(max dist) as answer
+  return pq.top().first;  
+}
 
 
 
@@ -118,7 +225,44 @@ distance = section_length / (number_of_stations_ inserted+1)
 
   # Space Complexity: O(1) as we are using no extra space to solve this problem.
 */
+int numberOfGasStationsRequired(long double dist, vector<int> &arr) {
+    int n = arr.size(); // size of the array
+    int cnt = 0;
+    for (int i = 1; i < n; i++) {
+        int numberInBetween = ((arr[i] - arr[i - 1]) / dist);
+        if ((arr[i] - arr[i - 1]) == (dist * numberInBetween)) {
+            numberInBetween--;
+        }
+        cnt += numberInBetween;
+    }
+    return cnt;
+}
 
+
+long double minimiseMaxDistance(vector<int> &arr, int k) {
+    int n = arr.size(); // size of the array
+    long double low = 0;
+    long double high = 0;
+
+    //Find the maximum distance:
+    for (int i = 0; i < n - 1; i++) {
+        high = max(high, (long double)(arr[i + 1] - arr[i]));
+    }
+
+    //Apply Binary search:
+    long double diff = 1e-6 ;
+    while (high - low > diff) {
+        long double mid = (low + high) / (2.0);
+        int cnt = numberOfGasStationsRequired(mid, arr);
+        if (cnt > k) {
+            low = mid;
+        }
+        else {
+            high = mid;
+        }
+    }
+    return high;
+}
 
 
 
@@ -129,15 +273,26 @@ distance = section_length / (number_of_stations_ inserted+1)
 int main() {
 
 // Soln 1: Brute Force
+    vector<int> a1 = {1, 2, 3, 4, 5};
+    int k1 = 4;
+    long double ans1 = minimiseMaxDistance1(a1, k1);
+    cout << "The answer is: " << ans1 << endl;
 
 
 
 // Soln 2: Better
+    vector<int> a2 = {1,  13, 17, 23};
+    int k2 = 5;
+    long double ans2 = minimiseMaxDistance2(a2, k2);
+    cout << "The answer is: " << ans2 << endl;
 
 
 
 // Soln 3: Optimal
-
+    vector<int> arr = {1, 2, 3, 4, 5};
+    int k = 4;
+    long double ans = minimiseMaxDistance(arr, k);
+    cout << "The answer is: " << ans <<endl;
 
 
 
