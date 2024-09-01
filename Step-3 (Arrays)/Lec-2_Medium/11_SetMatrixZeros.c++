@@ -51,6 +51,12 @@ vector<vector<int>> zeroMatrix(vector<vector<int>> &matrix, int n, int m) {
 
 */
 
+
+// similar type but quite diff-> https://shorturl.at/oUKc4  (2D Matrix )
+// check this out too...
+
+
+
 //Problem Statement: Given a matrix if an element in the matrix is 0 then you will have to set its entire column and row to 0 and then return the matrix.
 
 
