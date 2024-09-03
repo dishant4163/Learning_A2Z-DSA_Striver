@@ -24,3 +24,11 @@
 1. Lec-1 BS on 1D Arrays
 2. Lec-2 BS on Answers
 3. Lec-3 BS on 2D Arrays
+
+
+# Step-6 Learn LinkedList [Single LL, Double LL, Medium, Hard Problems]
+1. Lec-1 Learn 1D LL
+2. Lec-2 Learn Doubly LL
+3. Lec-3 Medium Problems of LL
+4. Lec-4 Medium Problems of DLL
+5. Lec-5 Hard Problems of LL
