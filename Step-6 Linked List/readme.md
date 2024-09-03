@@ -1,4 +1,5 @@
-# Step-6: LinkedList -> Lec-1 1D LL Contains following Basic Topic of LL
+# Step-6: LinkedList 
+# -> Lec-1 1D LL Contains following Basic Topic of LL
 
 1. Intro to LinkedList, learn about 'struct', and how is node represented
 2. Convert ARRAY to LINKED-LIST.
