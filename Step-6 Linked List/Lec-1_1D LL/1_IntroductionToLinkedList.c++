@@ -1,4 +1,6 @@
-//Introduction To LinkedList__Coding Ninja-> Problems on LL
+//Introduction 2 LinkedList(Learn about struct/class & how is node represented)
+
+//Coding Ninja-> Problems on LL
 /*//(Convert an array to LL_Coding Ninja->  https://tinyurl.com/55cy4jtd )
 
 Node* constructLL(vector<int>& arr) {
