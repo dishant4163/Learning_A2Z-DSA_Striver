@@ -3,7 +3,7 @@
 //Coding Ninja_Problems on DLL->
 
 
-/*//(Introduction To Doubly Linked List)-> https://tinyurl.com/3fj6tvrt    
+/*//(1_Introduction To Doubly Linked List)-> https://tinyurl.com/3fj6tvrt    
 
 Node* constructDLL(vector<int>& arr) {
     // Write your code here
@@ -18,7 +18,7 @@ Node* constructDLL(vector<int>& arr) {
 }
 
 */ 
-/*//(Deletion of head of the DLL)-> https://tinyurl.com/mubc6f26     
+/*//(2_Deletion of head of the DLL)-> https://tinyurl.com/mubc6f26     
 
 Node * deleteHead(Node *head) {
     // Write your code here.
@@ -33,7 +33,7 @@ Node * deleteHead(Node *head) {
 }
 
 */
-/*//Deletion of tail of the DLL: https://tinyurl.com/4a9e8ceu   
+/*//(3_Deletion of tail of the DLL)-> https://tinyurl.com/4a9e8ceu   
 
 Node * deleteLastNode(Node *head) {
     // Write your code here
@@ -53,22 +53,22 @@ Node * deleteLastNode(Node *head) {
 }
 
 */
-/*//Deletion of the Kth node of the DLL: https://tinyurl.com/ytau6hwn   
+/*//(_Deletion of the Kth node of the DLL)-> https://tinyurl.com/ytau6hwn   
 
 
 
 */
-/*//Deletion of a given node(!head): https://tinyurl.com/2aady8f7     
+/*//(_Deletion of a given [node != head])-> https://tinyurl.com/2aady8f7     
 
 
 
 */
-/*//Insertion before the head: https://tinyurl.com/58fyn6d8           
+/*//(_Insertion before the head)-> https://tinyurl.com/58fyn6d8           
 
 
 
 */
-/*//Insert after a given Node: https://tinyurl.com/26yh8tv7           
+/*//(_Insert after a given Node)-> https://tinyurl.com/26yh8tv7           
 
 
 
