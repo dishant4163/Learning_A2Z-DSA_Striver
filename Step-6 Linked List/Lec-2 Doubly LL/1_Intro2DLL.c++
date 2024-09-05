@@ -1,9 +1,7 @@
 //Introduction 2 DoublyLL(Learn about struct/class & how is node represented)
 
 //Coding Ninja_Problems on DLL->
-
-
-/*//(1_Introduction To Doubly Linked List)-> https://tinyurl.com/3fj6tvrt    
+/*//(1-Introduction To Doubly LL)-> https://tinyurl.com/3fj6tvrt    
 
 Node* constructDLL(vector<int>& arr) {
     // Write your code here
@@ -18,7 +16,8 @@ Node* constructDLL(vector<int>& arr) {
 }
 
 */ 
-/*//(2_Deletion of head of the DLL)-> https://tinyurl.com/mubc6f26     
+
+/*//(2-Delete Head of a Doubly LL)-> https://tinyurl.com/mubc6f26     
 
 Node * deleteHead(Node *head) {
     // Write your code here.
@@ -33,7 +32,8 @@ Node * deleteHead(Node *head) {
 }
 
 */
-/*//(3_Deletion of tail of the DLL)-> https://tinyurl.com/4a9e8ceu   
+
+/*//(3-Delete Last Node of a Doubly LL)-> https://tinyurl.com/4a9e8ceu   
 
 Node * deleteLastNode(Node *head) {
     // Write your code here
@@ -53,26 +53,134 @@ Node * deleteLastNode(Node *head) {
 }
 
 */
-/*//(_Deletion of the Kth node of the DLL)-> https://tinyurl.com/ytau6hwn   
+
+/*//(4- Delete K-th Node from Doubly LL)-> https://tinyurl.com/ytau6hwn   
+
+Node * deleteHead(Node *head) {
+    // Write your code here.
+    if (head == NULL || head->next == NULL) return nullptr;
+
+    Node* temp = head;
+    head = head->next;
+    head->prev = nullptr;
+    temp->next = nullptr;
+    delete temp;
+    return head;
+}
 
 
+Node* deleteTail(Node* head) {
+    // Write your code here
+    if(head == NULL || head->next == NULL) return nullptr;
+
+    Node* tail = head;
+    while(tail->next != NULL) {
+        tail=tail->next;
+    }
+
+    Node* newTail = tail->prev;
+    newTail->next = nullptr;
+    tail->prev = nullptr;
+    delete tail;
+
+    return head;
+}
+
+
+
+Node *deleteNode(Node *head, int k){
+    // Write your code here
+    if(head == NULL) return NULL;
+    int cnt = 0;
+    Node* Ktemp = head;
+    while(Ktemp != NULL) {
+        cnt++;
+        if (cnt == k) break;
+        Ktemp = Ktemp->next;
+    }
+    Node* prevNode = Ktemp->prev;
+    Node* frontNode = Ktemp->next;
+
+    if(prevNode == NULL && frontNode == NULL) {
+        return NULL;
+    }
+    else if (prevNode == NULL) {
+        return deleteHead(head);
+    }
+    else if (frontNode == NULL) {
+        return deleteTail(head);
+    }
+    Ktemp->next = nullptr;
+    Ktemp->prev = nullptr;
+
+    prevNode->next = frontNode;
+    frontNode->prev = prevNode;
+
+    delete Ktemp;
+    return head;
+}
 
 */
-/*//(_Deletion of a given [node != head])-> https://tinyurl.com/2aady8f7     
 
 
+/*//(5- Delete node from Doubly LL)-> https://tinyurl.com/2aady8f7     
+
+void deleteNode(Node* node) {
+    //Write your code here.
+    Node* last = node->prev;
+    Node* front = node->next;
+
+    if(front == NULL) {
+        last->next = nullptr;
+        node->prev = nullptr;
+        free(node);
+        return;
+    }
+
+    last->next = front;
+    front->prev = last;
+
+    node->prev = node->next = nullptr;
+    free(node);
+}
 
 */
-/*//(_Insertion before the head)-> https://tinyurl.com/58fyn6d8           
+/*//(6-Insert At The Front of a Doubly LL)-> https://tinyurl.com/58fyn6d8           
 
-
+Node* insertAtFront(Node *head, int k) {
+    // Write your code here.
+    if(head == nullptr) return new Node(k);
+    Node* newHead = new Node(k);
+    newHead->next = head;
+    newHead->prev = nullptr;
+    head->prev = newHead;
+    return newHead;
+}
 
 */
-/*//(_Insert after a given Node)-> https://tinyurl.com/26yh8tv7           
+/*//(7-  Insert at end of Doubly LL)-> https://tinyurl.com/26yh8tv7           
 
+Node * insertAtTail(Node *head, int k) {
+    // Write your code here
+    if(head == NULL) {
+        return new Node(k);
+    }
 
+    Node* tail = head;
+    while(tail->next != NULL) {
+        tail = tail->next;
+    }
+
+    Node* newNode = new Node(k);
+    newNode->prev = tail;
+    newNode->next = nullptr;
+    tail->next = newNode;
+
+    return head;
+}
 
 */
+
 
 
 
