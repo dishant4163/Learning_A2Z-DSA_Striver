@@ -67,7 +67,7 @@ public:
 
 
    Complexity Analysis:-
-  # Time Complexity: O(N) The code traverses the entire linked list once, where 'N' is the number of nodes in the list. Therefore, the time complexity is linear, O(N).
+  # Time Complexity: O(N * 2 * log(N)) The code traverses the entire linked list once, where 'N' is the number of nodes in the list. Therefore, the time complexity is linear, O(N).
   # Space Complexity : O(N) The code uses a hash map/dictionary to store encountered nodes, which can take up to O(N) additional space, where 'n' is the number of nodes in the list. Hence, the space complexity is O(N) due to the use of the map to track nodes.
 */
 Node* detectLoopStart(Node* head) {
