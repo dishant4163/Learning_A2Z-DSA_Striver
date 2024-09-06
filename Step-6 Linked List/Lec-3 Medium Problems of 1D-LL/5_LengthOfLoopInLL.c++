@@ -1,5 +1,29 @@
 /*//(Find Length of Loop in Linked List_Coding Ninja)->  https://tinyurl.com/5n78kcda    
 
+int findLength(Node* slow, Node* fast){
+    int cnt = 1;
+    fast = fast->next;
+    while(slow != fast) {
+        cnt++;
+        fast = fast->next;
+    }
+    return cnt;
+}
+
+
+int lengthOfLoop(Node *head) {
+    // Write your code here
+    Node* slow = head;
+    Node* fast = head;
+    while(fast != NULL && fast->next != NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
+        if(slow == fast) {
+            return findLength(slow, fast);
+        }
+    }
+    return 0;
+}
 
 
 */
@@ -50,6 +74,23 @@ public:
   # Time Complexity: O(N * 2 * Log(N)) The code traverses the entire linked list at least once, where 'N' is the number of nodes in the list. Therefore, the time complexity is linear, O(N).
   # Space Complexity: O(N) The code uses a hashmap/dictionary to store encountered nodes, which can take up to O(N) additional space, where ‘N' is the number of nodes in the list. Hence, the space complexity is O(N) due to the use of the map to track nodes.
 */
+int lengthOfCycle(Node* head) {
+    unordered_map<Node* , int> visitedNodes;
+    Node* temp = head;
+    int timer = 0;
+
+    while(temp != NULL) {
+        if (visitedNodes.find(temp) != visitedNodes.end()) {
+            int length = timer - visitedNodes[temp];
+            return length;
+        }
+    visitedNodes[temp] = timer;
+    temp = temp->next;
+    timer++;
+    }
+
+    return 0;
+}
 
 
 
@@ -79,6 +120,58 @@ public:
   # Space Complexity: O(1) The code uses only a constant amount of additional space, regardless of the linked list's length. This is achieved by using two pointers (slow and fast) to detect the loop without any significant extra memory usage, resulting in constant space complexity, O(1).
 */
 
+// Function to return the lenght of loop when slow & fastare on the same node
+int findLength(Node* slow, Node* fast){
+    
+    // count to keep track of 
+    // nodes encountered in loop
+    int cnt = 1;
+    
+    // move fast by one step
+    fast = fast->next;
+    
+    // traverse fast till it 
+    // reaches back to slow
+    while(slow!=fast){
+        
+        // at each node increase
+        // count by 1 and move fast
+        // forward by one step
+        cnt++;
+        fast = fast->next;
+    }
+    
+    // loop terminates when fast reaches
+    // slow again and the count is returned
+    return cnt;
+}
+// Function to find the length
+// of the loop in a linked list
+int lengthOfLoop(Node* head) {
+    Node* slow = head;
+    Node* fast = head;
+
+    // Step 1: Traverse the list to detect a loop
+    while (fast != nullptr && fast->next != nullptr) {
+        // Move slow one step
+        slow = slow->next;     
+        // Move fast two steps
+        fast = fast->next->next;
+
+        // Step 2: If the slow and fast pointers
+        // meet, there is a loop
+        if (slow == fast) {
+            // return the number of nodes
+            // in the loop
+            return findLength(slow, fast);
+        }
+    }
+
+    // Step 3: If the fast pointer
+    // reaches the end, there is no loop
+    return 0; 
+}
+
 
 
 
@@ -87,12 +180,59 @@ public:
 int main() {
 
 //Soln 1: Brute Force (hashing)
+    // Create a sample linked
+    // list with a loop
+    Node* head = new Node(1);
+    Node* second = new Node(2);
+    Node* third = new Node(3);
+    Node* fourth = new Node(4);
+    Node* fifth = new Node(5);
 
+    // Create a loop from
+    // fifth to second
+    head->next = second;
+    second->next = third;
+    third->next = fourth;
+    fourth->next = fifth;
+    
+    // This creates a loop
+    fifth->next = second; 
+
+    int loopLength = lengthOfCycle(head);
+    if (loopLength > 0) {
+        cout << "Length of the loop: " << loopLength << endl;
+    } else {
+        cout << "No loop found in the linked list." << endl;
+    }
 
 
 
 //Soln 2: Optimal(Tortoise & Hare Algo)
+    // Create a sample linked
+    // list with a loop
+    
+    Node* head = new Node(1);
+    Node* second = new Node(2);
+    Node* third = new Node(3);
+    Node* fourth = new Node(4);
+    Node* fifth = new Node(5);
 
+    // Create a loop from
+    // fifth to second
+    head->next = second;
+    second->next = third;
+    third->next = fourth;
+    fourth->next = fifth;
+    
+    // This creates a loop
+    fifth->next = second; 
+
+    int loopLength = lengthOfLoop(head);
+    if (loopLength > 0) {
+        cout << "Length of the loop: " << loopLength << endl;
+    } else {
+        cout << "No loop found in the linked list." << endl;
+    }
 
 
 
