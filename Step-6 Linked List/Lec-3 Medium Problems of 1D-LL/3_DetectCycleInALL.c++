@@ -1,4 +1,4 @@
-/*//(Detect A Cycle in a 1D Linked List_Coding Ninja)->  https://tinyurl.com/3rxwup5c   
+/*//(Detect A Cycle in a Linked List_Coding Ninja)->  https://tinyurl.com/3rxwup5c   
 
 bool detectCycle(Node *head)
 {
