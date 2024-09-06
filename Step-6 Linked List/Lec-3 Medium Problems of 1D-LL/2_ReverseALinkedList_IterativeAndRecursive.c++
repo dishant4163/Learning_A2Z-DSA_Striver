@@ -1,5 +1,6 @@
 /*//(Reverse a LinkedList | Iterative & Recursive)-> link: https://tinyurl.com/2ajt9262  
 
+// link-1_Soln
 Node* reverseLinkedList(Node *head)
 {
     // Write your code here.
@@ -13,6 +14,25 @@ Node* reverseLinkedList(Node *head)
     head->next = NULL;
 
     return newHead;
+}
+
+
+
+// link-2_Soln: https://shorturl.at/gAfZK
+LinkedListNode<int> *reverseLinkedList(LinkedListNode<int> *head) 
+{
+    // Write your code here.
+    LinkedListNode<int>*temp = head;
+    LinkedListNode<int>*last = NULL;
+    LinkedListNode<int>*next = NULL;
+
+    while(temp != NULL) {
+        next = temp->next;
+        temp->next = last;
+        last = temp;
+        temp = next;
+    }
+    return last;
 }
 
 */
