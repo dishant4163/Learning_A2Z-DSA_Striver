@@ -5,6 +5,9 @@
 
 /*// OPTIMAL Soln:-
 //Merge two sorted Linked Lists
+// TC:- O(N1 + N2)
+// SC:- O(1)
+
 
 
 Node<int>* sortTwoLists(Node<int>* first, Node<int>* second)
