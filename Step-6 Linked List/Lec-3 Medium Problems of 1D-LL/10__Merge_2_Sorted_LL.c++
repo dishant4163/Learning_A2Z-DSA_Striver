@@ -15,7 +15,7 @@ Node<int>* sortTwoLists(Node<int>* first, Node<int>* second)
     Node<int>* dummyNode = new Node<int>(-1);
     Node<int>* temp = dummyNode;
     while(t1 != nullptr && t2 != nullptr) {
-        if (t1->data < t2->data) {
+        if (t1->data <= t2->data) {
             temp->next = t1;
             temp = t1;
             t1 = t1->next;
