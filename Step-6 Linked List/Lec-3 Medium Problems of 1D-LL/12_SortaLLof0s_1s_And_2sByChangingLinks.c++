@@ -1,4 +1,4 @@
-/*//(Sort a LL of 0's, 1's and 2's By Changing Links_Coding Ninja)-> https://tinyurl.com/4mv3k36t      
+/*//(Sort a LL of 0's, 1's and 2's || (By Changing Data & Links)_Coding Ninja)-> https://tinyurl.com/4mv3k36t      
 
 Node* sortList(Node *head){
     // Write your code here.
