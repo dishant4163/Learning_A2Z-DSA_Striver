@@ -1,6 +1,23 @@
 /*//(Find The Intersection Point of Y LL_Coding Ninja)-> : https://tinyurl.com/yc344rnt 
 
+Node* findIntersection(Node *firstHead, Node *secondHead)
+{
+    //Write your code here
+    if(firstHead == NULL || secondHead == NULL) return NULL;
 
+    Node* temp1 = firstHead;
+    Node* temp2 = secondHead;
+    while(temp1 != temp2) {
+        temp1 = temp1->next;
+        temp2 = temp2->next;
+
+        if(temp1 == temp2) return temp1;
+
+        if(temp1 == NULL) temp1 = secondHead;
+        if(temp2 == NULL) temp2 = firstHead;
+    }
+    return temp1;
+}
 
 */
 
@@ -10,18 +27,34 @@
 using namespace std;
 
 
-class node {
+class Node {
     public:
         int num;
-        node* next;
-        node(int val) {
+        Node* next;
+        Node(int val) {
             num = val;
             next = NULL;
         }
 };
 
+//utility function to insert node at the end of the LL
+void insertNode(Node* &head, int val) {
+    Node* newNode = new Node(val);
+    
+    if(head == NULL) {
+        head = newNode;
+        return;
+    }
+    
+    Node* temp = head;
+    while(temp->next != NULL) temp = temp->next;
+    
+    temp->next = newNode;
+    return;
+}
 
-/*// Soln 1: Brute Force
+
+/*// Soln 1: Brute Force(using 2 nested Loops)
    Approach: We know intersection means a common attribute present between two entities. Here, we have linked lists as given entities. 
 
   What should be the common attribute for two linked lists? 
@@ -41,10 +74,24 @@ class node {
   # Space Complexity: O(1)
  Reason: No extra space is used.
 */
+Node* intersectionPresent1(Node* head1, Node* head2) {
+    if(head1 == NULL || head2 == NULL) return NULL;
+
+    while(head2 != NULL) {
+        Node* temp = head1;
+        while(temp != NULL) {
+            if (temp == head2) return head2;
+            temp = temp->next;
+        }
+        head2 = head2->next;
+    }
+}
 
 
 
-/*// Soln 2.1: Better(HASHING)
+
+
+/*// Soln 2.1: Brute Force(Hash Set )
  Approach:- Can we improve brute-force time complexity? In brute force, we are basically performing “searching”. We can also perform searches by Hashing. Taking into consideration that hashing process takes O(1) time complexity. So the process is as follows:-
   # Iterate through list 1 and hash its node address. Why? (Hint: depends on the common attribute we are searching)
   # Iterate through list 2 and search the hashed value in the hash table. If found, return node.
@@ -55,6 +102,24 @@ class node {
   # Space Complexity: O(n)
  Reason: Storing list 1 node addresses in unordered_set.
 */
+Node* intersectionPresent2(Node* head1, Node* head2) {
+    if(head1 == NULL || head2 == NULL) return NULL;
+
+    unordered_set<Node* > visitSet;
+    while(head1 != NULL) {
+        visitSet.insert(head1);
+        head1 = head1->next;
+    }
+    while(head2 != NULL) {
+        if (visitSet.find(head2) != visitSet.end()) {
+            return head2;
+        }
+        head2 = head2->next;
+    }
+    return NULL;
+}
+
+
 
 
 
@@ -76,6 +141,46 @@ class node {
   # Space Complexity: O(1)
  Reason: No extra space is used.
 */
+int getDifference(Node* head1, Node* head2) {
+    int len1 = 0, len2 = 0;
+    while(head1 != NULL || head2 != NULL) {
+        if (head1 != NULL) {
+            len1++;//Increment the length of the 1st list
+            head1 = head1->next;//Move to next node in the 1st list
+        }
+        if (head2 != NULL) {
+            len2++; //Increment the length of the 2nd list
+            head2 = head2->next;// Move to the next node in the 2nd list
+        }
+    }
+    //if difference is neg-> length of list2 > length of list1 else vice-versa
+    return len1 - len2;
+}
+
+
+Node* intersectionPresent3(Node* head1, Node* head2) {
+    if(head1 == NULL || head2 == NULL) return NULL;
+    // Calculate the length difference
+    int diff = getDifference(head1, head2);
+
+    if (diff < 0) { // If diff is negative:
+        while (diff++ != 0) head2 = head2->next; // Move head2 ahead by |diff| nodes
+    }
+    else { //If diff is non-negative:
+        while(diff-- != 0) head1 = head1->next; // Move head1 ahead by diff nodes
+    }
+    while(head1 != NULL) {
+        //if both nodes are same
+        if (head1 == head2) return head1;
+        // Move both pointers to the next node
+        head2 = head2->next;
+        head1 = head1->next;
+    }
+
+    return head1; // Return NULL if no intersection
+}
+
+
 
 
 
@@ -92,6 +197,22 @@ class node {
   # Space Complexity: O(1)
  Reason: No extra data structure is used
 */
+Node* intersectionPresent4(Node* head1, Node* head2) {
+    if(head1 == NULL || head2 == NULL) return NULL;
+
+    Node* temp1 = head1;
+    Node* temp2 = head2;
+    while(temp1 != temp2) {
+        temp1 = temp1->next;
+        temp2 = temp2->next;
+
+        if (temp1 == temp2) return temp1;
+
+        if(temp1 == NULL) temp1 = head2;
+        if(temp2 == NULL) temp2 = head1;
+    }
+    return temp1;
+}
 
 
 
@@ -101,7 +222,7 @@ class node {
 
 
 //utility function to print linked list created
-void printList(node* head) {
+void printList(Node* head) {
     while(head->next != NULL) {
         cout<<head->num<<"->";
         head = head->next;
@@ -109,8 +230,66 @@ void printList(node* head) {
     cout<<head->num<<endl;
 }
 
-
 int main() {
+
+// creation of both lists 
+    Node* head = NULL;
+    insertNode(head,1);
+    insertNode(head,3);
+    insertNode(head,1);
+    insertNode(head,2);
+    insertNode(head,4);
+    Node* head1 = head;
+    head = head->next->next->next;
+    Node* headSec = NULL;
+    insertNode(headSec,3);
+    Node* head2 = headSec;
+    headSec->next = head;
+    //printing of the lists
+    cout<<"List1: "; printList(head1);
+    cout<<"List2: "; printList(head2);
+
+
+
+// Soln 1: Brute Force
+    //checking if intersection is present
+    Node* ansNode1 = intersectionPresent1(head1, head2);
+    if(ansNode1 == NULL )
+    cout<<"No intersection\n";
+    else
+    cout<<"The intersection point is "<<ansNode1->num<<endl;
+
+
+
+// Soln 2.1: Better (Hash Set)
+    //checking if intersection is present
+    Node* ansNode2 = intersectionPresent2(head1,head2);
+    if(ansNode2 == NULL )
+    cout<<"No intersection\n";
+    else
+    cout<<"The intersection point is "<<ansNode2->num<<endl;
+
+
+
+// Soln 2.2: Better (Difference in Length)
+    //checking if intersection is present
+    Node* answerNode = intersectionPresent3(head1,head2);
+    if(answerNode == NULL )
+    cout<<"No intersection\n";
+    else
+    cout<<"The intersection point is "<<answerNode->num<<endl;
+
+
+
+//Soln 3: OPtimal
+    //checking if intersection is present
+    Node* answerNode = intersectionPresent4(head1,head2);
+    if(answerNode == NULL )
+    cout<<"No intersection\n";
+    else
+    cout<<"The intersection point is "<<answerNode->num<<endl;
+
+
 
 
 
