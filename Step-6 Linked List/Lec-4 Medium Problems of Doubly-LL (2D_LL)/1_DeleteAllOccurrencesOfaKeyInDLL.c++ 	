@@ -34,5 +34,8 @@ Node * deleteAllOccurrences(Node* head, int key) {
 
 */
 
+// Complexity Analysis of the Above code is:
+// TC:- O(N) 
+// SC:- O(1)
 
 
