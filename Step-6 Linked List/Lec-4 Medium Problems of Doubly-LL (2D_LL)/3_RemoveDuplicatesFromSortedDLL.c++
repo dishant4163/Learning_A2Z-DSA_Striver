@@ -26,37 +26,3 @@ Node * removeDuplicates(Node *head)
 
 
 
-
-/*//(Remove Duplicates From UnSorted DLL_Coding Ninja)-> https://shorturl.at/15bsG    
-
-// TC:- O(N)
-// Sc:- O(N)
-
-
-Node *removeDuplicates(Node *head)
-{
-    // Write your code here.
-    Node* currentNode = head;
-    Node* prevNode = NULL;
-    unordered_map<int, bool> visitedNode;
-
-    while(currentNode != NULL) {
-        if (!visitedNode[currentNode->data]) {
-            visitedNode[currentNode->data] = true;
-            prevNode = currentNode;
-            currentNode = currentNode->next;
-        }
-        else {
-            prevNode->next = currentNode->next;
-            free(currentNode);
-        }
-        currentNode = prevNode->next;
-    }
-    return head;
-}
-
-
-*/
-
-
-
