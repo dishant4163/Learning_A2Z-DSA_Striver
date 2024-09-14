@@ -32,3 +32,4 @@
 3. Lec-3 Medium Problems of LL
 4. Lec-4 Medium Problems of DLL
 5. Lec-5 Hard Problems of LL
+6. Lec-6 Random Hard Problems on LL
