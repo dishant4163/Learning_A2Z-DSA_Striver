@@ -1,10 +1,33 @@
 /*//(Merge K Sorted Linked Lists_Coding Ninja)->  https://shorturl.at/hq9F4    
 
 
+Node* mergeKLists(vector<Node*> &listArray) {
 
+    // Write your code here.
+    int K=listArray.size();
+        Node *head=new Node(-1);
+        Node *temp=head;
+        priority_queue<int,vector<int>,greater<int>> pq;
+        for(int i=0;i<K;i++){
+            Node *temp1=listArray[i];
+            while(temp1!=NULL){
+                pq.push(temp1->data);
+                temp1=temp1->next;
+            }
+        }
+
+        while(!pq.empty()){
+            Node *newNode=new Node(pq.top());
+            pq.pop();
+            head->next=newNode;
+            head=head->next;
+        }
+    return temp->next;  
+}
 
 
 */
+
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -202,10 +225,63 @@ Node* mergeKLists2(vector<Node*> &ListArr) {
 
 
 /* Soln 3: Optimal(using Priority Queue)
-   
+   Approach:-
+1. Initialize a Priority Queue:
+    Use a min-heap (priority queue) to help maintain the order of elements as you merge the lists. This ensures that you can efficiently extract the smallest element from all the lists.
+
+2. Insert Elements into the Priority Queue:
+    Iterate through each of the KK linked lists.
+    For each list, traverse through its nodes and insert the node values into the priority queue. Since the priority queue is a min-heap, it will always allow you to extract the smallest element.
+
+3. Build the Merged Linked List:
+    Initialize a dummy node (head) to act as a starting point for the new merged linked list.
+    While the priority queue is not empty, extract the smallest element from the queue and create a new node with this value.
+    Append this new node to the merged list.
+
+4. Return the Merged List:
+    The head node points to the start of the new merged list. However, since head is initially a dummy node, you need to return head->next to get the actual start of the merged list.
+
+
+   Explanation:-
+1. Priority Queue Initialization:
+    priority_queue<int, vector<int>, greater<int>> pq; initializes a min-heap. greater<int> ensures that the smallest element is on top of the heap.
+
+2. Inserting Elements:
+    The loop for (int i = 0; i < K; i++) traverses each linked list. For each node in each list, pq.push(temp1->data); adds its value to the heap.
+
+3. Building the Merged List:
+    while (!pq.empty()) extracts elements from the heap one by one, creating new nodes for each extracted value.
+    head->next = newNode; appends each new node to the merged list.
+
+4. Returning the Result:
+    return temp->next; returns the merged list starting after the dummy node.
+
+   Complexity Analysis:-
+  # TC: O(K logK) + O(N*k log k)
+  # Sc: O(k)
 */
-Node* mergeKLists(vector<Node*> &ListArr) {
-    
+Node* mergeKLists(vector<Node*> &listArray) {
+
+    // Write your code here.
+    int K=listArray.size();
+        Node *head=new Node(-1);
+        Node *temp=head;
+        priority_queue<int,vector<int>,greater<int>> pq;
+        for(int i=0;i<K;i++){
+            Node *temp1=listArray[i];
+            while(temp1!=NULL){
+                pq.push(temp1->data);
+                temp1=temp1->next;
+            }
+        }
+
+        while(!pq.empty()){
+            Node *newNode=new Node(pq.top());
+            pq.pop();
+            head->next=newNode;
+            head=head->next;
+        }
+    return temp->next;  
 }
 
 
