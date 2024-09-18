@@ -33,3 +33,9 @@
 4. Lec-4 Medium Problems of DLL
 5. Lec-5 Hard Problems of LL
 6. Lec-6 Random Hard Problems on LL
+
+
+# Step-7 Recursion (Pattern Wise)
+1. Lec-1 Get a Strong Hold(Basic)
+2. Subsequences Pattern
+3. Trying Out all Combos/Hard
