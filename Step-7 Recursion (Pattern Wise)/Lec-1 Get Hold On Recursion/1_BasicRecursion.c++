@@ -38,7 +38,7 @@ void func1(int i, int n1){
     cout<< "Dishant" <<endl;
 
     //call func to print till i increment
-    func1(i+1, n1);
+    func1(i+1, n1);//i+1 bcz i=1 time is printed in start
 }
 
 
