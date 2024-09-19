@@ -26,7 +26,10 @@ void func1(int i, int sum) {
 
   # Space Complexity: O(N) { In the worst case, the recursion stack space would be full with all the function calls waiting to get completed and that would make it an O(N) recursion stack space }.
 */
-
+int sumOfN(int n2) {
+    if (n2 == 0 ) return 0;
+    return (n2 + sumOfN(n2 - 1));
+}
 
 
 
@@ -43,7 +46,10 @@ int main() {
 
 
 // Functional Way
-    
+    int n2 = 3;
+    cout << sumOfN(n2) <<endl;
+
+
 
 
 
