@@ -20,7 +20,6 @@ void func1(int i, int sum) {
 
 
 
-
 /*// Functional way
   # Time Complexity: O(N) { Since the function is being called n times, and for each function, we have only one printable line that takes O(1) time, so the cumulative time complexity would be O(N) }
 
@@ -37,9 +36,39 @@ int sumOfN(int n2) {
 
 
 
+//2. Factorial of a Number
+/*//a). By Iterative Way
+  # Time Complexity: O(n)
+
+  # Space Complexity: O(1)
+*/
+int factorial1(int m) {
+    int fact = 1;
+    for (int i=1; i <= m; i++) {
+        fact = fact * i;
+    }
+    return fact;
+}
+
+
+
+//b). By Functional Way
+int factorial2(int m) {
+    if (m == 0) return 1;
+    return (m * factorial2(m - 1));
+} 
+
+
+
+
+
+
+
+
 int main() {
 
 
+//1. Sum of First N numbers
 //Parameterised Way
     int n1 = 5;
     func1(n1, 0);
@@ -48,6 +77,22 @@ int main() {
 // Functional Way
     int n2 = 3;
     cout << sumOfN(n2) <<endl;
+
+
+
+
+
+
+//2. Factorial of a Number
+//By Parametrised Way
+    int m1 = 3;
+    cout << factorial1(m1)<<endl;
+
+
+//By Functional Way
+    int m = 4;
+    cout << factorial2(m)<<endl;
+
 
 
 
