@@ -15,7 +15,7 @@ using namespace std;
   -> Continue recursion as long as the ‘start < end’ condition is satisfied. This is the base case for our recursion.
 */
 // Using 2 pointer
-/*// Function to print array
+// Function to print array
 void printAr(int ar[], int n) {
     cout << "Reverse array is: " << endl;
     for (int i=0; i < n; i++) {
@@ -30,7 +30,7 @@ void reverse1Arr(int arr[], int start, int end) {
     swap(arr[start], arr[end]);
     reverse1Arr(arr, start+1, end-1);
 }
-*/
+
 
 
 // Reverse an Array uisng 1 ptr
@@ -48,16 +48,16 @@ void reverse2Arr(int i, int arrr[], int m) {
 
 int main() {
 
-/*// Reverse an Array using 2 pointer
+// Reverse an Array using 2 pointer
     int n;
     cin >> n;
     int arr[] = {11, 22, 33, 44, 55};
     reverse1Arr(arr, 0, n-1);
     printAr(arr, n);
-*/
 
 
-/*// Reverse an Array using 1 pointer
+
+// Reverse an Array using 1 pointer
     int m;
     cin >> m;
     int arr[m];
@@ -70,7 +70,7 @@ int main() {
     for(int i=0; i < m; i++) {
         cout <<arr[i] <<" ";
     }
-*/
+
 
 
 
