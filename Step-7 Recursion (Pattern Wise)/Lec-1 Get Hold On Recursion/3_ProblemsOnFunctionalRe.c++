@@ -43,6 +43,20 @@ void reverse2Arr(int i, int arrr[], int m) {
 
 
 
+//II. Check if the given String is Palindrome or not
+bool isPalindrome(int i, string &str) {
+    if(i >= str.size() / 2) return true;
+
+    if(str[i] != str[str.size() - i - 1]) return false;
+    return isPalindrome(i+1, str);
+}
+
+
+
+
+
+
+
 
 
 
@@ -73,6 +87,11 @@ int main() {
 
 
 
+
+
+//Check if the given String is Palindrome or not
+    string s = "NITIN";
+    cout << isPalindrome(0, s);
 
 
 
