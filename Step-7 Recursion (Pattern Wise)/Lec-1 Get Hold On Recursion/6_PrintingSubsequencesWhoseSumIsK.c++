@@ -70,6 +70,25 @@ bool printSubsequenceSumK2(int indx, vector<int> &listAr, int givensum, int Sum,
 
 
 // Problem-3 Count the Subsequence with Sum = K
+int countSubsequenceSumK(int ind3, int givensum3, int Sum3, int ar3[], int N3) {
+    if(ind3 == N3) {
+        // if condition satisfiesd
+        if (givensum3 == Sum3) return 1;
+        // condition not satisfiesd
+        else return 0;
+    }
+
+    givensum3 += ar3[ind3];
+
+    int left = countSubsequenceSumK(ind3 + 1, givensum3, Sum3, ar3, N3) ;
+
+    givensum3 -= ar3[ind3];
+
+    // not pick
+    int right = countSubsequenceSumK(ind3 + 1, givensum3, Sum3, ar3, N3);
+
+    return left + right;
+}
 
 
 
@@ -93,7 +112,7 @@ int main() {
 
 
 // Problem-2 Print any SubSequences whose Sum is givenSum
-int arr2[] = {1, 2, 1};
+    int arr2[] = {1, 2, 1};
     int n2 = 3;
     int sum2 = 2;
     vector<int> listArr2;
@@ -103,7 +122,10 @@ int arr2[] = {1, 2, 1};
 
 
 // Problem-3 Count the Subsequence with Sum = K
-
+    int arr3[] = {1, 2, 1};
+    int n3 = 3;
+    int sum3 = 2;
+    cout << countSubsequenceSumK(0, 0, sum3, arr3, n3);
 
 
 
