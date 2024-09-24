@@ -71,6 +71,11 @@ bool printSubsequenceSumK2(int indx, vector<int> &listAr, int givensum, int Sum,
 
 // Problem-3 Count the Subsequence with Sum = K
 int countSubsequenceSumK(int ind3, int givensum3, int Sum3, int ar3[], int N3) {
+
+    // conditions not satisfied
+    // striclty done if array contains +vely only
+    if(givensum3 > sum) return 0;
+
     if(ind3 == N3) {
         // if condition satisfiesd
         if (givensum3 == Sum3) return 1;
