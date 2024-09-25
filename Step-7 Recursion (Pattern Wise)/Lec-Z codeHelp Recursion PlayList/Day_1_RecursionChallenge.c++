@@ -47,6 +47,40 @@ int powerof2(int m) {
 
 
 
+// Components of Recursion
+//1. Printing Counting Using TAIL Recursion(it will print in reverse order)
+void print1(int a) {
+    //base case
+    if (a == 0) return;
+
+    //Processing
+    cout << a << endl;
+
+    //Recursive Relation
+    print1(a-1);
+}
+
+
+
+//2. Printing Counting Using HEAD Recursion(it will print in reverse order)
+void print2(int b) {
+    //base case
+    if (b == 0) return;
+
+    //Recursive Relation
+    print2(b-1);
+
+    //Processing
+    cout << b << endl;
+}
+
+
+
+
+
+
+
+
 int main() {
 
 
@@ -66,6 +100,22 @@ int main() {
     int soln = powerof2(m);
     cout << soln <<endl;
 
+
+
+
+
+
+
+// Components of Recursion
+//1. Printing Counting Using Tail Recursion(it will print in decending/reverse order)
+    int a, b;
+    cin >> a >> b;
+    cout <<endl;
+    print1(a);
+
+//2. Printing Counting Using HEAD Recursion(it will print in incresing order)
+    cout<<endl;
+    print2(b);
 
 
 
