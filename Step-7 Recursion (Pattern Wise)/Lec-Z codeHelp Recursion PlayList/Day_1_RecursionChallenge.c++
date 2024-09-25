@@ -11,10 +11,14 @@ int factorial(int n) {
     //Base Case
     if (n == 0) return 1;
 
-    int smallerProblem = factorial(n-1);
-    int biggerProblem = n * smallerProblem;
+    // int smallerProblem = factorial(n-1);
+    // int biggerProblem = n * smallerProblem;
+    // return biggerProblem;
 
-    return biggerProblem;
+
+    // Modify the code little
+
+    retrun n * factorial(n-1); // dirctly find the factorial without using extra variables
 }
 
 
