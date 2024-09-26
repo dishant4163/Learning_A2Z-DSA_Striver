@@ -71,6 +71,26 @@ void reachHome(int src, int dest) {
 
 
 
+// Say Digits
+// I/p = 412
+// O/p = Four One Two
+void sayDigit(int m, string arr[]) {
+    //Base Case
+    if (m == 0) return;
+
+    // processing
+    int digit = m % 10;
+    m = m / 10;
+    
+
+    // recursive relation
+    sayDigit(m, arr);
+    cout << arr[digit] << " ";
+}
+
+
+
+
 
 
 
@@ -82,6 +102,19 @@ int main() {
     int dest = 10, src = 1;
     cout << endl;
     reachHome(src, dest);
+
+
+
+// Say Digits
+    string arr[10] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+
+    int m; 
+    cin >> m;
+    cout << endl;
+    sayDigit(m, arr);
+    cout << endl;
+
+
 
 
     return 0;
