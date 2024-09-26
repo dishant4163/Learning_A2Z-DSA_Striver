@@ -2,6 +2,50 @@
 
 
 
+
+//Leetcode Question 
+/*// Find nth term of Fibonacci Series (leetcode-> https://shorturl.at/QB3v8)  
+
+int fib(int n) {
+    //Base Case
+    if(n == 0) return 0;
+    if(n == 1) return 1;
+
+    //Recursive Relation
+    int soln = fib(n-1) + fib(n-2);
+    return soln;
+}
+*/
+
+
+
+
+
+
+// Coding Ninjas
+/* // Count Ways To Reach The N-th Stairs -> https://shorturl.at/mvKhN
+
+#include <bits/stdc++.h> 
+int countDistinctWays(int nStairs) {
+    //  Write your code here.
+
+    // Base Case
+    if (nStairs < 0) return 0;
+    if (nStairs == 0) return 1;
+
+    // Recursive Relation
+    int ans = countDistinctWays(nStairs - 1) + countDistinctWays(nStairs - 2);
+
+    return ans;
+}
+// in this  queston Recursion + DP both is used to solve 
+*/
+
+
+
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -22,23 +66,6 @@ void reachHome(int src, int dest) {
 
     //Recursuve Relation
     reachHome(src, dest);
-}
-
-
-
-
-
-//Leetcode Question 
-// Find nth term of Fibonacci Series (leetcode-> https://shorturl.at/QB3v8)  
-
-int fib(int n) {
-    //Base Case
-    if(n == 0) return 0;
-    if(n == 1) return 1;
-
-    //Recursive Relation
-    int soln = fib(n-1) + fib(n-2);
-    return soln;
 }
 
 
