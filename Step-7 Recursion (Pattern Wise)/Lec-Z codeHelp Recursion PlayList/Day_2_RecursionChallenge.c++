@@ -1,6 +1,7 @@
 //Recusrion Day-2 Challenge | Understanding Recursion
 
 
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -22,6 +23,25 @@ void reachHome(int src, int dest) {
     //Recursuve Relation
     reachHome(src, dest);
 }
+
+
+
+
+
+//Leetcode Question 
+// Find nth term of Fibonacci Series (leetcode-> https://shorturl.at/QB3v8)  
+
+int fib(int n) {
+    //Base Case
+    if(n == 0) return 0;
+    if(n == 1) return 1;
+
+    //Recursive Relation
+    int soln = fib(n-1) + fib(n-2);
+    return soln;
+}
+
+
 
 
 
