@@ -5,6 +5,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
 //1. Is Array Sorted using Recursion
 bool isArrSorted(int arr[], int size) {
     // Base Case
@@ -18,6 +19,23 @@ bool isArrSorted(int arr[], int size) {
         return remainingPart;
     }
 }
+
+
+
+
+//2. Find the Sum of the Elemnents in the Given Array
+int getArSum(int ar[], int Size) {
+    // Base Case
+    if(Size == 0) return 0;
+    if(Size == 1) return 1;
+
+    int remainingArSum = getArSum(ar + 1, Size - 1);
+    int Sum = ar[0] + remainingArSum;
+    return Sum;
+}
+
+
+
 
 
 
@@ -37,6 +55,15 @@ int main() {
     } else {
         cout << "Array is not Sorted" << endl;
     }
+
+
+
+//Find the Sum of the Elemnents in the Given Array
+    int ar[4] = {1, 2, 1, 4};
+    int Size = 4;
+
+    int Sum = getArSum(ar, Sum);
+    cout << "Sum of the elements in the given Array is " <<Sum << endl;
 
 
 
