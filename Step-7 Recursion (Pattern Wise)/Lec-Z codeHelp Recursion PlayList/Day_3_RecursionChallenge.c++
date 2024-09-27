@@ -54,6 +54,27 @@ bool LinearSearch(int ar3[], int size3, int key) {
 
 
 
+//4. Binary Search using Recursion
+bool binarySearch(int arr4[], int start, int end, int keyEl) {
+    //Base Case-1, if Element not found
+    if(start > end) return false;
+
+    //Find Mid
+    int mid = start + (end - start) / 2;
+
+    //Base Case-2, if Element Found
+    if(arr4[mid] == keyEl) return true;
+
+    if(arr4[mid] < keyEl) { // right wala part, i.e start = mid+1
+        return binarySearch(arr4, mid + 1, end, keyEl);
+    }
+    else { // left wala part, i.e, end = mid - 1
+        return binarySearch(arr4, start, mid - 1, keyEl);
+    }
+}
+
+
+
 
 
 
@@ -96,6 +117,14 @@ int main() {
         cout << "Key element is Absent "<< endl;
     }
 
+
+
+// Binary Search using Recursion
+    int arr4[5] = {2, 4, 6, 10, 16};
+    int size4 = 5;
+    int keyEl = 10;
+
+    cout << "Present or not " << binarySearch(arr4, 0, size4 - 1, keyEl) << endl;
 
 
 
