@@ -37,6 +37,23 @@ int getArSum(int ar[], int Size) {
 
 
 
+//3. Linear Search in Array using Recursion
+bool LinearSearch(int ar3[], int size3, int key) {
+    // Base Case
+    if (size3 == 0) return false;
+
+    if(ar3[0] == key) {
+        return true;
+    }
+    else {
+        bool remainingArPart = LinearSearch(ar3 + 1, size3 - 1, key);
+        return remainingArPart;
+    }
+}
+
+
+
+
 
 
 
@@ -58,6 +75,7 @@ int main() {
 
 
 
+
 //Find the Sum of the Elemnents in the Given Array
     int ar[4] = {1, 2, 1, 4};
     int Size = 4;
@@ -65,6 +83,18 @@ int main() {
     int Sum = getArSum(ar, Sum);
     cout << "Sum of the elements in the given Array is " <<Sum << endl;
 
+
+
+// Linear Search in Array using Recursion
+    int ar3[5] = {3, 5, 1, 2, 6};
+    int size3 = 5;
+    int key = 1;
+    bool ans = LinearSearch(ar3, size3, key);
+    if (ans) {
+        cout << "Key element is Present " << endl;
+    } else {
+        cout << "Key element is Absent "<< endl;
+    }
 
 
 
