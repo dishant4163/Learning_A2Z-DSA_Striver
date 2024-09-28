@@ -108,6 +108,30 @@ int calPower(int X, int N) {
 
 
 
+//4. Bubble Sort Using Recursion
+void buSortArr(int *Ar, int size) {
+    //Base case - if already sorted
+    if (size ==0 || size == 1) return;
+
+    //1- case solve karliya - largest element ko end me rakh deya
+    for (int i=0; i < size-1; i++) {
+        if (Ar[i] > Ar[i+1]){
+            swap(Ar[i], Ar[i+1]);
+        }
+    }
+
+    //Recursive Call
+    buSortArr(Ar, size-1);
+
+}
+
+
+
+
+
+
+
+
 
 int main() {
 
@@ -138,6 +162,17 @@ int main() {
     int soln = calPower(X, N);
     cout << "Answer is " << soln << endl;
 
+
+
+// Bubble Sort Using Recursion
+    int Ar[5] = {9, 7, 1, 3, 5};
+    int size = 5;
+    buSortArr(Ar, size);
+    //print the sorted Array
+    for (int i=0; i<size; i++) {
+        cout << Ar[i] <<" ";
+    }
+    cout << endl;
 
 
 
