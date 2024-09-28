@@ -39,12 +39,27 @@ void reverseStr(string &str, int i, int j) {//"&" i.e pass by reference, so that
     //Base Case
     if(i > j) return;
 
-    swap(str[i++], str[j--]);
-    // i++;
-    // j--;
+    swap(str[i], str[j]);
+    i++;
+    j--;
 
     //Recursive Call
     reverseStr(str, i, j);
+}
+
+
+
+
+//2. Check Palindrome or Not
+bool checkPalindrome(string s, int ptr1, int ptr2) {
+    //Base Case 
+    if (ptr1 > ptr2) return true;
+
+    if (s[ptr1] != s[ptr2]) {
+        return false;
+    } else {
+        return checkPalindrome(s, ptr1 + 1, ptr2 - 1);
+    }
 }
 
 
@@ -58,6 +73,25 @@ int main() {
     string name = "abcde";
     reverseStr(name, 0, name.length()-1 );
     cout << name << endl;
+
+
+
+// Check Palindrome or Not
+    string s = "NITIN";
+    cout<< endl;
+
+    bool isPalindrome = checkPalindrome(s, 0, s.length()-1 );
+
+    if(isPalindrome) {
+        cout << "Its a Palindrome " << endl;
+    } else {
+        cout << "Its not a Palindrome " << endl;
+    }
+
+
+
+
+
 
 
 
