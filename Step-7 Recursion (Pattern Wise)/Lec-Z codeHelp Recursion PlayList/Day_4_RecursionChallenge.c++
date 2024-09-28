@@ -23,11 +23,31 @@ string reverseString(string str)
 
 */
 
-/* Check If Binary Representation of a Number is Palindrome -> https://shorturl.at/NFWbc       
+/* Find power of a number -> https://shorturl.at/pu1mc   
 
+#include<bits/stdc++.h>
+long long Pow(int X, int N)
+{
+    // Write your code here. 
 
+    if (N == 0) return 1; //base case-1
+    if (N == 1) return X; //base case-2
+
+    // Recursive Call
+    int ans = Pow(X, N/2);
+
+    if(N%2 == 0) { // if N is Even
+        return ans * ans;
+    }
+    else { // if N is odd
+        return X * ans * ans;
+    }
+}
 
 */
+
+
+
 
 
 #include<bits/stdc++.h>
@@ -65,6 +85,28 @@ bool checkPalindrome(string s, int ptr1, int ptr2) {
 
 
 
+//3. Calculating Power(exponent) using Recursion
+int calPower(int X, int N) {
+    // Base Case-1
+    if (N == 0) return 1;
+    // Base Case-2
+    if (N == 1) return X;
+
+    // Recursion Call
+    int ans = calPower(X, N/2);
+
+    // if N is even
+    if (N%2 == 0) {
+        return ans * ans;
+    }
+    else {
+    // if N is odd
+        return X * ans * ans;
+    }
+}
+
+
+
 
 
 int main() {
@@ -88,6 +130,13 @@ int main() {
         cout << "Its not a Palindrome " << endl;
     }
 
+
+
+// Calculating Power(exponent) using Recursion
+    int X, N;
+    cin >> X >> N;
+    int soln = calPower(X, N);
+    cout << "Answer is " << soln << endl;
 
 
 
