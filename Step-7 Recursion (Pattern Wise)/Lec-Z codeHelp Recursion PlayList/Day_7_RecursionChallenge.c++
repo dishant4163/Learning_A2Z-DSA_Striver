@@ -97,9 +97,7 @@ void soln(string str, string output, int index, vector<string> &ans) {
 
 vector<string> subsequences(string str) {
   vector<string> ans;
-  string output; // Start without an empty string 
-  // if to add empty string in subsequences use below code
-  // string output = " "; //un-comment to add empty str subsequences
+  string output  = "";
   int index = 0;
   soln(str, output, index, ans);
   return ans;
