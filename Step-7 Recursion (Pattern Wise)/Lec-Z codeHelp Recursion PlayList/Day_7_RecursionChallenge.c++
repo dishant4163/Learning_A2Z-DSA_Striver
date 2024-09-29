@@ -4,6 +4,32 @@
 /* Subsequences of String (Coding Ninjas)->  https://bit.ly/33hi3MB     
 
 
+void soln(string str, string output, int index, vector<string> &ans) {
+  // Base Case
+  if (index >= str.length()) {
+    if (!output.empty()) { // Only add non-empty subsequences
+      ans.push_back(output);
+    }
+    return;
+  }
+
+  // Exclude the current character
+  soln(str, output, index + 1, ans);
+
+  // Include the current character
+  char element = str[index];
+  output.push_back(element);         // Add the current character to output
+  soln(str, output, index + 1, ans); // Move to the next character
+}
+
+vector<string> subsequences(string str) {
+  vector<string> ans;
+  string output; // Start with an empty output
+  int index = 0;
+  soln(str, output, index, ans);
+  return ans;
+}
+
 
 */
 
@@ -75,6 +101,7 @@ int main() {
 
 
 // Subsequences of String
+    
 
 
 
