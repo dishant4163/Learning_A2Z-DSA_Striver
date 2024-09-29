@@ -77,6 +77,34 @@ vector<vector<int> > subsets(vector<int> &nums) {
 
 //2. Subsequences of String
 
+void soln(string str, string output, int index, vector<string> &ans) {
+  // Base Case
+  if (index >= str.length()) {
+    if (!output.empty()) { // Only add non-empty subsequences
+      ans.push_back(output);
+    }
+    return;
+  }
+
+  // Exclude the current character
+  soln(str, output, index + 1, ans);
+
+  // Include the current character
+  char element = str[index];
+  output.push_back(element);         // Add the current character to output
+  soln(str, output, index + 1, ans); // Move to the next character
+}
+
+vector<string> subsequences(string str) {
+  vector<string> ans;
+  string output; // Start without an empty string 
+  // if to add empty string in subsequences use below code
+  // string output = " "; //un-comment to add empty str subsequences
+  int index = 0;
+  soln(str, output, index, ans);
+  return ans;
+}
+
 
 
 
@@ -101,7 +129,16 @@ int main() {
 
 
 // Subsequences of String
-    
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+
+    vector<string> result = subsequences(str);
+
+    cout << "All non-empty subsequences are:\n";
+    for (const string& subseq : result) {
+        cout << subseq << endl;
+    }
 
 
 
