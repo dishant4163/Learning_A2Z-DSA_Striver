@@ -1,13 +1,23 @@
 //Recusrion Day-7 Challenge | Recursion - Subsets / Subsequences of String    
 
 
+/* Subsequences of String (Coding Ninjas)->  https://bit.ly/33hi3MB     
+
+
+
+*/
+
+
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
 
 
 
-//1. 
+//1. Print all subsets of a given Set or Array
 void solve(vector<int> &nums, vector<int> &output, int index, vector<vector<int>> &ans) {
     //Base case
     if (index >= nums.size()) {
@@ -40,6 +50,7 @@ vector<vector<int> > subsets(vector<int> &nums) {
 
 int main() {
 
+// Print all subsets of a given Set or Array
     vector<int> num = {1, 2, 3}; // Given input
     vector<vector<int>> result = subsets(num);
     
