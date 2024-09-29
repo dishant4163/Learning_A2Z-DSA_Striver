@@ -48,6 +48,14 @@ vector<vector<int> > subsets(vector<int> &nums) {
 
 
 
+
+//2. Subsequences of String
+
+
+
+
+
+
 int main() {
 
 // Print all subsets of a given Set or Array
@@ -62,6 +70,11 @@ int main() {
         }
         cout << "}" << endl;
     }
+
+
+
+
+// Subsequences of String
 
 
 
