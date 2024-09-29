@@ -7,7 +7,7 @@
 void soln(string str, string output, int index, vector<string> &ans) {
   // Base Case
   if (index >= str.length()) {
-    if (!output.empty()) { // Only add non-empty subsequences
+    if (!output.empty()) { // if (output.length() > 0) // we use this too 
       ans.push_back(output);
     }
     return;
