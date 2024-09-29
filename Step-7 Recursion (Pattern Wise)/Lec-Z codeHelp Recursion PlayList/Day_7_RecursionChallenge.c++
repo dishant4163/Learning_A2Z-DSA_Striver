@@ -24,7 +24,7 @@ void soln(string str, string output, int index, vector<string> &ans) {
 
 vector<string> subsequences(string str) {
   vector<string> ans;
-  string output; // Start with an empty output
+  string output = "";
   int index = 0;
   soln(str, output, index, ans);
   return ans;
