@@ -1,6 +1,39 @@
 //Recusrion Day-9 Challenge | Permutations of a String    
 
 
+/*// Permutations of a String (Coding Ninjas)-> https://shorturl.at/FzzQ8   
+
+#include<bits/stdc++.h>
+
+void solve(string str, vector<string>& ans, int index) {
+    //Base Case
+    if(index >= str.length()){
+        ans.push_back(str);
+        return;
+    }
+
+    for(int j = index; j < str.length(); j++) {
+        swap(str[index], str[j]);
+        solve(str, ans, index+1);
+
+        //Backtrack, for maintaining consistency of given string
+        swap(str[index], str[j]);
+    }
+}
+
+vector<string> generatePermutations(string &str)
+{
+    // write your code here
+    vector<string> ans;
+    int index = 0;
+    solve(str, ans, index);
+    sort(ans.begin(), ans.end());
+    return ans;
+}
+
+*/
+
+
 
 #include<bits/stdc++.h>
 using namespace std;
