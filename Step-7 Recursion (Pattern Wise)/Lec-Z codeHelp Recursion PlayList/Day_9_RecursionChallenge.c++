@@ -68,7 +68,33 @@ vector<string> generatePermutations(string &str) {
 
 
 
+
 //2. Permutations of a Array
+void solveArrPermute(vector<int> nums, vector<vector<int>>& ans, int index) {
+    // Base Case
+    if (index >= nums.size()) {
+        ans.push_back(nums);
+        return;
+    }
+
+    for(int j = index; j < nums.size(); j++) {
+        swap(nums[index], nums[j]);
+        solveArrPermute(nums, ans, index+1);
+
+        // Backtrack, for maintaining consistency of given string
+        swap(nums[index], nums[j]);
+    }
+}
+
+vector<vector<int>> arrPermutations(vector<int>& nums) {
+    vector<vector<int>> ans;
+    int index = 0;
+    solveArrPermute(nums, ans, index);
+    return ans;
+}
+
+
+
 
 
 
@@ -91,6 +117,24 @@ int main() {
     for (const string& perm : permutations) {
         cout << perm << endl;
     }
+
+
+
+// Permutations of a Array
+    vector<int> nums = {1, 2, 3}; // Example input
+    vector<vector<int>> permutations = arrPermutations(nums);
+
+    // Print the permutations
+    cout << "Permutations of the array: " << endl;
+    for (const auto& perm : permutations) {
+        for (int num : perm) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+
+
+
 
 
     return 0;
