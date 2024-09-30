@@ -39,6 +39,7 @@ vector<string> generatePermutations(string &str)
 using namespace std;
 
 
+
 //1. Permutations of a String
 void solveStrPermute(string str, int index, vector<string>& ans) {
     // Base Case
@@ -66,7 +67,16 @@ vector<string> generatePermutations(string &str) {
 
 
 
+
+//2. Permutations of a Array
+
+
+
+
+
+
 int main() {
+
 
 // Permutations of a String
     string str;
