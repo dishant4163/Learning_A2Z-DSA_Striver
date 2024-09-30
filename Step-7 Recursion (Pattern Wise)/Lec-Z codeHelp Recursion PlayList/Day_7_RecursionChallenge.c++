@@ -1,41 +1,71 @@
 //Recusrion Day-7 Challenge | Recursion - Subsets / Subsequences of String    
 
 
-/* Subsequences of String (Coding Ninjas)->  https://bit.ly/33hi3MB     
+/*  Find All Subsets  (Coding Ninjas)-> https://shorturl.at/JFdjl    
 
-
-void soln(string str, string output, int index, vector<string> &ans) {
-  // Base Case
-  if (index >= str.length()) {
-    if (!output.empty()) { // if (output.length() > 0) // we use this too 
-      ans.push_back(output);
+void solve(vector<int> &arr, vector<int> &output, int index,
+    vector<vector<int>> &ans) {
+    // base case
+    if (index >= arr.size()) {
+    // not adding Empty subset
+    if (!output.empty())
+        ans.push_back(output);
+        return;
     }
-    return;
-  }
 
-  // Exclude the current character
-  soln(str, output, index + 1, ans);
+    // Exclude
+    solve(arr, output, index + 1, ans);
 
-  // Include the current character
-  char element = str[index];
-  output.push_back(element);         // Add the current character to output
-  soln(str, output, index + 1, ans); // Move to the next character
+    // Include
+    output.push_back(arr[index]);
+    solve(arr, output, index + 1, ans);
+
+    //Backtracking
+    output.pop_back();
 }
 
-vector<string> subsequences(string str) {
-  vector<string> ans;
-  string output = "";
-  int index = 0;
-  soln(str, output, index, ans);
-  return ans;
+vector<vector<int>> FindAllSubsets(vector<int> &arr) {
+    // write your code here.
+    vector<vector<int>> ans;
+    vector<int> output;
+    int index = 0;
+    solve(arr, output, index, ans);
+    return ans;
 }
-
 
 */
 
 
 
+/* Subsequences of String (Coding Ninjas)->  https://bit.ly/33hi3MB     
 
+void soln(string str, string output, int index, vector<string>& ans) {
+    // Base Case
+    if (index >= str.length()) {
+        if (output.length() > 0) { // Only add non-empty subsequences
+            ans.push_back(output);
+        }
+        return;
+    }
+
+    // Exclude the current character
+    soln(str, output, index + 1, ans);
+
+    // Include the current character
+    char element = str[index];
+    output.push_back(element); // Add the current character to output
+    soln(str, output, index + 1, ans); // Move to the next character
+}
+
+vector<string> subsequences(string str) {
+    vector<string> ans;
+    string output = "";
+    int index = 0;
+    soln(str, output, index, ans);
+    return ans;
+}
+
+*/
 
 #include<bits/stdc++.h>
 using namespace std;
