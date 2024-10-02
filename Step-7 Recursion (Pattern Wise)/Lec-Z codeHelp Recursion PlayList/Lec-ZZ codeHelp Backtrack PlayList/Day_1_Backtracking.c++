@@ -27,6 +27,20 @@ void solve(int x, int y, vector<vector<int>>& arr, int n, vector<string>& ans, v
 // rat can moves in 4 way i.e., (U, D, L, R)
 // inOrder to get Lexicographcal Sort ans we were doing in moves in sorted way i.e, -> D, L, R, U
 
+int dirx[] = {1, 0, 0, -1};
+int diry[] = {0, -1, 1, 0};
+char dirMove[] = {'D', 'L', 'R', 'U'};
+
+for(int i=0; i < 4; i++) {
+    int newX = x + dirx[i];
+    int newY = y + diry[i];
+    if (isSafe(newX, newY, n, visited, arr)) {
+        solve(newX, newY, arr, n, ans, visited, path + dirMove[i]);
+    }
+}
+
+/*// From here we can make code more shorter
+// via Using Arrays & arrays
     // DOWN
     if(isSafe(x+1, y, n, visited, arr)){
         solve(x+1, y, arr, n, ans, visited, path + 'D');
@@ -47,8 +61,9 @@ void solve(int x, int y, vector<vector<int>>& arr, int n, vector<string>& ans, v
         solve(x-1, y, arr, n, ans, visited, path + 'U');
     }
 
+*/
 
-    visited[x][y] = 0;
+    visited[x][y] = 0; // Backtrack
 }
 
 
@@ -58,7 +73,7 @@ vector<string> searchMaze(vector<vector<int>>& arr, int n) {
     vector<vector<bool>> visited (n, vector<bool> (n, 0));
     string path = "";
 
-    // if src is starts from 0
+    // If the starting point is blocked
     if(arr[0][0] == 0){
         return ans;
     }
