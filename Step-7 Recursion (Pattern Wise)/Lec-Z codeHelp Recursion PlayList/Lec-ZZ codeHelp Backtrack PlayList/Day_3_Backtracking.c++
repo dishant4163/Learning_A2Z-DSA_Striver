@@ -36,7 +36,7 @@ bool solve(vector<vector<int>>& board) {
                         //Recursive Call
                         bool nextSolutionPossible = solve(board);
                         if(nextSolutionPossible)
-                        return true;
+                            return true;
                         else {
                             // Backtrack
                             board[row][col] = 0;
