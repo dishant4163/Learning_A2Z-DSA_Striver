@@ -28,10 +28,8 @@ bool isSafe(int row, int col, vector<vector<int>>& board, int n) {
         y--;
     }
 
-
     // NOTE:- there is no need to check for same col
     // bcz we were moving left to right direction, also no need to check direction up, down, upper & lower diagonal & left to right
-
 
     x = row;
     y = col;
@@ -94,7 +92,7 @@ vector<vector<int>> nQueens(int n) {
 int main() {
 
     int n;
-    cout << "Enter the value of n: ";
+    cout << "Enter the number of Queens (n): ";
     cin >> n; // read size of the board (n)
 
     // call the nQueens function to get all solutions
