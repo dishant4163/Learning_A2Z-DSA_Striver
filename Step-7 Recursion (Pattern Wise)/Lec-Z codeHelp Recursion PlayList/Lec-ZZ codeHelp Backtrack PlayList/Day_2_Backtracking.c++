@@ -51,7 +51,7 @@ bool isSafe(int row, int col, vector<vector<int>>& board, int n) {
         if(board[x][y] == 1) 
         return false;
 
-        x+1;
+        x++;
         y--;
     }
 
