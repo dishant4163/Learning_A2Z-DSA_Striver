@@ -57,6 +57,31 @@ void solveSudoku(vector<vector<int>>& sudoku) {
 
 int main() {
 
+// Sample input Sudoku board
+    vector<vector<int>> sudoku = {
+        {3, 0, 6, 5, 0, 8, 4, 0, 0},
+        {5, 2, 0, 0, 0, 0, 0, 0, 0},
+        {0, 8, 7, 0, 0, 0, 0, 3, 1},
+        {0, 0, 3, 0, 1, 0, 0, 8, 0},
+        {9, 0, 0, 8, 6, 3, 0, 0, 5},
+        {0, 5, 0, 0, 9, 0, 6, 0, 0},
+        {1, 3, 0, 0, 0, 0, 2, 5, 0},
+        {0, 0, 0, 0, 0, 0, 0, 7, 4},
+        {0, 0, 5, 2, 0, 6, 3, 0, 0}
+    };
+
+    // Solve the Sudoku
+    solveSudoku(sudoku);
+
+    // Print the solved Sudoku board
+    for (int i=0; i < sudoku.size(); i++) {
+        for (int j=0; j < sudoku[i].size(); j++) {
+            int num = sudoku[i][j];
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+
 
 
 
