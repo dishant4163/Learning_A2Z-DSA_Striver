@@ -100,7 +100,7 @@ bool safe2Move(int row, int col, vector<vector<int>>& Board, int m) {
     // check for same row
     if(checkRow[row]) return false;
     // upper left diagonal check
-    if(checkUprLeftDiagonal[(n-1) + (col-row)]) return false;
+    if(checkUprLeftDiagonal[(m-1) + (col-row)]) return false;
     // lower left diagonal check
     if(checkLowrLeftDiagonal[row + col]) return false;
 
@@ -112,7 +112,7 @@ bool safe2Move(int row, int col, vector<vector<int>>& Board, int m) {
 void Solve(int col, vector<vector<vector<int>>>& Ans, vector<vector<int>> Board, int m) {
     // Base Case
     if (col == m) {
-        ans.push_back(Board);
+        Ans.push_back(Board);
         return;
     }
 
@@ -121,14 +121,14 @@ void Solve(int col, vector<vector<vector<int>>>& Ans, vector<vector<int>> Board,
         if(safe2Move(row, col, Board, m)) {
             Board[row][col] = 1;
             checkRow[row] = true;
-            checkUprLeftDiagonal[(n-1) + (col-row)] = true;
+            checkUprLeftDiagonal[(m-1) + (col-row)] = true;
             checkLowrLeftDiagonal[row + col] = true;
             Solve(col+1, Ans, Board, m); // Recursive Call
 
             // BackTrack
             Board[row][col] = 0;
             checkRow[row] = false;
-            checkUprLeftDiagonal[(n-1) + (col-row)] = false;
+            checkUprLeftDiagonal[(m-1) + (col-row)] = false;
             checkLowrLeftDiagonal[row + col] = false;   
         }
     }
@@ -138,6 +138,7 @@ vector<vector<vector<int>>> mQueens(int m) {
     vector<vector<int>> Board(m, vector<int> (m, 0)); //board with size m & initialize with 0
     vector<vector<vector<int>>> Ans;
     Solve(0, Ans, Board, m);
+    return Ans;
 }
 
 
@@ -175,17 +176,17 @@ int main() {
 
 // Optimal Soln-2
     int m;
-    cout <<"Enter the number of Queens (m): ";
+    cout << "Enter the number of Queens (m): ";
     cin >> m; // read size of the board (m)
 
     // call the nQueens function to get all solutions
-    vector<vector<vector<int>>> result = mQueens(m);
+    vector<vector<vector<int>>> res = mQueens(m);
 
-    if (result.empty()) {
+    if (res.empty()) {
         cout << "No solutions exist for " << m << " queens." << endl;
     } else {
         cout << "Solutions for " << m << " queens:" << endl;
-        for (const auto& soln : result) {
+        for (const auto& soln : res) {
             for (int i = 0; i < m; ++i) {
                 for (int j = 0; j < m; ++j) {
                     cout << (soln[i][j] ? "Q " : ". ");
