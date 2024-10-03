@@ -4,6 +4,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
+
+// OPtimal Soln-1
 void addSolution(vector<vector<int>>& board, vector<vector<int>>& ans, int n) {
     vector<int> temp;
 
@@ -15,7 +18,6 @@ void addSolution(vector<vector<int>>& board, vector<vector<int>>& ans, int n) {
 
     ans.push_back(temp);
 }
-
 
 bool isSafe(int row, int col, vector<vector<int>>& board, int n) {
     int x = row;
@@ -58,7 +60,6 @@ bool isSafe(int row, int col, vector<vector<int>>& board, int n) {
 }
 
 
-
 void solve(int col, vector<vector<int>>& ans, vector<vector<int>>& board, int n) {
     // Base Case
     if(col == n) {
@@ -79,7 +80,6 @@ void solve(int col, vector<vector<int>>& ans, vector<vector<int>>& board, int n)
     }
 }
 
-
 vector<vector<int>> nQueens(int n) {
     vector<vector<int>> board(n, vector<int> (n, 0)); // board with size n & initailize with 0
     vector<vector<int>> ans;
@@ -89,8 +89,66 @@ vector<vector<int>> nQueens(int n) {
 
 
 
+
+
+// Optimal Soln-2
+unordered_map<int, bool> checkRow;
+unordered_map<int, bool> checkUprLeftDiagonal;
+unordered_map<int, bool> checkLowrLeftDiagonal;
+
+bool safe2Move(int row, int col, vector<vector<int>>& Board, int m) {
+    // check for same row
+    if(checkRow[row]) return false;
+    // upper left diagonal check
+    if(checkUprLeftDiagonal[(n-1) + (col-row)]) return false;
+    // lower left diagonal check
+    if(checkLowrLeftDiagonal[row + col]) return false;
+
+    // safe to place
+    return true;
+}
+
+
+void Solve(int col, vector<vector<vector<int>>>& Ans, vector<vector<int>> Board, int m) {
+    // Base Case
+    if (col == m) {
+        ans.push_back(Board);
+        return;
+    }
+
+    //Solve 1 case only and left other cases on recursion to solve
+    for (int row=0; row<m; row++) {
+        if(safe2Move(row, col, Board, m)) {
+            Board[row][col] = 1;
+            checkRow[row] = true;
+            checkUprLeftDiagonal[(n-1) + (col-row)] = true;
+            checkLowrLeftDiagonal[row + col] = true;
+            Solve(col+1, Ans, Board, m); // Recursive Call
+
+            // BackTrack
+            Board[row][col] = 0;
+            checkRow[row] = false;
+            checkUprLeftDiagonal[(n-1) + (col-row)] = false;
+            checkLowrLeftDiagonal[row + col] = false;   
+        }
+    }
+}
+
+vector<vector<vector<int>>> mQueens(int m) {
+    vector<vector<int>> Board(m, vector<int> (m, 0)); //board with size m & initialize with 0
+    vector<vector<vector<int>>> Ans;
+    Solve(0, Ans, Board, m);
+}
+
+
+
+
+
+
+
 int main() {
 
+// Optimal soln-1
     int n;
     cout << "Enter the number of Queens (n): ";
     cin >> n; // read size of the board (n)
@@ -112,6 +170,32 @@ int main() {
             cout << endl; // Print a newline between different solutions
         }
     }
+
+
+
+// Optimal Soln-2
+    int m;
+    cout <<"Enter the number of Queens (m): ";
+    cin >> m; // read size of the board (m)
+
+    // call the nQueens function to get all solutions
+    vector<vector<vector<int>>> result = mQueens(m);
+
+    if (result.empty()) {
+        cout << "No solutions exist for " << m << " queens." << endl;
+    } else {
+        cout << "Solutions for " << m << " queens:" << endl;
+        for (const auto& soln : result) {
+            for (int i = 0; i < m; ++i) {
+                for (int j = 0; j < m; ++j) {
+                    cout << (soln[i][j] ? "Q " : ". ");
+                }
+                cout << endl;
+            }
+            cout << endl; // Print a newline between different solutions
+        }
+    }
+
 
 
 
