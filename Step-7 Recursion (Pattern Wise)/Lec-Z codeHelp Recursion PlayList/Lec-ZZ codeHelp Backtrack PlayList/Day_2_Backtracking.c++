@@ -28,6 +28,11 @@ bool isSafe(int row, int col, vector<vector<int>>& board, int n) {
         y--;
     }
 
+
+    // NOTE:- there is no need to check for same col
+    // bcz we were moving left to right direction, also no need to check direction up, down, upper & lower diagonal & left to right
+
+
     x = row;
     y = col;
     // check for diagonal-2 means lower diagonal from right-left
