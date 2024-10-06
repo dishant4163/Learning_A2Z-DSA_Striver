@@ -3,7 +3,37 @@
 
 /* // Combination Sum-1 (Coding Ninja):- https://shorturl.at/g9aZO   
 
+void findCombo(int ind, vector<int>& arr, int target, 
+    vector<vector<int>>& ans, vector<int>& output) {
+        //Base Case
+        if (ind == arr.size()) {
+            if (target == 0) {
+                ans.push_back(output);
+            }
+            return;
+        }
 
+    // pick the element
+    if(arr[ind] <= target) {
+        output.push_back(arr[ind]);
+        findCombo(ind, arr, target - arr[ind], ans, output);
+        output.pop_back();
+    }
+
+    // not pick the element & move to next index
+    findCombo(ind + 1, arr, target, ans, output);
+}
+
+
+vector<vector<int>> combSum(vector<int>& arr, int target)
+{
+    // Write your code here.
+    vector<vector<int>> ans;
+    vector<int> output;
+    sort(arr.begin(), arr.end()); // asked in question
+    findCombo(0, arr, target, ans, output);
+    return ans;
+}
 
 */
 
