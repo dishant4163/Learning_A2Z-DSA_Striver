@@ -3,7 +3,32 @@
 
 /* Subset-2 (Coding Ninjas) -> https://shorturl.at/YYc8q        
 
+#include <bits/stdc++.h> 
 
+void findSubsets(int ind, int n, vector<int> &ar, vector<vector<int>> &ans ,vector<int> &output) {
+    // Add the current subset to the result
+    ans.push_back(output); // no base case in this problem
+
+    for(int i=ind; i < n; i++) {
+        // Skip duplicates: we only want to include the first occurrence of each element
+        if(i > ind && ar[i] == ar[i-1]) continue; // or we can use (i != ind) && ar[i] == ar[i-1]
+
+        output.push_back(ar[i]); //Include the current element
+        findSubsets(i + 1, n, ar, ans, output); // Recursion for the next index
+        output.pop_back(); //BAcktrack
+    }
+}
+
+
+vector<vector<int>> uniqueSubsets(int n, vector<int> &arr)
+{
+    // Write your code here.
+    vector<vector<int>> ans;
+    vector<int> output;
+    sort(arr.begin(), arr.end());
+    findSubsets(0, n, arr, ans, output);
+    return ans;
+}
 
 */
 
