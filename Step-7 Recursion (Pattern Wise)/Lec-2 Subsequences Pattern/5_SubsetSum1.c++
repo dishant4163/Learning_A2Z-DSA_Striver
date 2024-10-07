@@ -3,7 +3,27 @@
 
 /* Subset Sum-1 -> https://shorturl.at/k2Ek8   
 
+void solveSubsetSum(int ind, int sum, vector<int>& arr, vector<int>& ansSubsetSum) {
+	//Base Case
+	if (ind == arr.size()) {
+		ansSubsetSum.push_back(sum);
+		return;
+	}
 
+	//pick the element
+	solveSubsetSum(ind + 1, sum + arr[ind], arr, ansSubsetSum);
+
+	//not pick the element
+	solveSubsetSum(ind + 1, sum, arr, ansSubsetSum);
+}
+
+vector<int> subsetSum(vector<int> &num){
+	// Write your code here.
+	vector<int> ans;
+	solveSubsetSum(0, 0, num, ans);
+	sort(ans.begin(), ans.end());
+	return ans;
+}
 
 */
 
