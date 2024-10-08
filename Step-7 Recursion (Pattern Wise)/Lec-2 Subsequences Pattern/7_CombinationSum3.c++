@@ -1,8 +1,32 @@
 // Combination Sum-3 | Recursion
 
-/*
+/* Combination Sum III_(Coding Ninjas):- https://shorturl.at/0zOHP      
 
+void solve(int ind, int sum, int k, int n, vector<vector<int>>& ans, vector<int>& output) {
+    //Base Cases
+    if (sum == n && k == 0) {
+        ans.push_back(output);
+        return;
+    }
+    if (sum > n || k < 0) return;
 
+    for(int i = ind; i <= 9; i++) {
+        if (i > n) break;
+
+        output.push_back(i);
+        solve(i+1, sum+i, k-1, n, ans, output);
+        output.pop_back();
+    }
+}
+
+vector<vector<int>> combinationSum(int k, int n) {
+    // Write Your Code Here
+    vector<vector<int>> ans;
+    vector<int> output;
+    solve(1, 0, k, n, ans, output);
+    //sort(ans.begin(), ans.end()); //if asked in problem
+    return ans;
+}
 
 */
 
