@@ -47,12 +47,25 @@ vector<vector<string>> partition(string& s) {
 
 int main() {
 
+    string s;
+    cout << "Enter a string: ";
+    cin >> s;  // Take user input for the string
 
+    // Get all palindrome partitions
+    vector<vector<string>> result = partition(s);
+
+    // Print the results
+    cout << "All possible palindrome partitions:" << endl;
+    for (const auto& partition : result) {
+        cout << "[ ";
+        for (const auto& substring : partition) {
+            cout << substring << ", ";
+        }
+        cout << "]" << endl;
+    }
 
 
 
     return 0;
 }
-
-
 
