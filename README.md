@@ -26,6 +26,11 @@
 3. Lec-3 BS on 2D Arrays
 
 
+# Step-5 Strungs[Basic & Medium]
+1. Basic & Easy Problems
+2. Medium Problems
+
+
 # Step-6 Learn LinkedList [Single LL, Double LL, Medium, Hard Problems]
 1. Lec-1 Learn 1D LL
 2. Lec-2 Learn Doubly LL
