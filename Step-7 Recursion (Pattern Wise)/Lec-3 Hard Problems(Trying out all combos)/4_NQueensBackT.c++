@@ -2,7 +2,76 @@
 
 /* N-Queen (Coding Ninjas ->  https://shorturl.at/N7JsV  )
 
+void addSoln(vector<vector<int>>& board, vector<vector<int>>& ans, int n) {
+    vector<int> temp;
 
+    for(int i=0; i<n; i++) {
+        for(int j=0; j<n; j++) {
+            temp.push_back(board[i][j]);
+        }
+    }
+    ans.push_back(temp);
+}
+
+
+bool isSafe(int row, int col, vector<vector<int>>& board, int n) {
+    int x = row;
+    int y=col;
+    //check in same row
+    while(y >= 0) {
+        if(board[x][y] == 1) return false;
+        y--;
+    }
+
+    
+    x=row;
+    y=col;
+    //check in diagonal-1/upper left diagonal
+    while(x < n && y >= 0) {
+        if(board[x][y] == 1) return false;
+        x++;
+        y--;
+    }
+
+    x=row;
+    y=col;
+    //check in diagonal2/lower left diagonal
+    while(x >=0 && y >= 0) {
+        if(board[x][y] == 1) return false;
+        x--;
+        y--;
+    }
+    // sab safe h placing k liye
+    return true;
+}
+
+void solve(int col, vector<vector<int>>& ans, vector<vector<int>>& board, int n) {
+    //Base Case
+    if(col == n) {
+        addSoln(board, ans, n);
+        return;
+    }
+
+    //solve 1 case only rest recusrion will do
+    for(int row=0; row<n; row++) {
+        if(isSafe(row, col, board, n)) {
+            board[row][col] = 1;
+            solve(col+1, ans, board, n);
+
+            //Backtrack
+            board[row][col] = 0;
+        }
+    }
+}
+
+
+vector<vector<int>> solveNQueens(int n) {
+    // Write your code here.
+    vector<vector<int>> board(n, vector<int> (n, 0)); // board with size n & initailize with 0
+    vector<vector<int>> ans;
+    solve(0, ans, board, n);
+    return ans;
+}
 
 */
 
@@ -13,7 +82,7 @@ using namespace std;
 
 
 
-/* // OPtimal Soln-1
+ // OPtimal Soln-1
 // TC:- O(N!) and SC:- O(N*N) + O(N) approx => O(N*N)
 
 void addSolution(vector<vector<int>>& board, vector<vector<int>>& ans, int n) {
@@ -98,12 +167,12 @@ vector<vector<int>> nQueens(int n) {
     solve(0, ans, board, n);
     return ans;
 }
-*/
 
 
 
 
-/*// More Optimal Soln-2
+
+// More Optimal Soln-2
 // Time Complexity: O(N!) & Space Complexity: O(N*N) + O(1) ->due to hashmap
 
 unordered_map<int, bool> checkRow;
@@ -154,7 +223,7 @@ vector<vector<vector<int>>> mQueens(int m) {
     Solve(0, Ans, Board, m);
     return Ans;
 }
-*/
+
 
 
 
@@ -164,7 +233,7 @@ vector<vector<vector<int>>> mQueens(int m) {
 
 int main() {
 
-/* // Optimal Soln - 1
+ // Optimal Soln - 1
     int n;
     cout << "Enter the number of Queens (n): ";
     cin >> n; // read size of the board (n)
@@ -186,11 +255,11 @@ int main() {
             cout << endl; // Print a newline between different solutions
         }
     }
-*/
 
 
 
-/*// Optimal Soln - 2
+
+// Optimal Soln - 2
     int m;
     cout << "Enter the number of Queens (m): ";
     cin >> m; // read size of the board (m)
@@ -212,12 +281,11 @@ int main() {
             cout << endl; // Print a newline between different solutions
         }
     }
-*/
+
 
 
 
     return 0;
 }
-
 
 
