@@ -3,6 +3,21 @@
 
 /* Maximum Nesting Depth of the Parentheses (Coding Ninjas ->  https://shorturl.at/89Zxb  )
 
+int maxDepth(string s) {
+	// Write your code here.
+	int ans = 0, curDepth = 0;
+	for(char& ch : s) {
+		if (ch == '(') {
+			curDepth++;
+			ans = max(ans, curDepth);
+		}
+		if (ch == ')') {
+			curDepth--;
+		}
+	}
+
+	return ans;
+}
 
 
 */
