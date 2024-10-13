@@ -44,3 +44,9 @@
 1. Lec-1 Get a Strong Hold(Basic)
 2. Subsequences Pattern
 3. Trying Out all Combos/Hard
+
+
+# Step-8 Bit Manipulation (Basic to Advanced Maths)
+1. Basic Bit Manipulation
+2. Medium Bit Manipulation
+3. Advanced Problem on Bit Manipulation
