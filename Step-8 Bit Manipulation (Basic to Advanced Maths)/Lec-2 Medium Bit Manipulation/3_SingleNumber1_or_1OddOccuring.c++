@@ -2,19 +2,33 @@
 
 
 
-
 /* //One Odd Occurring (Coding Ninjas ->  https://shorturl.at/UiXaZ  )
 
-int missingNumber(int n, vector<int> &arr){
-    // Write your code here.
-    int xorAns = 0;
-    for(int i=0; i < n; i++) {
-        xorAns = xorAns ^ arr[i];
-    }
-    return xorAns;
-}
+// int missingNumber(int n, vector<int> &arr){
+//     // Write your code here.
+//     int xorAns = 0;
+//     for(int i=0; i < n; i++) {
+//         xorAns = xorAns ^ arr[i];
+//     }
+//     return xorAns;
+// }
+
+
+// Single Number-I (Coding Ninjas ->  https://shorturl.at/ueVh0  )
+
+// int occursOnce(vector<int> &a, int n){
+// 	// Write your code here.
+// 	int xoR = 0;
+// 	for(int i=0; i < n; i++) {
+// 		xoR = xoR ^ a[i];
+// 	}
+
+// 	return xoR;	
+// }
 
 */
+
+
 
 
 #include<bits/stdc++.h>
