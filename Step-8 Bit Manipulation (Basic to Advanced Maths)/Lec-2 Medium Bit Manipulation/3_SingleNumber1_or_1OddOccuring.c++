@@ -5,7 +5,14 @@
 
 /* //One Odd Occurring (Coding Ninjas ->  https://shorturl.at/UiXaZ  )
 
-
+int missingNumber(int n, vector<int> &arr){
+    // Write your code here.
+    int xorAns = 0;
+    for(int i=0; i < n; i++) {
+        xorAns = xorAns ^ arr[i];
+    }
+    return xorAns;
+}
 
 */
 
