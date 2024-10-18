@@ -3,7 +3,28 @@
 
 /* (Coding Ninjas ->  https://shorturl.at/cTHaS  )
 
+int xorTill(int n) {
+    if(n%4 == 1){
+        return 1;
+    }
+    else if (n%4 == 2) {
+        return n+1;
+    }
+    else if (n%4 == 3) {
+        return 0;
+    }
+    else {
+        return n;
+    }
+}
 
+int findXOR(int L, int R){
+    // Write your code here.
+    int findXorL = xorTill(L-1);
+    int findXorR = xorTill(R);
+
+    return findXorL ^ findXorR;
+}
 
 */
 
