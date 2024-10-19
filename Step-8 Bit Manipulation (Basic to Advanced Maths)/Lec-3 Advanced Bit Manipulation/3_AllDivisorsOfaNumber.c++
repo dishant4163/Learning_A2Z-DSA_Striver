@@ -1,5 +1,6 @@
 //Print all Divisors of a given Number
 
+
 /* // Sum of all divisors 
 (Coding Ninjas ->  https://www.naukri.com/code360/problems/sum-of-all-divisors_8360720?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf  )
 
@@ -46,6 +47,23 @@ int printDivisors_1(int n) {
 
 
 
+//Soln-2 OPtimal Soln
+vector<int> findDivisors(int N) {
+    vector<int> solve;
+
+    for(int i=1; i*i <= N; i++) {
+        if(N%i == 0) {
+            solve.push_back(i);
+
+            //only to add unique divisors bcz it get another  i divisore
+            if( (N/i) != i ) {
+                solve.push_back(N/i);
+            }
+        }
+    }
+
+    return solve;
+}
 
 
 
@@ -57,6 +75,7 @@ int printDivisors_1(int n) {
 
 int main() {
 
+
 //Soln-1 Brute Force
     int n;
     cout << "Enter a number: ";
@@ -66,6 +85,17 @@ int main() {
 
 
 
+//Soln-2 OPtimal Soln
+int number;
+cout << "Enter the number: ";
+cin >> number;
+    vector<int> divisors = findDivisors(number);
+
+    cout << "Divisors of " << number << " are: ";
+    for (int divisor : divisors) {
+        cout << divisor << " ";
+    }
+    cout << endl;
 
 
 
@@ -74,3 +104,4 @@ int main() {
 
 return 0;
 }
+
