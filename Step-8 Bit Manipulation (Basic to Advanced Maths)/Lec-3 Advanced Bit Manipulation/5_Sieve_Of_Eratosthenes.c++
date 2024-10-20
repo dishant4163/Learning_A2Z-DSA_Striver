@@ -1,8 +1,68 @@
 // Sieve of Eratosthenes : Find all Prime Numbers
 
 
+/* All prime numbers(based on Sieve of Eratosthenes) (Coding Ninjas ->  https://tinyurl.com/mrycznsk  )
 
 
+#include<iostream>
+#include<vector>
+using namespace std;
+
+// bool checkPrime(int n) {
+// 	if (n <= 1) return false; //0 & 1 are not prime numbers
+// 	if (n == 2 || n == 3) return true; // 2 & 3 are prime numbers
+
+// 	for(int i = 2; i*i <= n; i++) {
+// 		if (n%i == 0) return false; //if divisible by i then not prime
+// 	}
+// 	return true;
+// }
+
+vector<int> checkPrime(int n) {
+	//declare arr with size (n+1) & initialize with 1(assume all numbers are prime initially)
+    vector<int> primeAr(n+1, 1);
+
+    // 0 & 1 are not prime
+    primeAr[0] = primeAr[1] = 0;
+
+    // Apply Sieve of Erathosthenes
+    for (int i = 2; i*i <= n; i++) {
+        if(primeAr[i] == 1) {
+            for (int j = i*i; j <= n; j = j+i){
+                // Mark multiples of prime numbers as not prime
+                primeAr[j] = 0;
+            }
+        }
+    }
+
+    vector<int> ans;
+    //collect prime numbers
+    for (int i = 2; i <= n; i++) {
+        if(primeAr[i] == 1) ans.push_back(i);
+    }
+
+    return ans;
+}
+
+
+int main(){
+
+// Read input as specified in the question.
+// Print output as specified in the question.
+
+	int n;
+	cin >> n;
+    vector<int> primes = checkPrime(n);
+
+    for (int it : primes) {
+        cout << it << " \n";
+    }
+    cout << endl;
+
+}
+
+
+*/
 
 
 
