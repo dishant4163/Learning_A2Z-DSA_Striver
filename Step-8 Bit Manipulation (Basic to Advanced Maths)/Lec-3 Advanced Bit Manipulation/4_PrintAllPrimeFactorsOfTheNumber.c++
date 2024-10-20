@@ -1,26 +1,51 @@
 // Print all Prime Factors of the given Number
 
 
-/* // Count Primes (Coding Ninjas ->   https://tinyurl.com/dh8wahv6 )
+/* // Count Primes(based on Sieve of Erathosthenes) (Coding Ninjas ->   https://tinyurl.com/dh8wahv6 )
+
+
 
 vector<int> countPrimes(int n) {
     // Write your code here.
-    vector<int> ans;
+    vector<int> pr(n+1, 1); //sieve of Eratosthenes is better 99.16
+
+    pr[0] = pr[1] = 0;
 
     for(int i = 2; i*i <= n; i++) {
-        if(n%i == 0) {
-            ans.push_back(i);
-        }
-
-        while(n%i == 0) {
-            n = n/i;
+        if(pr[i] == 1) {
+            for(int j = i*i; j <= n; j += i) {
+                pr[j] = 0;
+            }
         }
     }
 
-    if(n != 1) ans.push_back(n);
+    vector<int> cnt;
+    for(int i=2; i <= n; i++) {
+        if(n%i == 0 && pr[i] == 1) cnt.push_back(i);
+    }
 
-    return ans;
+    return cnt;
+
+
+
+    // vector<int> ans; // this is 46.27 better
+
+    // for(int i = 2; i*i <= n; i++) {
+    //     if(n%i == 0) {
+    //         ans.push_back(i);
+    //     }
+
+    //     while(n%i == 0) {
+    //         n = n/i;
+    //     }
+    // }
+
+    // if(n != 1) ans.push_back(n);
+
+    // return ans;
+    
 }
+
 
 */
 
