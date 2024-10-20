@@ -1,12 +1,7 @@
 // Sieve of Eratosthenes : Find all Prime Numbers
 
 
-/* // Count Primes(based on Sieve of Eratosthenes) -> ( https://tinyurl.com/dh8wahv6 )
 
-
-
-
-*/
 
 
 
