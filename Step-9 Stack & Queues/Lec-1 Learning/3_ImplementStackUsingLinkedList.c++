@@ -1,2 +1,2 @@
-// Implement stack using Linkedlist
+// Implement Stack using Linkedlist
 
