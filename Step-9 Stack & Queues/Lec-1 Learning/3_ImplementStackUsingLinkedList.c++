@@ -1,6 +1,61 @@
 // Implement Stack using Linkedlist
 
 
+
+/* Implement stack using Linkedlist Coding Ninjas -> (  https://tinyurl.com/578w84v4  )
+
+
+class Stack {
+    //Write your code here
+    Node* top = NULL;
+    int size = 0;
+
+public:
+    Stack()
+    {
+        //Write your code here
+    }
+
+    int getSize() {
+        //Write your code here
+        return size;
+    }
+
+    bool isEmpty() {
+        //Write your code here
+        return size == 0 ? true : false;
+    }
+
+    void push(int data) {
+        //Write your code here
+        Node* temp = new Node(data);
+        temp->next = top;
+        top = temp;
+        size++;
+    }
+
+    void pop() {
+        //Write your code here
+        if(size == 0) return;
+        Node* temp = top;
+        top = top->next;
+        delete(temp);
+        size--;
+    }
+
+    int getTop() {
+        //Write your code here
+        if(top == NULL) return -1;
+        else return top->data;
+    }
+};
+
+*/
+
+
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
