@@ -1,9 +1,55 @@
 // Implement Stack using single Queue
 
 
-// Implement Stack using single Queue
+/* Implement Stack using Queue  Coding Ninjas-> (  https://tinyurl.com/3e59hawv  )
 
+class Stack {
+	// Define the data members.
+    queue<int> q;
 
+   public:
+    Stack() {
+        // Implement the Constructor.
+    }
+
+    // *--------- Public Functions of Stack ---------* //
+
+    int getSize() {
+        // Implement the getSize() function.
+        return q.size();
+    }
+
+    bool isEmpty() {
+        // Implement the isEmpty() function.
+        return q.size() == 0 ? true : false;
+    }
+
+    void push(int element) {
+        // Implement the push() function.
+        int size = q.size();
+        q.push(element);
+        for(int i=1; i <= size; i++) {
+            q.push(q.front());
+            q.pop();
+        }
+    }
+
+    int pop() {
+        // Implement the pop() function.
+        if(isEmpty()) return -1;
+        int element = q.front();
+        q.pop();
+        return element;
+    }
+
+    int top() {
+        // Implement the top() function.
+        if(isEmpty()) return -1;
+        return q.front();
+    }
+};
+
+*/
 
 
 
