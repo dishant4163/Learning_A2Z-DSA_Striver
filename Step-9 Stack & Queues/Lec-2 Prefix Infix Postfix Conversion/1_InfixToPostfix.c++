@@ -3,7 +3,55 @@
 
 /*  Infix to Postfix__Coding Ninjas -> (  https://shorturl.at/7w6MJ  ) 
 
+#include<bits/stdc++.h>
 
+int priorityOrder(char op) {
+	if(op == '^') return 3;
+	else if (op == '*' || op == '/') return 2;
+	else if (op == '+' || op == '-') return 1;
+	else return -1;
+}
+
+string infixToPostfix(string s){
+	// Write your code here
+	stack<char> st;
+	string ans = "";
+
+	for(int i=0; i<s.length(); i++) {
+
+		if((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= '0' && s[i] <= '9')) {
+			ans += s[i];
+		}
+
+		else if(s[i] == '(') {
+			st.push(s[i]);
+		}
+
+		else if(s[i] == ')') {
+			while(!st.empty() && st.top() != '(') {
+				ans += st.top();
+				st.pop();
+			}
+			st.pop();
+		}
+
+		else {
+			while(!st.empty() && priorityOrder(s[i]) <= priorityOrder(st.top()) ) {
+				ans += st.top();
+				st.pop();
+			}
+			st.push(s[i]);
+		}
+		//i++;
+
+	}
+	while(!st.empty()) {
+		ans += st.top();
+		st.pop();
+	}
+
+	return ans;
+}
 
 */
 
