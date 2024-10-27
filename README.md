@@ -26,7 +26,7 @@
 3. Lec-3 BS on 2D Arrays
 
 
-# Step-5 Strungs[Basic & Medium]
+# Step-5 Strings[Basic & Medium]
 1. Basic & Easy Problems
 2. Medium Problems
 
@@ -50,3 +50,10 @@
 1. Basic Bit Manipulation
 2. Medium Bit Manipulation
 3. Advanced Problem on Bit Manipulation
+
+
+# Step-9 Stack & Queue
+1. Learning Basic
+2. Prefix, Infix & Postfix Conversions
+3. Monotonic Stack/Queue Problems (VVV. Imp)
+4. Medium/Hard Problems
