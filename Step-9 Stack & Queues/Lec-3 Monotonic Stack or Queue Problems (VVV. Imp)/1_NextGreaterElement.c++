@@ -1,6 +1,29 @@
 // Next Greater Element (in right side in an array)
 
 
+/* Next Greater Element_Coding Ninjas Problems -> (  https://tinyurl.com/yckahsvc  )
+#include<stack>
+
+vector<int> nextGreaterElement(vector<int>& arr, int n) {
+	// Write your code here
+	vector<int> nge(n, -1);
+	stack<int> st;
+	for(int i=n-1; i >= 0; i--) {
+		while(!st.empty() && st.top() <= arr[i]) {
+			st.pop();
+		}
+
+		if(st.empty()) nge[i] = -1;
+		else nge[i] = st.top();
+
+		st.push(arr[i]);
+	}
+
+	return nge;
+}
+
+*/
+
 
 
 #include<bits/stdc++.h>
