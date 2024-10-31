@@ -1,6 +1,34 @@
 // Next Greater Element-ii (in right side in an array)
 
 
+/* Next Greater ElementII_Coding Ninjas -> (  https://shorturl.at/LBoZQ  )
+
+
+#include<stack>
+vector<int> nextGreaterElementII(vector<int>& a) {
+    // Write your code here.
+    int n = a.size();
+    vector<int> nge2(n, -1);
+    stack<int> st;
+
+    for(int i = 2*n-1; i >= 0; i--) {
+        while(!st.empty() && st.top() <= a[i % n]) {
+            st.pop();
+        }
+
+        if(i < n) {
+            if(!st.empty()) nge2[i] = st.top();
+        }
+
+        st.push(a[i % n]);
+    }
+
+    return nge2;
+}
+
+
+*/
+
 
 #include<bits/stdc++.h>
 using namespace std;
