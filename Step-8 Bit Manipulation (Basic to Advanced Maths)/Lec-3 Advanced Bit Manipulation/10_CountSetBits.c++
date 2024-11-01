@@ -57,6 +57,40 @@ Sample Output 2:
 
 
 
+/*  Count Set Bits(hard)_Coding Ninjas -> https://shorturl.at/3luSZ     
+
+
+const int MOD = 1e9 + 7;
+
+int countSetBits(int n) {
+    // Write your code here
+    int count = 0;
+
+    // Iterate through each bit position
+    for (int i = 0; (1 << i) <= n; ++i) {
+        // Full cycles of (1 << (i + 1))
+        int total_pairs = n + 1;
+        int complete_cycles = total_pairs / (1 << (i + 1));
+        int total_set_bits = complete_cycles * (1 << i);
+
+        // Add bits from the remainder part
+        int remainder = total_pairs % (1 << (i + 1));
+        if (remainder > (1 << i)) {
+            total_set_bits += remainder - (1 << i);
+        }
+
+        // Ensure to take modulo at each step to prevent overflow
+        count = (count + total_set_bits) % MOD;
+    }
+
+    return count;
+}
+
+
+
+*/
+
+
 
 
 
