@@ -1,6 +1,32 @@
 //Next Smaller Element/NSE (in right side in an array)
 
 
+/* Next Smaller Element_Coding Ninjas-> (  https://shorturl.at/zcm6M  )
+
+
+#include<bits/stdc++.h>
+
+vector<int> nextSmallerElement(vector<int> &arr, int n) {
+    // Write your code here.
+    stack<int> st;
+    vector<int> nse(n, -1);
+
+    for(int i = n-1; i >= 0; i--) {
+        while(!st.empty() && st.top() >= arr[i]) {
+            st.pop();
+        }
+
+        if(st.empty()) nse[i] = -1;
+        else nse[i] = st.top();
+
+        st.push(arr[i]);
+    }
+
+    return nse;
+}
+
+*/
+
 
 
 #include<bits/stdc++.h>
