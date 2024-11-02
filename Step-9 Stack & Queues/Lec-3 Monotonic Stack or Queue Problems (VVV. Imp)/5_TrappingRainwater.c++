@@ -35,7 +35,7 @@ long long getTrappedWater(long long* arr, int n) {
 using namespace std;
 
 
-/*//SOln-1.1 Brute Force
+//SOln-1.1 Brute Force
 // TC:- O(N^2) SC:- O(N)
 int trapWater(vector<int>& ar) {
     int res = 0;
@@ -58,12 +58,12 @@ int trapWater(vector<int>& ar) {
 
     return res;
 }
-*/
 
 
 
 
-/*//SOln-2 Better Approach(using PrefixMax & SuffixMax)
+
+//SOln-2 Better Approach(using PrefixMax & SuffixMax)
 // TC:- O(3N) SC:- O(N) + O(N) = O(2N)
 int trapW(vector<int>& arr) {
     int s = arr.size();
@@ -86,7 +86,7 @@ int trapW(vector<int>& arr) {
 
     return collectWater;
 }
-*/
+
 
 
 
@@ -157,16 +157,16 @@ int trappedWater(vector<int>& a){
 
 int main() {
 
-/*//SOln-1.1 Brute Force
+//SOln-1.1 Brute Force
     vector<int> ar = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
     cout << trapWater(ar);
-*/
 
 
-/*//Soln-2 Better Approch(using PrefixMax & SuffixMax)
+
+//Soln-2 Better Approch(using PrefixMax & SuffixMax)
     vector<int> arr = {10, 9, 0, 4};
     cout << trapW(arr);
-*/
+
 
 
 //Soln-3.1 OPtimal Approach(using Stack)
