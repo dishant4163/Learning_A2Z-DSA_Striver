@@ -2,11 +2,10 @@
 
 
 
-
 #include<bits/stdc++.h>
 using namespace std;
 
-/*// SOln-1 Brute Force
+// SOln-1 Brute Force
 // TC:- O(n^2)  SC:- O(n)
 vector<int> findPrevSmallerEL(vector<int>& arr) {
     vector<int> PSE(arr.size(), -1); //To store the result &
@@ -23,7 +22,6 @@ vector<int> findPrevSmallerEL(vector<int>& arr) {
 
     return PSE;
 }
-*/
 
 
 
@@ -59,7 +57,7 @@ vector<int> PrevSmallerEl(vector<int>& ar) {
 
 int main() {
 
-/*// SOln-1 Brute Force
+// SOln-1 Brute Force
     int N;
     cout << "Enter the number of elements: ";
     cin >> N;
@@ -80,7 +78,7 @@ int main() {
         cout << result[i] << " ";
     }
     cout << endl;
-*/
+
 
 
 
