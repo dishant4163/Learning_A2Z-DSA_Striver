@@ -4,7 +4,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-/*//Soln-1 Brute Force
+//Soln-1 Brute Force
 //TC:- O(N^2)     SC:- O(1)
 int sumSubarrayMaxi(vector<int>&arr) {
     int s = arr.size();
@@ -19,7 +19,7 @@ int sumSubarrayMaxi(vector<int>&arr) {
     }
     return sum;
 }
-*/
+
 
 
 
@@ -78,10 +78,10 @@ int sumSubArrayMaxis(vector<int>& ar) {
 
 int main() {
 
-/*//Soln-1 Brute Force
+//Soln-1 Brute Force
     vector<int> arr = {3, 1, 2, 4};
     cout << "Sum of Subarrays Maximums is: " << sumSubarrayMaxi(arr) << endl;
-*/
+
 
 
 //Soln-2 OPtimal Soln
