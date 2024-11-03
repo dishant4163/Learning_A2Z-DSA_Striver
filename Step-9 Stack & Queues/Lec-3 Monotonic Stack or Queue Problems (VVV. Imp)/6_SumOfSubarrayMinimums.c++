@@ -61,7 +61,7 @@ int sumSubarrayMins(vector<int>&arr) {
 #include<bits/stdc++.h>
 using namespace std;
 
-/*//Soln-1 Brute Force
+//Soln-1 Brute Force
 //TC:- O(N^2)     SC:- O(1)
 int sumSubarrayMins(vector<int>&arr) {
     int s = arr.size();
@@ -75,7 +75,7 @@ int sumSubarrayMins(vector<int>&arr) {
     }
     return sum;
 }
-*/
+
 
 
 
@@ -144,10 +144,10 @@ int sumSubarrayMinimums(vector<int>& ar) {
 
 int main() {
 
-/*//SOln-1 Brute Force
+//SOln-1 Brute Force
     vector<int> arr = {3, 1, 2, 4};
     cout << "Sum of Subarrays minimums is: " << sumSubarrayMins(arr) << endl;
-*/
+
 
 
 //Soln-2 OPtimal Soln
