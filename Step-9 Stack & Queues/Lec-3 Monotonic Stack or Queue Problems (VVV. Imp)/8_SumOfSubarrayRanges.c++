@@ -69,7 +69,7 @@ int rangeSum(vector<int>&nums){
 #include<bits/stdc++.h>
 using namespace std;
 
-/*//SOln-1 Brute Force
+//SOln-1 Brute Force
 // TC:- O(N^2) SC:- O(1)
 int sumSubArRange(vector<int>& arr) {
     int s = arr.size();
@@ -85,12 +85,12 @@ int sumSubArRange(vector<int>& arr) {
     }
     return sum;
 }
-*/
 
 
 
 
-/*//Soln-2 OPtimal Soln(using Sum Of Subarray Minimums & Maximums)
+
+//Soln-2 OPtimal Soln(using Sum Of Subarray Minimums & Maximums)
 // TC:- O(10N) approx= O(N)    SC:- O(10N) approx= O(N)
 
 //Sum Of Subarray Minimums
@@ -199,7 +199,7 @@ int getSubArRangeSum(vector<int>& ar) {
     return maxSum - minSum;
 }
 
-*/
+
 
 
 
@@ -275,10 +275,10 @@ int getSubArRangeSum2(vector<int>& ar) {
 
 int main() {
 
-/*//Soln-1 Brute Force
+//Soln-1 Brute Force
     vector<int> arr = {1, 4, 3, 2};
     cout << "Sum of Subarray Ranges is " << sumSubArRange(arr) << endl;
-*/
+
 
 
 //Soln-2 OPtimal
