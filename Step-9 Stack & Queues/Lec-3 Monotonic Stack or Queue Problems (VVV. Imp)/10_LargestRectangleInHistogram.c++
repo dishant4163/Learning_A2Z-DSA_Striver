@@ -1,7 +1,39 @@
 // Area of Largest Rectangle in Histogram
 
 
+/* //Largest Rectangle in a Histogram_Coding Ninjas -> (  https://shorturl.at/7gHkv  )
 
+
+int largestRectangle(vector <int> & heights) {
+    // Write your code here.
+    int n = heights.size();
+    stack<int> st;
+    int maxArea = 0;
+
+    for(int i=0; i < n; i++) {
+        while(!st.empty() && heights[st.top()] > heights[i]) {
+            int ele = st.top();
+            st.pop();
+
+        int nse = i;
+        int pse = st.empty() ? -1 : st.top();
+        maxArea = max(maxArea, (heights[ele] *(nse - pse - 1) ));
+    }
+    st.push(i);
+    }
+
+    while(!st.empty()) {
+    int nse = n;
+    int ele = st.top();
+    st.pop();
+    int pse = st.empty() ? -1 : st.top();
+    maxArea = max(heights[ele] * (nse - pse - 1), maxArea);
+    }
+
+    return maxArea;
+}
+
+*/
 
 
 
