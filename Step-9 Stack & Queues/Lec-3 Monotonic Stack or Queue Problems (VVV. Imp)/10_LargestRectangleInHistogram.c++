@@ -34,7 +34,7 @@ The approach is to find the right smaller and left smaller element and find the 
   # Time Complexity: O(N*N ) 
   # Space Complexity: O(1)
 */
-/*int largestrectangleArea(int arr[], int s) {
+int largestrectangleArea(int arr[], int s) {
     int maxiAr = 0;
     for(int i=0; i < s; i++) {
         int miniHt = INT_MAX;
@@ -45,7 +45,7 @@ The approach is to find the right smaller and left smaller element and find the 
     }
     return maxiAr;
 }
-*/
+
 
 
 
@@ -94,11 +94,11 @@ int largestRectangleArea(vector<int>& histo) {
 
 int main() {
 
-/*//Soln-1 Brute Force
+//Soln-1 Brute Force
     int arr[] = {2, 1, 5, 3, 2, 3};
     int size = 6;
     cout << "The largest area in the Histogram is: " << largestrectangleArea(arr, size) << endl;
-*/
+
 
 
 
