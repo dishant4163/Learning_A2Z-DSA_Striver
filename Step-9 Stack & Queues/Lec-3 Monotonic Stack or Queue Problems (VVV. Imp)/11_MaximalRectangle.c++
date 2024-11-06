@@ -1,7 +1,48 @@
 // Maximal Rectangle / Maximum Size Rectangle Sub-matrix With All 1's
 
 
+/* Maximum Size Rectangle Sub-matrix With All 1's  
+-> (  https://shorturl.at/QFUrU  )
 
+
+#include<bits/stdc++.h>
+
+int largestRectInHisto(vector<int>& ar) {
+	int maxArea = 0;
+	stack<int> st;
+	ar.push_back(0);
+
+	for(int i=0; i < ar.size(); i++) {
+		while(!st.empty() && ar[st.top()] >= ar[i]) {
+			int ht = ar[st.top()];
+			st.pop();
+
+			int wd = st.empty() ? i : i-st.top()-1;
+			// (i-st.top()-1) to calculate the width of the rectangle
+			maxArea = max(maxArea, ht * wd);
+		}
+		st.push(i);
+	}
+	return maxArea;
+}
+
+int maximalAreaOfSubMatrixOfAll1(vector<vector<int>> &mat, int n, int m){
+	// Write your code here.
+	int maxiArea = 0;
+	vector<int> pSumAr(m, 0);
+
+	for(int i=0; i < n; i++) {
+		for(int j=0; j < m; j++) {
+			if(mat[i][j] == 1) pSumAr[j]++;
+			else pSumAr[j] = 0;
+		}
+		int histoArea = largestRectInHisto(pSumAr);
+		maxiArea = max(maxiArea, histoArea);
+	}
+	return maxiArea;
+}
+
+*/
 
 
 
