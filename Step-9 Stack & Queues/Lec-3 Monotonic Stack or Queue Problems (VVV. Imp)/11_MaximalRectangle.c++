@@ -1,4 +1,4 @@
-// Maximal Rectangle
+// Maximal Rectangle / Maximum Size Rectangle Sub-matrix With All 1's
 
 
 
