@@ -69,6 +69,25 @@ int main() {
     string result = remove_K_Digits(numStr, k);
     cout << "Result after removing " << k << " digits: " << result << endl; // Expected output: "1219"
 
+/*// You can add more test cases here
+    cout << endl;
+
+    vector<pair<string, int>> testCases = {
+        {"10200", 1},
+        {"10", 2},
+        {"100", 1},
+        {"987654321", 4}
+    };
+
+    for (const auto& test : testCases) {
+        string num = test.first;
+        int removeCount = test.second;
+        cout << "Original number: " << num << ", Remove " << removeCount << " digits: " 
+            << remove_K_Digits(num, removeCount) << endl;
+    }
+
+*/
+
 
     return 0;
 }
