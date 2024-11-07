@@ -4,6 +4,40 @@
 
 /* Remove K Digits_Coding Ninjas -> (  https://shorturl.at/HOF3e  )
 
+string removeKDigits(string num, int k) {
+    // Write your code here.
+    int n = num.length();
+    if(k >= n) return "0";
+
+    stack<int> st;
+
+    for(int i=0; i < n; i++) {
+        while(!st.empty() && k > 0 && (st.top() - '0') > (num[i] - '0')) {
+            st.pop();
+            k--;
+        }
+        st.push(num[i]); //add string num i-th element
+    }
+
+    while(k > 0 && !st.empty()) {
+        st.pop();
+        k--;
+    }
+
+    if(st.empty()) return "0";
+
+    string ans = "";
+    while(!st.empty()) {
+        ans += st.top();
+        st.pop();
+    }
+
+    while(ans.size() != 0 && ans.back() == '0') ans.pop_back();
+
+    reverse(ans.begin(), ans.end());
+
+    return ans.empty() ? "0" : ans;
+}
 
 
 */
@@ -69,7 +103,8 @@ int main() {
     string result = remove_K_Digits(numStr, k);
     cout << "Result after removing " << k << " digits: " << result << endl; // Expected output: "1219"
 
-/*// You can add more test cases here
+
+    /*// You can add more test cases here
     cout << endl;
 
     vector<pair<string, int>> testCases = {
@@ -87,6 +122,7 @@ int main() {
     }
 
 */
+
 
 
     return 0;
