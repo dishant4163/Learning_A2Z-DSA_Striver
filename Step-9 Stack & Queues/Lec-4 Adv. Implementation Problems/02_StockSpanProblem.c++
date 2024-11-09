@@ -32,15 +32,15 @@ vector<int> findStockSpans(vector<int>& prices) {
 }
 
 
-
 */
+
 
 
 #include<bits/stdc++.h>
 using namespace std;
 
 
-/*//Soln-1 Brute Force
+//Soln-1 Brute Force
 vector<int> findStockSpans(vector<int>& Prices) {
     int s = Prices.size();
     //Span value of first day is always 1
@@ -58,7 +58,7 @@ vector<int> findStockSpans(vector<int>& Prices) {
 
     return span;
 }
-*/
+
 
 
 
@@ -90,7 +90,7 @@ vector<int> stockSpans(vector<int>& prices) {
 
 int main() {
 
-/*//Soln-1 Brute Force
+//Soln-1 Brute Force
     vector<int> prices = {7, 2, 1, 3, 3, 1, 8};
     vector<int> spans = findStockSpans(prices);
 
@@ -98,7 +98,7 @@ int main() {
         cout << span << " ";
     }
     cout << endl;
-*/
+
 
 
 
