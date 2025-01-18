@@ -27,8 +27,8 @@
 
 
 # Step-5 Strings[Basic & Medium]
-1. Basic & Easy Problems
-2. Medium Problems
+1. Lec-1 Basic & Easy Problems
+2. Lec-2 Medium Problems
 
 
 # Step-6 Learn LinkedList [Single LL, Double LL, Medium, Hard Problems]
@@ -42,18 +42,23 @@
 
 # Step-7 Recursion (Pattern Wise)
 1. Lec-1 Get a Strong Hold(Basic)
-2. Subsequences Pattern
-3. Trying Out all Combos/Hard
+2. Lec-2 Subsequences Pattern
+3. Lec-3 Trying Out all Combos/Hard
 
 
 # Step-8 Bit Manipulation (Basic to Advanced Maths)
-1. Basic Bit Manipulation
-2. Medium Bit Manipulation
-3. Advanced Problem on Bit Manipulation
+1. Lec-1 Basic Bit Manipulation
+2. Lec-2 Medium Bit Manipulation
+3. Lec-3 Advanced Problem on Bit Manipulation  
 
 
 # Step-9 Stack & Queue
-1. Learning Basic
-2. Prefix, Infix & Postfix Conversions
-3. Monotonic Stack/Queue Problems (VVV. Imp)
-4. Medium/Hard Problems
+1. Lec-1 Learning Basic
+2. Lec-2 Prefix, Infix & Postfix Conversions
+3. Lec-3 Monotonic Stack/Queue Problems (VVV. Imp)
+4. Lec-4 Medium/Hard Problems
+
+
+# Step-10 Sliding Window & Two Pointer Combined Problems
+1. Lec-1 Medium Problems
+2. Lec-2 Harh Problems
