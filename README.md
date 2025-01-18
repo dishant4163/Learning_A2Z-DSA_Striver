@@ -49,7 +49,8 @@
 # Step-8 Bit Manipulation (Basic to Advanced Maths)
 1. Lec-1 Basic Bit Manipulation
 2. Lec-2 Medium Bit Manipulation
-3. Lec-3 Advanced Problem on Bit Manipulation  
+3. Lec-3 Advanced Problem on Bit Manipulation
+4. Lec-Z Recursion & Backtrack (codeHelp)
 
 
 # Step-9 Stack & Queue
@@ -62,3 +63,26 @@
 # Step-10 Sliding Window & Two Pointer Combined Problems
 1. Lec-1 Medium Problems
 2. Lec-2 Harh Problems
+
+
+# Step-11 Heaps
+1. Lec-1 Learning
+2. Lec-2 Medium
+3. Lec-3 Hard
+4. Lec-ZZ Heaps Learning (codeHelp)
+
+
+# Step-12 Greedy Algorithms
+1. Lec-1 Easy
+2. Lec-2 Medium / Hard
+
+
+# Step-13 Binary Trees
+1. Lec-1 Traversals
+2. Lec-2 Medium
+3. Lec-3 Hard
+
+
+# Step-14 Binary Search Tree
+1. Lec-1 Concepts / Basic
+2. Lec-2 Practice Problems (Medium/Hard)
