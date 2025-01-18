@@ -95,3 +95,6 @@
 4. Lec-4 Shortest Path Algorithms & Problems
 5. Lec-5 Minimum Spanning Tree / Disjoint Set & Problems
 6. Lec-6 Other Algorithms
+
+
+# Step-16 Dynamic Programming [Patterns & Problems]
