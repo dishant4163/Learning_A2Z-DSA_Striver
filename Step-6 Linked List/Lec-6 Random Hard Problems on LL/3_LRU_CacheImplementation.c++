@@ -230,7 +230,7 @@ public:
 
       // Create a new node, insert it into the cache and list
       Node* node = new Node(key, value);
-      mp[key] = value;
+      mp[key] = node;
       addNodeAfterHead(node);
     }
   }
