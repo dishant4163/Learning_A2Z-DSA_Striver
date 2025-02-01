@@ -1,4 +1,4 @@
-# Striver_A2Z-DSA-Learning
+# Striver_A2Z-DSA
 
 ## Step-1 Learning Basics
 1. Lec-1 Things to know in C++ or any programming
@@ -98,5 +98,11 @@
 
 
 ## Step-16 Dynamic Programming (Patterns & Problems)
-Lec-1 Introduction to DP
-Lec-2 1D-DP
+1. Lec-1 Introduction to DP
+2. Lec-2 1D-DP
+
+
+## Step-17 Tries
+1. Lec-1 Learning
+2. Lec-2 Practice Problems
+   
